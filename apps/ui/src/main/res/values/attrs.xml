@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 通用SelectionBox控件属性 -->
+    <declare-styleable name="ui_view_selection_box">
+        <!-- Selection Box的可选内容 -->
+        <attr name="entries" format="reference" />
+        <!-- Selection Box的选择内容对应的值 -->
+        <attr name="values" format="reference" />
+    </declare-styleable>
+
+    <!-- 通用导航栏控件属性 -->
+    <declare-styleable name="ui_view_navigation_bar">
+        <!-- 是否显示返回按键 -->
+        <attr name="show_back_button" format="boolean" />
+        <!-- 导航栏标题 -->
+        <attr name="navigation_bar_title" format="string" />
+    </declare-styleable>
+
+    <!-- 通用温馨提示控件属性 -->
+    <declare-styleable name="ui_view_tip_text">
+        <!-- 温馨提示内容 -->
+        <attr name="tip_content" format="string" />
+    </declare-styleable>
+
+    <!-- 通用含最高高度的滚动控件属性 -->
+    <declare-styleable name="max_height_scroll_view">
+        <!-- 最高高度 -->
+        <attr name="max_height" format="dimension" />
+    </declare-styleable>
+
+    <declare-styleable name="ColorArcProgressBar">
+        <attr name="back_color" format="color"/>
+        <attr name="front_color1" format="color"/>
+        <attr name="front_color2" format="color"/>
+        <attr name="front_color3" format="color"/>
+        <attr name="back_width" format="dimension"/>
+        <attr name="front_width" format="dimension"/>
+        <attr name="is_need_title" format="boolean"/>
+        <attr name="is_need_content" format="boolean"/>
+        <attr name="is_need_unit" format="boolean"/>
+        <attr name="is_need_dial" format="boolean"/>
+        <attr name="string_title" format="string"/>
+        <attr name="string_unit" format="string"/>
+        <attr name="total_engle" format="integer"/>
+        <attr name="current_value" format="float"/>
+        <attr name="max_value" format="float"/>
+
+    </declare-styleable>
+</resources>

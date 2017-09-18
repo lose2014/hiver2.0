@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <FrameLayout
+        android:id="@+id/portal_fragment_content_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/portal_splite_line"
+        android:background="@color/ui_portal_background" />
+
+    <RadioGroup
+        android:id="@+id/portal_radio_group"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/ui_portal_radio_group_background"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingBottom="5dp"
+        android:visibility="gone"
+        android:paddingTop="5dp">
+
+        <!-- 银行 -->
+        <RadioButton
+            android:id="@+id/portal_bank_radio_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@null"
+            android:button="@null"
+            android:drawablePadding="5dp"
+            android:drawableTop="@drawable/ui_portal_bank_icon"
+            android:gravity="center"
+            android:text="@string/ui_portal_bank_title"
+            android:textColor="@color/ui_portal_icon_text_color"
+            android:textSize="12sp" />
+
+        <!-- 理财 -->
+        <RadioButton
+            android:id="@+id/portal_financial_radio_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@null"
+            android:button="@null"
+            android:drawablePadding="5dp"
+            android:drawableTop="@drawable/ui_portal_financial_icon"
+            android:gravity="center"
+            android:text="@string/ui_portal_financial_title"
+            android:textColor="@color/ui_portal_icon_text_color"
+            android:textSize="12sp" />
+
+        <!-- 我的 -->
+        <RadioButton
+            android:id="@+id/portal_mine_radio_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@null"
+            android:button="@null"
+            android:drawablePadding="5dp"
+            android:drawableTop="@drawable/ui_portal_mine_icon"
+            android:gravity="center"
+            android:text="@string/ui_portal_mine_title"
+            android:textColor="@color/ui_portal_icon_text_color"
+            android:textSize="12sp" />
+    </RadioGroup>
+
+    <View
+        android:id="@+id/portal_splite_line"
+        style="@style/ui_custom_horizontal_splite_line_style"
+        android:visibility="gone"
+        android:layout_above="@id/portal_radio_group" />
+
+
+
+</RelativeLayout>

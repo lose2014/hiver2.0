@@ -1,0 +1,36 @@
+apply plugin: 'com.android.library'
+
+android {
+    packageBuildConfig false
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    buildToolsVersion rootProject.ext.buildToolsVersion
+    aaptOptions.cruncherEnabled = false
+    aaptOptions.useNewCruncher = false
+    defaultConfig {
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    testCompile 'junit:junit:4.12'
+    compile rootProject.ext.recyclerview
+    compile 'com.seaway.android.sdk:basic:1.0.0.6'
+    compile 'com.github.bumptech.glide:glide:3.7.0'
+    compile 'com.seaway.android.ui:dashedLine:1.0.0.1'
+    compile 'com.seaway.android.ui:pinpad_xt:3.0.0.5'
+    compile 'com.seaway.android.ui:smsCodeButton:1.0.0.1'
+    compile 'com.seaway.android.ui:checkBoxWithLinkers:1.0.0.2'
+}

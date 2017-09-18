@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Base application theme. -->
+    <style name="AppTheme"  parent="android:Theme.NoTitleBar">
+        <!-- Customize your theme here. -->
+        <item name="android:textColor">#6f6f6f</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+    <!-- 窗体样式 -->
+    <style name="CustomAppTheme" parent="android:Theme.NoTitleBar">
+        <item name="android:textColor">#6f6f6f</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <!-- 弹窗样式 -->
+    <style name="myDialogTheme" parent="@android:style/Theme.Dialog">
+        <item name="android:windowBackground">@color/half_transparent</item>
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowFrame">@null</item>
+    </style>
+
+    <style name="printTheme" parent="@android:style/Theme.Dialog">
+
+        <item name="android:windowFrame">@null</item>
+
+        <item name="android:windowNoTitle">true</item>
+
+        <item name="android:windowBackground">@color/transparent</item>
+
+        <item name="android:windowIsFloating">true</item>
+
+        <item name="android:windowContentOverlay">@null</item>
+
+    </style>
+    <style name="Transparent" parent="android:Theme.Holo.Light">
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowActionBar">false</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+    </style>
+    <!-- 帮助 -->
+    <style name="help_title">
+        <item name="android:textColor">@color/list_money_num_color</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:lineSpacingExtra">1dip</item>
+        <item name="android:gravity">left</item>
+    </style>
+    <style name="help_content">
+        <item name="android:textColor">@color/text_right_color</item>
+        <item name="android:textSize">17sp</item>
+        <item name="android:lineSpacingExtra">2dip</item>
+        <item name="android:gravity">left</item>
+    </style>
+    <style name="ApplicationTheme" parent="android:Theme.NoTitleBar">
+
+        <!-- All customizations that are NOT specific to a particular API-level can go here. -->
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">#000000</item>
+        <!--<item name="android:textColor">@color/black</item>-->
+        <!--<item name="android:textColorHint">@color/text_color_hint</item>-->
+        <!--<item name="android:buttonStyle">@style/MobileBankCustomButton</item>-->
+    </style>
+
+    <!-- 弹出框样式 -->
+    <style name="UIDefaultConfirmDialogTheme" parent="@android:style/Theme.Dialog">
+        <item name="android:windowBackground">@drawable/ui_default_dialog_background</item>
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@android:color/black</item>
+    </style>
+
+    <!-- 加载框样式 -->
+    <style name="UIDefaultWaitingProgressDialog" parent="@android:style/Theme.Dialog">
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowAnimationStyle">@android:style/Animation.Dialog</item>
+        <item name="android:windowSoftInputMode">stateUnspecified|adjustPan</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowNoTitle">true</item>
+    </style>
+</resources>

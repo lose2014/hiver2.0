@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 跑马灯背景色 -->
+    <color name="marquBackgroundColor">#135eab</color>
+    
+   <!-- 导航栏背景色 -->
+    <!-- <color name="ui_naviagtaion_bar_background_color">#13D6E1</color> -->
+    <color name="ui_naviagtaion_bar_background_color">#2367BB</color>
+
+    <!-- 主界面背景色 -->
+    <!-- <color name="ui_default_background_color">#F6F6F6</color> -->
+    <color name="ui_default_background_color">#f2f2f2</color>
+    
+    <!-- 弹出框按钮颜色 -->
+    <color name="ui_default_confirm_dialog_button_text_color">#13B3BD</color>
+    
+    <!-- 通用界面底部背景 -->
+    <color name="color_f3f3f3">#f3f3f3</color>
+    
+    <color name="color_dd3232">#DD3232</color>
+    
+    <!-- <color name="ui_default_splite_line_color">#E1E1E1</color> -->
+    <color name="ui_default_splite_line_color">#e0e0e0</color>
+    
+    <color name="color_666666">#666666</color>
+    <color name="color_999999">#999999</color>
+    <color name="color_ececec">#ececec</color>
+    
+    <color name="color_aaaaaa">#aaaaaa</color>
+    
+    <color name="color_b6ecff">#b6ecff</color>
+    
+    <!--  -->
+    <color name="color_c88930">#c88930</color>
+    <!-- 温馨提示、NavigationBar标题颜色 -->
+    <color name="color_4fc1e9">#4fc1e9</color>
+    
+    <!-- 二级菜单分割线颜色 -->
+    <color name="color_d5d5d5">#d5d5d5</color>
+    
+    <!-- 状态绿色 -->
+    <color name="color_008f2f">#008f2f</color>
+    
+    <!-- 状态红色 -->
+    <color name="color_ff0000">#ff0000</color>
+    
+    <!-- 成功状态文字 -->
+    <color name="color_008d03">#008d03</color>
+    
+    <color name="color_e4f6fc">#E4F6FC</color>
+    
+    <color name="color_878787">#878787</color>
+    <color name="color_000000">#000000</color>
+    <color name="color_e7f4ff">#e7f4ff</color>
+    <color name="color_f2f2f2">#f2f2f2</color>
+    <!-- 蓝色虚线颜色 -->
+    <color name="color_1577b3">#1577b3</color>
+    <!-- 灰色分割线颜色 -->
+    <color name="color_c0c0c0">#c0c0c0</color>
+    <!-- “临时挂失”颜色 -->
+    <color name="color_00639b">#00639b</color>
+    <!-- 菜单TAB字体颜色 -->
+    <!-- 非选中状态 -->
+    <color name="color_659fc4">#659fc4</color>
+    <!-- 选中状态 -->
+    <color name="color_005598">#005598</color>
+    
+    <!-- 没有item提示语颜色 -->
+    <color name="color_d9d9d9">#d9d9d9</color>
+    
+    <!-- 一级菜单标题颜色 -->
+    <color name="color_333333">#333333</color>
+
+    <color name="color_cccccc">#cccccc</color>
+    
+    <color name="yellow">#FFFF00</color>
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="red">#ff0000</color>
+    <color name="green">#00ff00</color>
+    <color name="grey">#b2beb5</color>
+    <color name="grey_txt">#cccccc</color>
+    <color name="noneColor">#00000000</color>
+    <color name="hideColor">#55000000</color>
+    <color name="yel">#dea700</color>
+    <color name="lineColor2">#d7d7d7</color>
+    <color name="org">#6A522B</color>
+    <color name="selected">#D1F2F7</color>
+    <color name="blue">#00BFFF</color>
+    <color name="bl">#16b8d5</color>
+    <color name="background_gray">#dddfde</color>
+    <color name="dialog_title_color">#917021</color>
+    <color name="sub_tabwidget_text_un_focus">#4a4a4a</color>
+    <color name="trans_item_date_color">#79797a</color>
+    <color name="login_title_Color">#1479c9</color>
+    <color name="mainColor">#410101</color>
+    <color name="welcomeTitleColor">#05a6ff</color>
+    <color name="welcomeTxtColor">#808080</color>
+    <color name="blue_txt">#0182CC</color>
+    <color name="green_txt">#00ff00</color>
+    <color name="green_txt2">#008b0d</color>
+   	<color name="phone_blue">#2b7dc8</color>
+    <!-- 标题 -->
+    <color name="title_blue">#015484</color>
+    <!-- 定期存单 -->
+    <color name="dqcd_blue">#25a1df</color>
+    <!-- 零整存单 -->
+    <color name="lzcd">#25a1df</color>
+    <color name="black_txt">#666666</color>
+    <color name="hint_grey">#CCD7DF</color>
+    <color name="orange_txt">#ff6600</color>
+    <!-- 列表项中浅绿色背景 -->
+    <color name="green_bg">#e9f7fb</color>
+    <!-- 链接颜色 -->
+    <color name="link_blue">#0033dd</color>
+    <!-- 灰色分割线 -->
+    <color name="line_grey">#d5d5d5</color>
+    <!-- 转账等操作成功提示颜色 -->
+    <color name="success_txt_color">#008d03</color>
+    <!-- 图片上的文字半透明黑色背景颜色 -->
+    <color name="image_txt_bg">#771b1b1b</color>
+    <!-- 海报详情弹出框背景色 -->
+    <color name="poster_detail_bg">#FFFFFF</color>
+    <!-- 二维码 -->
+    <color name="contents_text">#ff000000</color>
+    <color name="encode_view">#ffffffff</color>
+    <color name="help_button_view">#ffcccccc</color>
+    <color name="help_view">#ff404040</color>
+    <color name="possible_result_points">#c0ffff00</color>
+    <color name="result_image_border">#ffffffff</color>
+    <color name="result_minor_text">#ffc0c0c0</color>
+    <color name="result_points">#c000ff00</color>
+    <color name="result_text">#ffffffff</color>
+    <color name="result_view">#b0000000</color>
+    <color name="sbc_header_text">#ff808080</color>
+    <color name="sbc_header_view">#ffffffff</color>
+    <color name="sbc_list_item">#fffff0e0</color>
+    <color name="sbc_layout_view">#ffffffff</color>
+    <color name="sbc_page_number_text">#ff000000</color>
+    <color name="sbc_snippet_text">#ff4b4b4b</color>
+    <color name="share_text">#ff000000</color>
+    <color name="share_view">#ffffffff</color>
+    <color name="status_view">#50000000</color>
+    <color name="status_text">#ffffffff</color>
+    <color name="transparent">#00000000</color>
+    <color name="viewfinder_frame">#ffffffff</color>
+    <color name="viewfinder_laser">#ffff0000</color>
+    <color name="viewfinder_mask">#60000000</color>
+    <color name="slidingmenu_select">#7fffffff</color>
+    <!-- 日历 -->
+    <color name="calendar_active_month_bg">#fff5f7f9</color>
+    <color name="calendar_bg">#ffffffff</color>
+    <color name="calendar_divider">#ffbababa</color>
+    <color name="calendar_inactive_month_bg">#ffd7d9db</color>
+    <color name="calendar_selected_day_bg">#ff379bff</color>
+    <color name="calendar_selected_range_bg">#ff96caff</color>
+    <color name="calendar_text_inactive">#40778088</color>
+    <color name="calendar_text_active">#ff778088</color>
+    <color name="calendar_text_selected">#ffffffff</color>
+    <color name="calendar_text_unselectable">#7f778088</color>
+    <color name="update_txt">#666666</color>
+    
+    
+  <!--   一些常用的固定颜色 -->
+    <!-- 左边标题颜色 -->
+    <color name="text_left_color">#666666</color>
+    <!-- 右边内容颜色 -->
+    <color name="text_right_color">#000000</color>
+    <!-- 温馨提示标题颜色 -->
+    <color name="warm_prompt_title_color">#005498</color>
+    <!-- 温馨提示内容颜色 -->
+    <color name="warm_prompt_text_color">#878787</color>
+    <!-- 内容部分次级标题背景 -->
+    <color name="content_title_color">#aaaaaa</color>
+    <!-- text hint字体颜色 -->
+    <color name="text_color_hint">#cccccc</color>
+
+     <!-- 半透明 -->
+    <color name="half_transparent">#30000000</color> 
+    
+     
+    <color name="slidingmenu_line_color">#6eafd0</color> 
+    
+    <color name="default_circle_indicator_page_color">#ffffff</color>
+    <color name="default_circle_indecator_stroke_color">#777777</color>
+    <color name="default_circle_indicator_fill_color">#0033ff</color>
+    
+    <color name="lis_item_select_bg">#cde7fe</color>
+    <color name="select_popup_bg_press">#d8ecff</color>
+   
+    <!-- 字体颜色 -->
+    <color name="font_white">#ffffff</color>
+    <color name="font_cccccc">#cccccc</color>
+    <color name="font_black">#000000</color>
+    <color name="font_red">#ff0000</color>
+    <color name="font_ff6000">#ff6000</color>
+    <color name="font_ff6600">#ff6600</color>
+    <color name="font_666666">#666666</color>
+    <color name="font_2b7dc8">#2b7dc8</color>
+    <color name="font_999999">#999999</color>
+    <color name="font_f9f9f9">#f9f9f9</color>
+    <color name="font_dd3232">#dd3232</color>
+    <color name="font_ef7a50">#ef7a50</color>
+    <color name="font_e6e6e6">#e6e6e6</color>
+    <color name="font_469866">#469866</color>
+    <color name="font_f10028">#f10028</color>
+    <color name="font_10ad40">#10ad40</color>
+    <color name="font_d7ebff">#d7ebff</color>
+    <color name="font_3098f6">#3098f6</color>
+    <color name="font_ff7336">#ff7336</color>
+</resources>

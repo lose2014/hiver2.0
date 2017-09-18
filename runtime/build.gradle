@@ -1,0 +1,89 @@
+apply plugin: 'com.android.application'
+android {
+    signingConfigs {
+        debug {
+            keyAlias 'kuaiyi'
+            keyPassword '123456'
+            storeFile file('F:/kuaiyidoc/kuaiyi/kuaiyi.jks')
+            storePassword '123456'
+        }
+    }
+    aaptOptions.cruncherEnabled = false
+    aaptOptions.useNewCruncher = false
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    buildToolsVersion rootProject.ext.buildToolsVersion
+
+    defaultConfig {
+        applicationId "com.seaway.hiver.teacher"
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        versionCode rootProject.ext.versionCode
+        versionName rootProject.ext.versionName
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        ndk {
+            abiFilters "armeabi"
+        }
+        multiDexEnabled true
+    }
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['libs']
+        }
+    }
+    buildTypes {
+        release {
+            manifestPlaceholders = [
+                    launcher_icon_res: "@mipmap/login_logo",
+                    version_type_value: "@string/version_type_release"]
+            shrinkResources true
+            minifyEnabled true
+            zipAlignEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            buildConfigField("boolean", "LOG_DEBUG", "false")
+        }
+        beta {
+            manifestPlaceholders = [
+                    launcher_icon_res: "@mipmap/login_logo",
+                    version_type_value: "@string/version_type_pre"]
+            shrinkResources true
+            minifyEnabled true
+            zipAlignEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            buildConfigField("boolean", "LOG_DEBUG", "true")
+        }
+        alpha {
+            manifestPlaceholders = [
+                    launcher_icon_res: "@mipmap/login_logo",
+                    version_type_value: "@string/version_type_pre"]
+            shrinkResources true
+            minifyEnabled true
+            zipAlignEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            buildConfigField("boolean", "LOG_DEBUG", "true")
+        }
+        debug {
+            manifestPlaceholders = [
+                    launcher_icon_res: "@mipmap/login_logo",
+                    version_type_value: "@string/version_type_pre"]
+            debuggable true
+            jniDebuggable true
+            buildConfigField("boolean", "LOG_DEBUG", "true")
+//            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+//            shrinkResources true
+//            minifyEnabled true
+//            zipAlignEnabled true
+            signingConfig signingConfigs.debug
+        }
+    }
+}
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    compile 'com.android.support:appcompat-v7:25.2.0'
+    compile 'com.android.support.constraint:constraint-layout:1.0.2'
+    compile 'com.google.code.gson:gson:2.6.2'
+    testCompile 'junit:junit:4.12'
+    compile project(':apps:version-check-app')
+}

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 主页底部RadioGroup背景色 -->
+    <color name="ui_portal_radio_group_background">#FFFFFF</color>
+
+    <!-- 主页底背景色 -->
+    <color name="ui_portal_background">#f7f7f7</color>
+
+    <!-- 导航栏背景色 -->
+    <color name="ui_navigation_bar_background_color">#4a7ac0</color>
+
+    <!-- 分割线颜色 -->
+    <color name="ui_splite_line_color">#DCDCDC</color>
+
+    <!-- 白色 -->
+    <color name="white">#FFFFFF</color>
+
+    <!-- 透明色 -->
+    <color name="transparent">@android:color/transparent</color>
+
+    <color name="sms_button_text_color">#5997f1</color>
+    <color name="black">#000000</color>
+    <color name="red">#ff0000</color>
+    <color name="green">#00ff00</color>
+    <color name="blue">#0000ff</color>
+    <color name="yellow">#FFFF00</color>
+    <color name="light_gray">#DEDDEB</color>
+    <color name="gray">#656565</color>
+    <color name="black_txt">#505050</color>
+    <color name="blue_txt">#076fd0</color>
+    <color name="orange_txt">#ff6600</color>
+    <color name="green_txt">#009b1d</color>
+    <color name="orange_bg">#FB9200</color>
+    <color name="light_orange_bg">#FCF5ED</color>
+    <!-- 半透明色 -->
+    <color name="half_transparent">#30000000</color>
+    <!-- 审核未通过字体颜色 -->
+    <color name="trade_state_color">#d00a00</color>
+
+    <!-- 列表左边标题颜色 -->
+    <color name="text_left_color">#999999</color>
+    <!-- 列表右边内容颜色 -->
+    <color name="text_right_color">#666666</color>
+    <!-- 分割线颜色 -->
+    <color name="line_color">#e0dfdf</color>
+    <!-- textview背景颜色 -->
+    <color name="textview_color">#F4F3F3</color>
+    <!-- 温馨提示字体颜色 -->
+    <color name="warm_tip_color">#999999</color>
+    <!-- 日期textview背景颜色 -->
+    <color name="date_bg_color">#EBEBEB</color>
+    <!-- 电力缴费结果标题背景色 -->
+    <color name="dl_result_title">#efedec</color>
+
+    <!-- 头部日期字体颜色 -->
+    <color name="date_num_color">#BDBDBD</color>
+    <!-- 查询列表钱数的颜色 -->
+    <color name="list_money_num_color">#FF6600</color>
+    <!-- ListItem点击 -->
+    <color name="item_select">#DBDBDB</color>
+    <!-- 交易统计总计背景 -->
+    <color name="jytj_top_bg_color">#FBF3EA</color>
+
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+</resources>

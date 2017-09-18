@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/biz/BankQrCode/BankQrCode.iml" filepath="$PROJECT_DIR$/biz/BankQrCode/BankQrCode.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Thiver.iml" filepath="$PROJECT_DIR$/Thiver.iml" />
+      <module fileurl="file://$PROJECT_DIR$/apps/apps.iml" filepath="$PROJECT_DIR$/apps/apps.iml" />
+      <module fileurl="file://$PROJECT_DIR$/biz/biz.iml" filepath="$PROJECT_DIR$/biz/biz.iml" />
+      <module fileurl="file://$PROJECT_DIR$/apps/common-apps/common-apps.iml" filepath="$PROJECT_DIR$/apps/common-apps/common-apps.iml" />
+      <module fileurl="file://$PROJECT_DIR$/biz/common-biz/common-biz.iml" filepath="$PROJECT_DIR$/biz/common-biz/common-biz.iml" />
+      <module fileurl="file://$PROJECT_DIR$/model/common-model/common-model.iml" filepath="$PROJECT_DIR$/model/common-model/common-model.iml" />
+      <module fileurl="file://$PROJECT_DIR$/model/model.iml" filepath="$PROJECT_DIR$/model/model.iml" />
+      <module fileurl="file://$PROJECT_DIR$/runtime/runtime.iml" filepath="$PROJECT_DIR$/runtime/runtime.iml" />
+      <module fileurl="file://$PROJECT_DIR$/apps/ui/ui.iml" filepath="$PROJECT_DIR$/apps/ui/ui.iml" />
+      <module fileurl="file://$PROJECT_DIR$/apps/version-check-app/version-check-app.iml" filepath="$PROJECT_DIR$/apps/version-check-app/version-check-app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/biz/version-check-biz/version-check-biz.iml" filepath="$PROJECT_DIR$/biz/version-check-biz/version-check-biz.iml" />
+      <module fileurl="file://$PROJECT_DIR$/model/version-check-model/version-check-model.iml" filepath="$PROJECT_DIR$/model/version-check-model/version-check-model.iml" />
+    </modules>
+  </component>
+</project>

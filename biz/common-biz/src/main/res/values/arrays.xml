@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--便民缴费 -->
+    <string-array name="payment">
+        <item>充值缴费</item>
+        <item>电力缴费</item>
+        <item>交易明细</item>
+        <item>交易统计</item>
+    </string-array>
+   
+    <!--业务管理 -->
+     <string-array name="service_manage">
+        <item>预存款通知</item>
+        <item>电信预存款充值</item>
+        <item>电力预存款充值</item>
+        <item>预存款明细</item>
+        <item>电信充值明细</item>
+        <item>电力充值明细</item>
+    </string-array>
+    <string-array name="recharge_amount">
+         <item>1000元</item>
+         <item>2000元</item>
+         <item>3000元</item>
+         <item>5000元</item>
+         <item>10000元</item>
+         <item>20000元</item>
+         <item>50000元</item>
+    </string-array>
+    
+   <string-array name="bank_list">
+         <item>中国农村信用社</item>
+         <item>中国工商银行</item>
+         <item>中国农业银行</item>
+         <item>中国邮政储蓄银行</item>
+         <item>中国交通银行</item>
+         <item>中国建设银行</item>
+         <item>中国电信</item>
+    </string-array> 
+    
+     <!--交易明细查询选项 -->
+     <!-- 话费充值、宽带缴费和电力缴费 -->
+     <string-array name="transaction_detailed_selectitem">
+        <item>电信</item>
+        <item>移动</item>
+        <item>联通</item>
+        <item>电力</item>
+        <item>银行通知预存款</item>
+        <item>电信预存款</item>
+        <item>电力预存款</item>
+    </string-array>
+    
+     <!-- 安全退出设置 -->
+     <string-array name="safe_set_times">
+        <item>不保持</item>
+        <item>1分钟</item>
+        <item>5分钟</item>
+        <item>10分钟</item>
+    </string-array>
+    
+     <!-- 蓝牙打印机型号 -->
+      <string-array name="bluetooth_printer_names">
+        <item>BlueTooth Printer</item>
+        <item>anquan365</item>
+    </string-array>
+     
+     
+</resources>

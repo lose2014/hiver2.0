@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Thiver</string>
+    <!-- 预发布版 -->
+    <string name="version_type_pre">1</string>
+    <!-- 发布版 -->
+    <string name="version_type_release">0</string>
+</resources>

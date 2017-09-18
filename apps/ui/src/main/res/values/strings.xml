@@ -1,0 +1,364 @@
+<resources>
+    <string name="ui_portal_bank_title">银行</string>
+    <string name="ui_portal_financial_title">理财</string>
+    <string name="ui_portal_mine_title">我的</string>
+
+    <string name="ui_edit_text_hint">请输入</string>
+
+    <!-- 证件类型 -->
+    <string-array name="id_type_array">
+        <item>身份证</item>
+        <item>军官证</item>
+        <item>文职干部证</item>
+        <item>警官证</item>
+        <item>士兵证 </item>
+        <item>护照</item>
+        <item>港澳台居民通行证</item>
+        <item>户口簿</item>
+        <item>其他</item>
+        <item>机构代码证</item>
+        <item>营业执照</item>
+        <item>事业法人证</item>
+        <item>证明文件</item>
+        <item>国税号</item>
+        <item>地税号</item>
+    </string-array>
+
+    <!-- 证件类型对应的值 -->
+    <string-array name="id_type_value_array">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>A</item>
+        <item>C</item>
+        <item>D</item>
+        <item>F</item>
+        <item>H</item>
+        <item>I</item>
+    </string-array>
+
+    <!-- 初始化时检测到手机未连接网络 -->
+    <string name="e1000_no_net">网络连接失败，请检查您的手机是否联网或重试。</string>
+    <!-- 请求服务器超时 -->
+    <string name="e1001_net_timeout">网络不给力，请检查您的网络状态重试。</string>
+    <string name="e1004_session_timeout">会话超时，请重新登录！</string>
+
+    <!-- <string name="e1007_code_logincode_lose">验证码失效！</string> -->
+    <string name="e1008_user_logout">快易：您已退出登录，请重新登录！</string>
+    <string name="e1009_user_backstake">快易客户端已切换到后台！</string>
+    <string name="e1008_user_logout1">快易：您已退出登录！</string>
+    <string name="ui_default_waiting_message">正在加载&#8230;</string>
+    <string name="ui_default_newest_version">已经是最新版本!</string>
+    <!-- 登录 -->
+    <!-- 用户登录时  未输入密码 -->
+    <string name="e1010_acctNo_null_passwd">请输入代理商账号！</string>
+    <string name="e1011_login_null_passwd">请输入登录密码！</string>
+    <string name="e1012_code_null_passwd">请输入验证码！</string>
+    <string name="e1012_code_error_passwd">短信验证码不正确，必须为6位，请重新输入！</string>
+    <string name="e1013_login_acctNo_error">代理商账号为7位或9位！</string>
+    <string name="e1014_login_passwd_error">密码不正确，必须为6位！</string>
+    <!-- 绑定手机号码 -->
+    <string name="e1015_login_code_error">验证码为4位数字或字母！</string>
+    <string name="e1016_login_null_phonenum">请输入手机号码！</string>
+    <string name="e1017_login_phonenum_error">手机号码格式错误，必须为11位，请重新输入！</string>
+    <string name="e1018_login_code_error"> 请获取短信验证码！</string>
+    <string name="e1019_login_phonenum_change">手机号码已变更，请重新获取验证码！</string>
+    <!-- 修改密码 -->
+    <string name="e1020_modify_null_curpwd">请输入当前密码！</string>
+    <string name="e1021_modify_null_newpwd">请输入新密码！</string>
+    <string name="e1022_modify_null_repaypwd">请输入确认密码！</string>
+    <string name="e1023_modify_error_newpwd">密码必须为6位数字！</string>
+    <string name="e1040_cur_newpwd_error">新密码不能等于旧密码！</string>
+    <string name="e1024_modify_error_repaypwd">两次输入密码不一致，请重新输入！</string>
+    <string name="e1025_recharge_null_acct">请输入要查询的号码！</string>
+    <string name="e1025_recharge_error_acct">您输入的充值号码不正确！</string>
+    <string name="e1033_error_init_pwd">当前密码不正确，请重新输入！</string>
+    <!-- 支付 -->
+    <string name="e1026_select_amount_null">请选择充值金额！</string>
+    <string name="e1027_input_amount_null">请输入缴费金额！</string>
+    <string name="e1028_input_amount_error">缴费金额必须大于或等于10元！</string>
+    <string name="e1029_no_balance">缴费金额必须大于或等于欠费金额！</string>
+    <string name="e1030_no_sufficient_balance">您的账户余额不足！</string>
+    <string name="e1031_input_elect_acct_null">请输入电力户号！</string>
+    <string name="e1032_input_elect_acct_error">电力户号格式错误，必须为7–15位数字字符，请重新输入！</string>
+
+    <!-- 预存款充值 -->
+    <string name="e1033_input_amount_null">请选择充值金额！</string>
+    <string name="e1034_input_pwd_null">请输入代理商密码！</string>
+    <string name="e1035_input_pwd_error">密码必须为数字字符，不超过6位！</string>
+    <string name="e1036_input_amount_error">充值金额必须为10的倍数！</string>
+    <string name="e1037_select_bank_null">请选择汇入银行！</string>
+    <string name="e1038_input_amount_null">请输入汇款金额！</string>
+    <string name="e1039_input_amount_error">汇款金额格式错误，请重新输入！</string>
+    <string name="e1040_input_amount_null">汇款金额必须大于0！</string>
+    <!-- 等待框提示 -->
+    <string name="t1000_wait_progress">加载中，请稍候…</string>
+    <!-- 版本检测失败时提示 -->
+    <string name="t1001_bbjc_fail">客户端版本检查失败！</string>
+    <!-- 强制更新下载失败时提示 -->
+    <string name="t1002_bbjc_downlod_fail">下载失败，是否重试？</string>
+    <!-- 强制更新时，无SD卡提示 -->
+    <string name="t_1003_bbjc_noSDK">您的手机未插入SD卡，插入SD卡后即可下载升级。</string>
+    <!-- 修改密码提示语 -->
+    <string name="t1004_modify_tip">尊敬的%s您好，您的密码为初始密码，为了您的账户安全，请修改后再继续使用。</string>
+    <string name="t1005_warm_tip">1、密码必须为6位数字。\n2、为了您的账户安全，建议密码不要为6位相同数字或连续数字。</string>
+    <string name="t1006_logout_login_tip">您确定要退出登录？</string>
+    <string name="t1007_logout_tip">您确定要退出快易客户端？</string>
+    <!-- 常用 -->
+    <string name="save">保存</string>
+    <string name="sure">确定</string>
+    <string name="login">登录</string>
+    <string name="cancel">取消</string>
+    <string name="modify">修改</string>
+    <string name="bind_btn">绑定</string>
+    <string name="button_scan">搜索</string>
+    <string name="more_txt">加载更多</string>
+    <string name="loading">正在加载中</string>
+    <string name="no_more_txt">没有更多内容</string>
+    <string name="yes">是</string>
+    <string name="no">否</string>
+    <string name="goon">继续</string>
+    <string name="next">下一步</string>
+    <string name="back">返回</string>
+    <string name="do_after">以后再说</string>
+    <string name="not_allow">不允许</string>
+    <string name="ok">好</string>
+    <string name="finish">完成</string>
+    <string name="setting">设置</string>
+    <string name="print">打印</string>
+    <string name="reselect">重新选择</string>
+    <string name="retry">重试</string>
+    <string name="recharge_now">立即充值</string>
+    <string name="recharge">充值</string>
+    <string name="pay_now">立即缴费</string>
+    <string name="warm_tip">温馨提示</string>
+    <!-- 通用图片描述 -->
+    <string name="imageDescription">imageDescription</string>
+    <!-- 登录 -->
+    <string name="login_account">代理商账号</string>
+    <string name="login_passwd">密码</string>
+    <string name="login_code">验证码</string>
+    <string name="hint_input_login_account">请输入代理商账号</string>
+    <string name="hint_input_passwd">请输入密码</string>
+    <string name="hint_input_code">请输入验证码</string>
+    <string name="remember_login_account">记住账号</string>
+    <string name="hint_input_phoneNum">请输入电信手机号码</string>
+    <string name="send_code">获取验证码</string>
+    <string name="current_pwd">当前密码</string>
+    <string name="new_pwd">新密码</string>
+    <string name="confirm_pwd">确认密码</string>
+    <string name="not_bind_phone">您还未绑定手机号，请绑定…</string>
+    <!-- 更多 -->
+    <string name="about">关于我们</string>
+    <string name="help">帮助中心</string>
+    <string name="version_check">版本检测</string>
+    <string name="my_acct">我的账户</string>
+    <string name="new_version">（新版本V%s）</string>
+    <string name="neweast_version">（已是最新版本）</string>
+    <string name="safely_exit">安全退出</string>
+    <string name="safe_set">安全设置</string>
+    <string name="exit_type">请选择退出方式</string>
+    <string name="keep_line_time_tip">当前您设置的后台保持在线时长为</string>
+    <string name="exit_tip">完全退出则注销登录并关闭客户端\n退出登录则注销登录并到登录页</string>
+    <!-- 打印 -->
+    <string name="scan">搜索</string>
+    <string name="scanning">正在搜索蓝牙设备&#8230;</string>
+    <string name="select_device">选择一个连接设备</string>
+    <string name="none_found">没有找到相关设备</string>
+    <string name="none_paired">没有已匹配的设备</string>
+    <string name="not_open">您还未打开手机蓝牙,请先打开手机蓝牙！</string>
+    <string name="connect_lost">蓝牙打印机已断开连接</string>
+    <string name="select_bluetooth">请选择蓝牙打印机设备</string>
+    <string name="connet_first">首次连接蓝牙打印机，请先去手机设置界面配对打印机！</string>s
+    <string name="connet_failed">蓝牙打印机连接失败</string>
+    <string name="not_available">蓝牙不可用</string>
+    <string name="start_print">开始打印……</string>
+    <string name="connecting">正在连接蓝牙打印机&#8230;</string>
+    <string name="choice_one_devices">选择一个连接设备</string>
+    <!-- 话费充值，打印内容 -->
+    <!-- <string name="recharge_printstr">代理商姓名  %1$s\n\n 当前余额   %2$s&#160;元 \n\n充值金额   %3$s&#160;元 \n\n 充值后余额   %4$s&#160;元 \n\n </string> -->
+    <string name="recharge_printstr">代理商姓名  %1$s\n\n 充值金额   %3$s&#160;元 \n\n 充值后余额   %4$s&#160;元 \n\n </string>
+    <string name="transaction_printstr">交易流水  %1$s\n 交易类型   %2$s\n 用户号码   %3$s \n 交易金额   %4$s \n 交易时间   %5$s \n 交易状态  %6$s \n</string>
+
+    <!-- 更新弹出框 -->
+    <string name="bbjc_update_dialog_icon_desc">bbjc_update_dialog_icon_desc</string>
+    <string name="bbjc_update_dialog_app_name">快易客户端</string>
+    <string name="bbjc_update_dialog_new_version_name">新版版本：</string>
+    <string name="bbjc_update_dialog_new_app_size">更新大小：</string>
+    <string name="bbjc_update_dialog_sub_title">检测到有新版本，请更新客户端后使用</string>
+    <string name="bbjc_update_dialog_content_title">【更新内容】</string>
+    <string name="bbjc_update_dialog_update_button_title">更新</string>
+    <string name="bbjc_update_dialog_skip_button_title">下次再说</string>
+    <string name="bbjc_update_dialog_cancel_button_title">取消更新</string>
+
+    <!-- 充值缴费 -->
+    <string name="in_province">江西电信充值</string>
+    <string name="in_province_desc">提供江西省内电信固话、宽带、小灵通及手机充值缴费</string>
+    <string name="outof_province">全国手机充值</string>
+    <string name="outof_province_desc">提供江西省外电信以及全国移动、联通号码充值</string>
+    <string name="recharge_phone">充值号码</string>
+    <string name="input_phone">请输入充值号码</string>
+    <string name="payment_amount">缴费金额</string>
+    <string name="input_amount">请输入缴费金额</string>
+    <string name="retail_price">建议零售价：</string>
+    <string name="sure_recharge_info">您确定为该账户充值%s元吗？</string>
+    <string name="recharge_warm_tip_desc">&#160;1、最低缴费金额为10元。\n 2、如果账户余额为负数，表示该用户已欠费，则缴费金额必须大于或等于欠费金额。</string>
+    <string name="recharge_warm_tip_desc1">&#160;1、最低缴费金额为1元。\n 2、如果账户余额为负数，表示该用户已欠费，则缴费金额必须大于或等于欠费金额。</string>
+    <string name="no_unpayment">您的账户暂时不欠费，但可缴纳预存款</string>
+    <string name="unpayment_amount">%s元</string>
+    <string name="recharge_acctNo">缴费号码</string>
+    <string name="failed_reason">失败原因</string>
+    <string name="user_name">用户姓名</string>
+    <string name="before_balance">当前余额</string>
+    <string name="acct_balance">账户余额</string>
+
+    <!-- 电力缴费 -->
+    <string name="electricity_acct">电力户号</string>
+    <string name="telphone">手机号码</string>
+    <string name="input_telphone">请输入手机号码</string>
+
+    <!-- 电力、电信预存款充值 -->
+    <string name="bank_acct">银行账户</string>
+    <string name="acct_name">账户名称</string>
+    <string name="merchant_acct">代理商账号</string>
+    <string name="bind_flag">绑定标识</string>
+    <string name="recharge_amount">充值金额</string>
+    <string name="merchant_pwd">代理商密码</string>
+    <string name="select_amount">请选择充值金额</string>
+    <string name="input_recharge_amount">请输入充值金额</string>
+    <string name="input_pwd">请输入密码</string>
+    <string name="elec_deposite_warm_tip_desc">因长帆与联通、银行第三方业务合作规定，周五、周六不能进行转账操作，其它时间正常转账。</string>
+    <string name="telecom_deposite_warm_tip_desc">1、单笔充值金额小于2000元，收取1.5元/笔的手续费，单笔大于等于2000元不收取手续费。\n2、因长帆与联通、银行第三方业务合作规定，周五、周六不能进行转账操作，其它时间正常转账。</string>
+
+    <!-- 预存款通知 -->
+    <string name="available_balance">可用余额</string>
+    <string name="freeze_balance">冻结金额</string>
+    <string name="import_bank">汇入银行</string>
+    <string name="import_amount">汇入金额</string>
+    <string name="remit_bank">汇款银行</string>
+    <string name="remit_amount">汇款金额</string>
+    <string name="merchant_num">代理商账号</string>
+    <string name="deposite_notice_warm_tip_desc">1、您的代理商编号：%s，请核对汇款金额的十、个、角位是否与该编号的后三位一致，我们将在2-4小时内完成查账、稽查、审批等过程，并将根据您的实际存款金额对您的业务资金账户进行充值。\n2、如果预存款资金没有及时到账，请在提交预存款通知后，及时致电上海长帆 400-888-9112，以便我们尽快为您的资金账户充值。</string>
+    <string name="notice_success">通知成功！</string>
+    <string name="notice_success_desc">本次预存款通知已发，我公司将会尽快处理您的预存款信息，谢谢。</string>
+
+    <!-- 账户管理 -->
+    <string name="merchant_info">代理商信息查询</string>
+    <string name="notice_query">公告查询</string>
+    <string name="merchant_bankcard">代理商银行卡</string>
+    <string name="bank_name">银行名</string>
+    <string name="merchant_name">代理商姓名</string>
+    <string name="merchant_balance">代理商余额</string>
+    <string name="e1100_start_date_error_notice">开始日期不能超过当天日期!</string>
+    <string name="e1101_end_date_error_notice">结束日期不能超过当前日期!</string>
+    <string name="e1102_start_end_date_error_notice">开始日期不能超过结束日期!</string>
+    <string name="e1103_interval_date_error_notice">查询日期间隔不能超过10天!</string>
+    <string name="e1104_start_curret_date_error_notice_">选择的日期不在查询周期内,请重新选择!</string>
+    <string name="e1106_type_error_notice">还未选择业务类型,请选择业务类型!</string>
+    <string name="app_easy_info">江西快易客户端V%s</string>
+    <!-- 公用明细查询 -->
+    <string name="total_num">总计</string>
+    <string name="detailed_module_name">预存款明细</string>
+    <string name="status">状态</string>
+    <string name="query">查询</string>
+    <string name="please_select_date">请选择日期</string>
+    <string name="start_date">开始日期</string>
+    <string name="end_date">结束日期</string>
+    <string name="query_date">查询日期</string>
+    <string name="query_no_result">没有交易信息</string>
+    <string name="yuan">元</string>
+    <string name="bi">笔</string>
+    <!-- 查询的日期选择错误时提醒 -->
+    <string name="start_date_error_notice">开始日期不能超过当天日期</string>
+    <string name="end_date_error_notice">结束日期不能超过当前日期</string>
+    <string name="interval_date_error_notice">开始日期与今天间隔不能超过10天</string>
+    <string name="interval_date_error_notice_return">结束日期不能超过开始日期</string>
+    <string name="user_account_error_notice">号码输入错误，号码必须为数字且长度不能超过15位</string>
+    <!-- 预付款查询显示一个详细的结果 -->
+    <string name="submit_time">提交时间</string>
+    <string name="submit_bank">汇入银行</string>
+    <string name="remit__money_count">汇款金额</string>
+    <string name="insert_sure_time">审核时间</string>
+    <!-- 电信充值查询显示一个详细的结果 -->
+    <string name="transaction_num">交易流水</string>
+    <string name="source_sign">来源标识</string>
+    <string name="transaction_type">交易类型</string>
+    <string name="business_type">业务类型</string>
+    <string name="insert_model">充值模式</string>
+    <string name="money_count">金额</string>
+    <string name="pay_type">支付类型</string>
+    <string name="bank_cardnum">银行卡号</string>
+    <string name="transaction_money_count">交易金额</string>
+    <string name="insert_money_count">充值金额</string>
+    <string name="commission">手续费</string>
+    <string name="transaction_time">交易时间</string>
+    <string name="transaction_status">交易状态</string>
+    <string name="statua">审核通过</string>
+    <string name="statub">审核未通过</string>
+    <string name="statuc">交易成功</string>
+    <string name="statud">交易失败</string>
+
+    <!-- 交易明细显示一个时用到的 -->
+    <string name="user_account">用户号码</string>
+    <string name="account">号码</string>
+    <string name="deduct_count">扣款金额</string>
+    <!-- 交易统计显示一个时用到的 -->
+    <string name="transaction_times_count">交易笔数</string>
+
+    <!-- 加载数据 -->
+    <string name="unfix_load_more">松开载入更多</string>
+    <string name="tip_no_more">没有更多数据</string>
+    <string name="tip_click_load_more">加载更多</string>
+
+    <!-- 公告查询 -->
+    <string name="no_notice">暂时没有公告</string>
+
+    <!-- 关于里边的内容 -->
+    <string name="about_content_phone">客服电话：400–888–9112</string>
+    <string name="about_content_web">官方网站：www.4008889112.com</string>
+
+    <!-- 帮助 -->
+    <string name="help_title">话费业务问题解答</string>
+    <string name="help_yd_title">【移动业务】</string>
+    <string name="help_yd_content">
+	● “快易营业点”移动业务都能充值哪些省份？
+	\n\t 答：快易营业点目前可对全国移动用户充值缴费。
+	\n\n● 充值成功后是否可以返销？
+	\n\t 答：无法返销，充值时请认真核对用户号码。
+	\n\n● “快易营业点”移动话费直充多久能到账？
+	\n\t 答：江西省内移动直充实时到账；省外移动直充要5—10分钟到账。
+	\n\n● 遇到充值后长时间未到账怎么办？
+	\n\t 答：由于省外直充需5—10分钟到账，如遇系统问题时可能更长；如等待时间过长请致电快易客服400-888-9112. 备注：在充值状态未明确前，请不要退钱给客户。
+	</string>
+    <string name="help_dx_title">【电信业务】</string>
+    <string name="help_dx_content">
+	● “快易营业点”电信业务都能充值哪些省份？
+	\n\t 答：快易营业点目前可对全国电信用户充值缴费。
+	\n\n● 充值成功后是否可以返销？
+	\n\t 答：省内可申请，但不保证能成功返销。省外无法返销，充值时请认真核对用户号码。
+	\n\n● “快易营业点”电信话费直充多久能到账？
+	\n\t 答：江西省内电信直充实时到账；省外电信直充5—10分钟到账。
+	\n\n● 遇到充值后长时间未到账怎么办？
+	\n\t 答：由于省外直充需5—10分钟到账，如遇系统问题时可能更长；如等待时间过长请致电快易客服400-888-9112. 备注：在充值状态未明确前，请不要退钱给客户。
+	</string>
+    <string name="help_lt_title">【联通业务】</string>
+    <string name="help_lt_content">
+	● “快易营业点”联通业务都能充值哪些省份？
+	\n\t 答：快易营业点目前可对全国联通用户充值缴费。
+	\n\n● 充值成功后是否可以返销？
+	\n\t 答：无法返销，充值时请认真核对用户号码。
+	\n\n● “快易营业点”联通话费直充多久能到账？
+	\n\t 答：江西省内来联通直充实时到账；省外联通直充5—10分钟到账。
+	\n\n● 遇到充值后长时间未到账怎么办？
+	\n\t 答：由于省外直充需5—10分钟到账，如遇系统时问题可能更长；如等待时间过长请致电快易客服400-888-9112. 备注：在充值状态未明确前，请不要退钱给客户。
+	</string>
+
+    <string name="safe_set_tip">1、如果快易客户端退到后台超过在线时长，快易客户端将自动退出登录，以保障您的资金使用安全。\n\n2、如果选择不保持在线，则快易客户端退到后台后，您将自动退出登录。  </string>
+
+</resources>
