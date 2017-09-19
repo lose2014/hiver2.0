@@ -27,7 +27,7 @@ dependencies {
     })
     testCompile 'junit:junit:4.12'
     compile rootProject.ext.recyclerview
-    compile 'com.seaway.android.sdk:basic:1.0.0.6'
+    compile 'com.seaway.android.sdk:basic:1.0.1.0'
     compile 'com.github.bumptech.glide:glide:3.7.0'
     compile 'com.seaway.android.ui:dashedLine:1.0.0.1'
     compile 'com.seaway.android.ui:pinpad_xt:3.0.0.5'

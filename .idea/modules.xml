@@ -3,12 +3,17 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/biz/BankQrCode/BankQrCode.iml" filepath="$PROJECT_DIR$/biz/BankQrCode/BankQrCode.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Thiver.iml" filepath="$PROJECT_DIR$/Thiver.iml" />
       <module fileurl="file://$PROJECT_DIR$/apps/apps.iml" filepath="$PROJECT_DIR$/apps/apps.iml" />
       <module fileurl="file://$PROJECT_DIR$/biz/biz.iml" filepath="$PROJECT_DIR$/biz/biz.iml" />
       <module fileurl="file://$PROJECT_DIR$/apps/common-apps/common-apps.iml" filepath="$PROJECT_DIR$/apps/common-apps/common-apps.iml" />
       <module fileurl="file://$PROJECT_DIR$/biz/common-biz/common-biz.iml" filepath="$PROJECT_DIR$/biz/common-biz/common-biz.iml" />
       <module fileurl="file://$PROJECT_DIR$/model/common-model/common-model.iml" filepath="$PROJECT_DIR$/model/common-model/common-model.iml" />
+      <module fileurl="file://$PROJECT_DIR$/hiver2.0.iml" filepath="$PROJECT_DIR$/hiver2.0.iml" />
+      <module fileurl="file://$PROJECT_DIR$/biz/login-biz/login-biz.iml" filepath="$PROJECT_DIR$/biz/login-biz/login-biz.iml" />
+      <module fileurl="file://$PROJECT_DIR$/model/login-model/login-model.iml" filepath="$PROJECT_DIR$/model/login-model/login-model.iml" />
+      <module fileurl="file://$PROJECT_DIR$/apps/main-teacher-apps/main-teacher-apps.iml" filepath="$PROJECT_DIR$/apps/main-teacher-apps/main-teacher-apps.iml" />
+      <module fileurl="file://$PROJECT_DIR$/biz/main-teacher-biz/main-teacher-biz.iml" filepath="$PROJECT_DIR$/biz/main-teacher-biz/main-teacher-biz.iml" />
+      <module fileurl="file://$PROJECT_DIR$/model/main-teacher-model/main-teacher-model.iml" filepath="$PROJECT_DIR$/model/main-teacher-model/main-teacher-model.iml" />
       <module fileurl="file://$PROJECT_DIR$/model/model.iml" filepath="$PROJECT_DIR$/model/model.iml" />
       <module fileurl="file://$PROJECT_DIR$/runtime/runtime.iml" filepath="$PROJECT_DIR$/runtime/runtime.iml" />
       <module fileurl="file://$PROJECT_DIR$/apps/ui/ui.iml" filepath="$PROJECT_DIR$/apps/ui/ui.iml" />

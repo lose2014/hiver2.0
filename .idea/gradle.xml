@@ -10,14 +10,19 @@
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/apps" />
             <option value="$PROJECT_DIR$/apps/common-apps" />
+            <option value="$PROJECT_DIR$/apps/main-teacher-apps" />
             <option value="$PROJECT_DIR$/apps/ui" />
             <option value="$PROJECT_DIR$/apps/version-check-app" />
             <option value="$PROJECT_DIR$/biz" />
             <option value="$PROJECT_DIR$/biz/BankQrCode" />
             <option value="$PROJECT_DIR$/biz/common-biz" />
+            <option value="$PROJECT_DIR$/biz/login-biz" />
+            <option value="$PROJECT_DIR$/biz/main-teacher-biz" />
             <option value="$PROJECT_DIR$/biz/version-check-biz" />
             <option value="$PROJECT_DIR$/model" />
             <option value="$PROJECT_DIR$/model/common-model" />
+            <option value="$PROJECT_DIR$/model/login-model" />
+            <option value="$PROJECT_DIR$/model/main-teacher-model" />
             <option value="$PROJECT_DIR$/model/version-check-model" />
             <option value="$PROJECT_DIR$/runtime" />
           </set>
