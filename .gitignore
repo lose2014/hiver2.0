@@ -42,5 +42,8 @@ proguard/
 *.iws
 .idea/
 
+*.zip
+*.rar
+
 # System files
 .DS_Store

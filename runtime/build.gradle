@@ -2,10 +2,10 @@ apply plugin: 'com.android.application'
 android {
     signingConfigs {
         debug {
-            keyAlias 'kuaiyi'
-            keyPassword '123456'
-            storeFile file('F:/kuaiyidoc/kuaiyi/kuaiyi.jks')
-            storePassword '123456'
+            keyAlias 'sumpay'
+            keyPassword 'sumpay2017'
+            storeFile file('E:/asworkspace/AggregateWeb/app/sumpay_aggregate_web.jks')
+            storePassword 'sumpay2017'
         }
     }
     aaptOptions.cruncherEnabled = false
@@ -33,7 +33,7 @@ android {
     buildTypes {
         release {
             manifestPlaceholders = [
-                    launcher_icon_res: "@mipmap/login_logo",
+                    launcher_icon_res : "@mipmap/login_logo",
                     version_type_value: "@string/version_type_release"]
             shrinkResources true
             minifyEnabled true
@@ -43,7 +43,7 @@ android {
         }
         beta {
             manifestPlaceholders = [
-                    launcher_icon_res: "@mipmap/login_logo",
+                    launcher_icon_res : "@mipmap/login_logo",
                     version_type_value: "@string/version_type_pre"]
             shrinkResources true
             minifyEnabled true
@@ -53,7 +53,7 @@ android {
         }
         alpha {
             manifestPlaceholders = [
-                    launcher_icon_res: "@mipmap/login_logo",
+                    launcher_icon_res : "@mipmap/login_logo",
                     version_type_value: "@string/version_type_pre"]
             shrinkResources true
             minifyEnabled true
@@ -63,7 +63,7 @@ android {
         }
         debug {
             manifestPlaceholders = [
-                    launcher_icon_res: "@mipmap/login_logo",
+                    launcher_icon_res : "@mipmap/login_logo",
                     version_type_value: "@string/version_type_pre"]
             debuggable true
             jniDebuggable true
@@ -81,9 +81,10 @@ dependencies {
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
+    compile project(':apps:version-check-app')
     compile 'com.android.support:appcompat-v7:25.2.0'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
     compile 'com.google.code.gson:gson:2.6.2'
+    compile 'com.android.support:design:25.3.1'
     testCompile 'junit:junit:4.12'
-    compile project(':apps:version-check-app')
 }
