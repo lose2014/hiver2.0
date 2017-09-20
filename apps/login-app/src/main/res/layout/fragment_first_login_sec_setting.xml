@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ui="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.xtbank.ui.navigation.UINavigationBar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        ui:navigation_bar_title="首次登录安全设置" />
+
+    <ImageView
+        android:id="@+id/first_login_sec_setting_top_image_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:layout_marginTop="16dp"
+        android:src="@drawable/first_login_sec_setting_progress_1" />
+
+    <com.seaway.android.ui.UIHorizontalDashedLine
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        ui:dashed_line_background="@color/login_dashed_line_background"
+        ui:dashed_line_solid_line_width="8dp"
+        ui:dashed_line_spacing_width="8dp" />
+
+    <FrameLayout
+        android:id="@+id/first_login_sec_setting_frame_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+</LinearLayout>

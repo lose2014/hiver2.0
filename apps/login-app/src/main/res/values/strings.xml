@@ -1,3 +1,27 @@
 <resources>
-    <string name="app_name">login-app</string>
+
+    <string name="login_portal_reg_title">注册</string>
+
+    <string name="login_portal_login_button_title">登录</string>
+
+    <string name="login_portal_remember_title">记住账号</string>
+    <string name="login_portal_forget_title">忘记密码</string>
+
+    <string name="login_portal_hint_1001">请输入手机号码</string>
+    <string name="login_portal_hint_1002">请输入登录密码</string>
+    <string name="login_portal_hint_1003">请输入验证码</string>
+    <string name="login_portal_hint_1004">最多可输入10个字</string>
+
+    <string name="login_title_1001">设备绑定</string>
+    <string name="login_title_1002">设备别名</string>
+    <string name="login_title_1003">请输入证件号码</string>
+    <string name="login_title_1004">证件类型</string>
+    <string name="login_title_1005">证件号码</string>
+    <string name="login_title_1006">请输入密码信息</string>
+    <string name="login_title_1007">原密码</string>
+    <string name="login_title_1008">新密码</string>
+    <string name="login_title_1009">确认密码</string>
+    <string name="login_title_1010">由于您在新设备上登录手机银行，需要校验短信验证码。</string>
+
+    <string name="login_tip_1001">您首次登录手机银行，为了您的使用安全请完成相关设置</string>
 </resources>

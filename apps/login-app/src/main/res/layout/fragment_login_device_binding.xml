@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ui="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.xtbank.ui.navigation.UINavigationBar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        ui:navigation_bar_title="绑定设备管理" />
+
+    <TextView
+        style="@style/ui_custom_input_area_title_style"
+        android:text="@string/login_title_1010" />
+
+    <View style="@style/ui_custom_horizontal_splite_line_style" />
+
+    <include layout="@layout/ui_view_get_sms_code" />
+
+    <View style="@style/ui_custom_horizontal_splite_line_style" />
+
+    <View
+        style="@style/ui_custom_horizontal_splite_line_style"
+        android:layout_marginTop="8dp" />
+
+    <!-- 设备别名 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/white"
+        android:orientation="horizontal">
+
+        <TextView
+            style="@style/ui_custom_input_title_style"
+            android:text="@string/login_title_1002" />
+
+        <EditText
+            android:id="@+id/login_alias_edit_text"
+            style="@style/ui_custom_edit_text_style"
+            android:hint="@string/login_portal_hint_1004"
+            android:maxLength="10" />
+    </LinearLayout>
+
+    <View style="@style/ui_custom_horizontal_splite_line_style" />
+
+    <!-- 提交按钮 -->
+    <Button
+        android:id="@+id/login_device_binding_button"
+        style="@style/ui_custom_button_style"
+        android:layout_marginTop="14dp"
+        android:text="提交" />
+
+</LinearLayout>

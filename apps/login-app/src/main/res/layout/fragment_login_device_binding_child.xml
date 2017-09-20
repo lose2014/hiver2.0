@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ui="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        style="@style/ui_custom_input_area_title_style"
+        android:text="@string/login_title_1001" />
+
+    <View style="@style/ui_custom_horizontal_splite_line_style" />
+
+    <!-- 设备别名 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/white"
+        android:orientation="horizontal">
+
+        <TextView
+            style="@style/ui_custom_input_title_style"
+            android:text="@string/login_title_1002" />
+
+        <EditText
+            android:id="@+id/first_login_sec_setting_alias_edit_text"
+            style="@style/ui_custom_edit_text_style"
+            android:hint="@string/login_portal_hint_1004"
+            android:maxLength="10" />
+    </LinearLayout>
+
+    <View style="@style/ui_custom_horizontal_splite_line_style" />
+
+    <View
+        style="@style/ui_custom_horizontal_splite_line_style"
+        android:layout_marginTop="8dp" />
+
+    <include layout="@layout/ui_view_get_sms_code" />
+
+    <View style="@style/ui_custom_horizontal_splite_line_style" />
+
+    <!-- 下一步按钮 -->
+    <Button
+        android:id="@+id/first_login_sec_setting_next_button"
+        style="@style/ui_custom_button_style"
+        android:layout_marginTop="14dp"
+        android:text="下一步" />
+
+    <com.xtbank.ui.text.UITipsTextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        ui:tip_content="@string/login_tip_1001" />
+
+</LinearLayout>

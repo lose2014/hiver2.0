@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 虚线背景色 -->
+    <color name="login_dashed_line_background">#666666</color>
+</resources>
