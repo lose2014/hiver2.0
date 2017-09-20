@@ -33,4 +33,5 @@ dependencies {
     compile 'com.seaway.android.ui:pinpad_xt:3.0.0.5'
     compile 'com.seaway.android.ui:smsCodeButton:1.0.0.1'
     compile 'com.seaway.android.ui:checkBoxWithLinkers:1.0.0.2'
+    compile 'com.zhy:percent-support-extends:1.1.1'
 }

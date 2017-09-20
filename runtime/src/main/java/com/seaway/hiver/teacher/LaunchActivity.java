@@ -12,6 +12,8 @@ import android.os.RemoteException;
 import android.os.StatFs;
 import android.support.annotation.NonNull;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 
 import com.alipay.sdk.app.AuthTask;
 import com.hiver.app.vc.ICheckVersionListener;
@@ -53,6 +55,9 @@ public class LaunchActivity extends BaseActivity implements ICheckVersionListene
     private String mPath = Environment.getExternalStorageDirectory().getPath()+ "/hiver";
     private String[] urls=new String[]{"https://www.4008889112.com:18087","https://www.4008889112.com:18088","https://www.4008889112.cn:18087"};
     private int i=0;
+
+    private EditText nameEt,passWordEt;
+    private Button forgetBtn,loginBtn;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

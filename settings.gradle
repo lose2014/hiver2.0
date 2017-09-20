@@ -1,1 +1,1 @@
-include ':runtime', ':biz:BankQrCode', ':model:version-check-model', ':biz:version-check-biz', ':apps:version-check-app', ":apps", ":biz", ":model", ':apps:ui', ':apps:common-apps', ':model:common-model',  ':biz:common-biz'
+include ':runtime', ':biz:BankQrCode', ':model:version-check-model', ':biz:version-check-biz', ':apps:version-check-app', ':apps:login-app', ':login-biz', ":apps", ":biz", ":model", ':apps:ui', ':apps:common-apps', ':model:common-model', ':biz:common-biz'
