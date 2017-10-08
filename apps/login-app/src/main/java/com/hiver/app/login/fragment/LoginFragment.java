@@ -52,7 +52,7 @@ public class LoginFragment extends BaseFragment<LoginContract.Presenter> impleme
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.ui_default_confirm_dialog, container, false);
+        return inflater.inflate(R.layout.fragment_login, container, false);
     }
 
     @Override
@@ -101,29 +101,30 @@ public class LoginFragment extends BaseFragment<LoginContract.Presenter> impleme
 
     @Override
     public void onClick(View v) {
-//        if (v.getId() == R.id.login_portal_login_button) {
-//            // 登录
-//            if (TextUtils.isEmpty(mobileEdit.getText())) {
-//                UIToast.showToast(getActivity(), "请输入手机号");
-//                return;
-//            }
-//            if (11 != mobileEdit.getText().length()) {
-//                UIToast.showToast(getActivity(), "手机号为11位数字，请重新输入");
-//                return;
-//            }
-//            if (0 == pwdEdit.getPasswdLevel()) {
-//                UIToast.showToast(getActivity(), "请输入登录密码");
-//                return;
-//            }
-//            if (TextUtils.isEmpty(codeEdit.getText())) {
-//                UIToast.showToast(getActivity(), "请输入验证码");
-//                return;
-//            }
-//
-//            mPresenter.login(mobileEdit.getText().toString(), pwdEdit.getPassword(1), codeId, codeEdit.getText().toString());
-//            pwdEdit.clear();
-//            codeEdit.setText("");
-//        } else if (v.getId() == R.id.login_portal_forget_text_view) {
+        if (v.getId() == R.id.login_portal_login_button) {
+            // 登录
+            if (TextUtils.isEmpty(mobileEdit.getText())) {
+                UIToast.showToast(getActivity(), "请输入手机号");
+                return;
+            }
+            if (11 != mobileEdit.getText().length()) {
+                UIToast.showToast(getActivity(), "手机号为11位数字，请重新输入");
+                return;
+            }
+            if (0 == pwdEdit.getPasswdLevel()) {
+                UIToast.showToast(getActivity(), "请输入登录密码");
+                return;
+            }
+            if (TextUtils.isEmpty(codeEdit.getText())) {
+                UIToast.showToast(getActivity(), "请输入验证码");
+                return;
+            }
+
+            mPresenter.login(mobileEdit.getText().toString(), pwdEdit.getPassword(1), codeId, codeEdit.getText().toString());
+            pwdEdit.clear();
+            codeEdit.setText("");
+        }
+//        else if (v.getId() == R.id.login_portal_forget_text_view) {
 //            // 忘记密码
 //            addFragment(new ForgetFragment(), R.id.login_fragment_content, "ForgetFragment");
 //        } else if (v.getId() == R.id.login_portal_code_image_view) {
@@ -213,18 +214,18 @@ public class LoginFragment extends BaseFragment<LoginContract.Presenter> impleme
     }
 
     private void getViews() {
-//        mobileEdit = (EditText) getView().findViewById(R.id.login_portal_mobile_edit_text);
-//        mobileEdit.addTextChangedListener(this);
-//
-//        pwdEdit = (SWPINPadEdit) getView().findViewById(R.id.login_portal_pwd_edit_text);
-//        pwdEdit.setEncryptionType(SWPINPadEdit.SWKeyboardEncryptionTypeLogin);
+        mobileEdit = (EditText) getView().findViewById(R.id.login_portal_mobile_edit_text);
+        mobileEdit.addTextChangedListener(this);
+
+        pwdEdit = (SWPINPadEdit) getView().findViewById(R.id.login_portal_pwd_edit_text);
+        pwdEdit.setEncryptionType(SWPINPadEdit.SWKeyboardEncryptionTypeLogin);
 //        pwdEdit.setShowHighlighted(HiverApplication.getInstance().isShowHighlight);
-//
-//        codeEdit = (EditText) getView().findViewById(R.id.login_portal_code_edit_text);
-//
-//        codeImageView = (ImageView) getView().findViewById(R.id.login_portal_code_image_view);
-//
-//        rememberCheckBox = (CheckBox) getView().findViewById(R.id.login_portal_remember_check_box);
+
+        codeEdit = (EditText) getView().findViewById(R.id.login_portal_code_edit_text);
+
+        codeImageView = (ImageView) getView().findViewById(R.id.login_portal_code_image_view);
+
+        rememberCheckBox = (CheckBox) getView().findViewById(R.id.login_portal_remember_check_box);
 
         setOnClickListener();
     }
@@ -232,9 +233,9 @@ public class LoginFragment extends BaseFragment<LoginContract.Presenter> impleme
     private void setOnClickListener() {
         codeImageView.setOnClickListener(this);
 
-//        getView().findViewById(R.id.login_portal_login_button).setOnClickListener(this);
-//        getView().findViewById(R.id.login_portal_forget_text_view).setOnClickListener(this);
-//        getView().findViewById(R.id.login_portal_register_text_view).setOnClickListener(this);
+        getView().findViewById(R.id.login_portal_login_button).setOnClickListener(this);
+        getView().findViewById(R.id.login_portal_forget_text_view).setOnClickListener(this);
+        getView().findViewById(R.id.login_portal_register_text_view).setOnClickListener(this);
     }
 
     private Bitmap stringtoBitmap(String string) {
@@ -253,7 +254,7 @@ public class LoginFragment extends BaseFragment<LoginContract.Presenter> impleme
 
     @Override
     public void showAutoHidenDialog(int rid) {
-        
+
     }
 
     @Override

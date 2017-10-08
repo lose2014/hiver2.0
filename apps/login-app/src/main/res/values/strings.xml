@@ -24,4 +24,14 @@
     <string name="login_title_1010">由于您在新设备上登录手机银行，需要校验短信验证码。</string>
 
     <string name="login_tip_1001">您首次登录手机银行，为了您的使用安全请完成相关设置</string>
+
+    <string name="forget_portal_title_1001">请输入用户信息</string>
+    <string name="forget_portal_title_1002">证件类型</string>
+    <string name="forget_portal_title_1003">证件号码</string>
+    <string name="forget_portal_title_1004">姓名</string>
+    <string name="forget_portal_title_1005">请输入登录账号</string>
+    <string name="forget_portal_title_1006">手机号</string>
+    <string name="forget_portal_title_1007">请重设登录密码</string>
+    <string name="forget_portal_title_1008">新密码</string>
+    <string name="forget_portal_title_1009">确定密码</string>
 </resources>

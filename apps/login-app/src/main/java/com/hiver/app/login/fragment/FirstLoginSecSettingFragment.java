@@ -36,8 +36,7 @@ public class FirstLoginSecSettingFragment extends BaseFragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-//        return inflater.inflate(R.layout.fragment_first_login_sec_setting, container, false);
-        return inflater.inflate(R.layout.ui_activity_login, container, false);
+        return inflater.inflate(R.layout.fragment_first_login_sec_setting, container, false);
     }
 
     @Override
