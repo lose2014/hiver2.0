@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="ui_view_banner">
+        <!-- 加载时图片 -->
+        <attr name="ui_view_banner_placeholder" format="reference" />
+        <!-- 加载失败图片 -->
+        <attr name="ui_view_banner_failback" format="reference" />
+        <!-- 无数据图片 -->
+        <attr name="ui_view_banner_none_image" format="reference" />
+        <!-- 图片路径对应的字符属性 -->
+        <attr name="ui_view_banner_image_path" format="string" />
+
+
+        <!-- 页码标识位置 -->
+        <attr name="ui_view_banner_flag_alignParentBottom" format="boolean" />
+        <attr name="ui_view_banner_flag_centerHorizontal" format="boolean" />
+        <attr name="ui_view_banner_flag_alignParentRight" format="boolean" />
+        <attr name="ui_view_banner_flag_alignParentLeft" format="boolean" />
+
+        <!-- 页码标识底部间距 -->
+        <attr name="ui_view_banner_flag_marginBottom" format="dimension" />
+        <!-- 页码标识图片 -->
+        <attr name="ui_view_banner_flag_background" format="reference" />
+        <!-- 页码标识右间距 -->
+        <attr name="ui_view_banner_flag_marginRight" format="dimension" />
+        <!-- 页码标识左间距 -->
+        <attr name="ui_view_banner_flag_marginLeft" format="dimension" />
+
+        <!-- 页码标识宽度 -->
+        <attr name="ui_view_banner_flag_width" format="dimension" />
+        <!-- 页码标识高度 -->
+        <attr name="ui_view_banner_flag_height" format="dimension" />
+
+    </declare-styleable>
+</resources>

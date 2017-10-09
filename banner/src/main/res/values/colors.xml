@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 菜单滚动标识-未选中 -->
+    <color name="ui_view_banner_flag_normal">#cccccc</color>
+
+    <!-- 菜单滚动标识-选中 -->
+    <color name="ui_view_banner_flag_checked">#4a7ac0</color>
+</resources>

@@ -37,4 +37,5 @@ dependencies {
     compile files('libs/start-smart-pos-interface.jar')
     testCompile 'junit:junit:4.12'
     compile project(':biz:BankQrCode')
+    compile rootProject.ext.recyclerview
 }

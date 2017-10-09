@@ -25,4 +25,6 @@ dependencies {
     })
     testCompile 'junit:junit:4.12'
     compile project(':biz:main-teacher-biz')
+    compile project(':apps:common-apps')
+    compile project(':banner')
 }

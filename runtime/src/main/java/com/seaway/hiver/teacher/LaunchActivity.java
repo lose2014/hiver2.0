@@ -230,9 +230,9 @@ public class LaunchActivity extends BaseActivity implements ICheckVersionListene
 //        getWindow().getDecorView().postDelayed(new Runnable() {
 //            @Override
 //            public void run() {
-//                Intent intent = new Intent(LaunchActivity.this,MainActivity.class);
-//                startActivity(intent);
-//                finish();
+                Intent intent = new Intent(LaunchActivity.this,MainActivity.class);
+                startActivity(intent);
+                finish();
 //            }
 //        }, 1000);
     }

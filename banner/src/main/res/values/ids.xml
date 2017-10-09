@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 图片路径 -->
+    <item name="ui_view_banner_path" type="id" />
+
+    <!-- 图片信息 -->
+    <item name="ui_view_banner_info" type="id" />
+
+    <item name="ui_view_banner_id" type="id" />
+</resources>

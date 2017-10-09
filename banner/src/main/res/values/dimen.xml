@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 广告下标横向间隔距离 -->
+    <dimen name="cyclic_advert_subscript_horizontal_margin">2dp</dimen>
+</resources>

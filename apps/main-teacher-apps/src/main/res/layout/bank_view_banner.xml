@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ui="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="80dp"
+    android:orientation="vertical"
+    android:paddingTop="8dp">
+
+    <View style="@style/ui_custom_horizontal_splite_line_style" />
+
+    <com.seaway.android.view.banner.UIBanner
+        android:id="@+id/bank_portal_banner_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        ui:ui_view_banner_failback="@drawable/bank_portal_banner_default_background"
+        ui:ui_view_banner_flag_alignParentBottom="true"
+        ui:ui_view_banner_flag_alignParentRight="true"
+        ui:ui_view_banner_flag_background="@drawable/bank_portal_banner_flag"
+        ui:ui_view_banner_flag_height="2dp"
+        ui:ui_view_banner_flag_marginBottom="2dp"
+        ui:ui_view_banner_flag_marginRight="5dp"
+        ui:ui_view_banner_flag_width="7dp"
+        ui:ui_view_banner_image_path="iconUrl"
+        ui:ui_view_banner_none_image="@drawable/bank_portal_banner_default_background"
+        ui:ui_view_banner_placeholder="@drawable/bank_portal_banner_default_background" />
+
+    <View style="@style/ui_custom_horizontal_splite_line_style" />
+
+</LinearLayout>

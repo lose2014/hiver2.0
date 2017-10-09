@@ -2,14 +2,14 @@ apply plugin: 'com.android.application'
 android {
     signingConfigs {
         debug {
-//            keyAlias 'hiver'
-//            keyPassword '123456'
-//            storeFile file('F:/android/hiver.jks')
-//            storePassword '123456'
-            keyAlias 'sumpay'
-            keyPassword 'sumpay2017'
-            storeFile file('E:/asworkspace/tianjian/AggregateWeb/trc_aggregateweb.jks')
-            storePassword 'sumpay2017'
+            keyAlias 'hiver'
+            keyPassword '123456'
+            storeFile file('F:/android/hiver.jks')
+            storePassword '123456'
+//            keyAlias 'sumpay'
+//            keyPassword 'sumpay2017'
+//            storeFile file('E:/asworkspace/tianjian/AggregateWeb/trc_aggregateweb.jks')
+//            storePassword 'sumpay2017'
         }
     }
     aaptOptions.cruncherEnabled = false
@@ -25,7 +25,7 @@ android {
         versionName rootProject.ext.versionName
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         ndk {
-            abiFilters "armeabi"
+            abiFilters "armeabi",'x86'
         }
         multiDexEnabled true
     }
@@ -116,4 +116,6 @@ dependencies {
     compile 'com.getui:sdk:2.9.5.0'
     compile 'com.android.support:design:25.3.1'
     testCompile 'junit:junit:4.12'
+    compile project(':apps:login-app')
+    compile project(':apps:main-teacher-apps')
 }
