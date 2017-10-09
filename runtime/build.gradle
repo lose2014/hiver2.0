@@ -2,10 +2,10 @@ apply plugin: 'com.android.application'
 android {
     signingConfigs {
         debug {
-            keyAlias 'sumpay'
-            keyPassword 'sumpay2017'
-            storeFile file('E:/asworkspace/AggregateWeb/app/sumpay_aggregate_web.jks')
-            storePassword 'sumpay2017'
+            keyAlias 'hiver'
+            keyPassword '123456'
+            storeFile file('F:/android/hiver.jks')
+            storePassword '123456'
         }
     }
     aaptOptions.cruncherEnabled = false
