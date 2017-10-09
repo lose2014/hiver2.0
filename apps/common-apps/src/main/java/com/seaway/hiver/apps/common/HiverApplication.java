@@ -11,7 +11,7 @@ public class HiverApplication extends Application {
      * 应用在 是否在前台
      */
     public boolean isForeground;
-
+    public String clientId;
     @Override
     public void onCreate() {
         super.onCreate();

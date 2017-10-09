@@ -18,6 +18,7 @@ import android.widget.EditText;
 import com.alipay.sdk.app.AuthTask;
 import com.hiver.app.vc.ICheckVersionListener;
 import com.hiver.app.vc.fragment.VersionCheckFragment;
+import com.igexin.sdk.PushManager;
 import com.seaway.android.ndk.NativeSDK;
 import com.seaway.android.sdk.logger.Logger;
 import com.seaway.android.sdk.toolkit.SWVerificationUtil;
@@ -28,6 +29,9 @@ import com.seaway.hiver.model.common.Util;
 import com.seaway.hiver.model.common.data.param.CrashInfoParam;
 import com.hiver.ui.dialog.DefineDialog;
 import com.hiver.ui.dialog.UIDefaultDialogHelper;
+import com.seaway.hiver.teacher.service.PushIntentService;
+import com.seaway.hiver.teacher.service.PushService;
+import com.seaway.hiver.teacher.util.VoiceUtil;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -328,5 +332,13 @@ public class LaunchActivity extends BaseActivity implements ICheckVersionListene
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        // com.getui.demo.DemoPushService 为第三方自定义推送服务
+        PushManager.getInstance().initialize(this.getApplicationContext(), PushService.class);
+        PushManager.getInstance().registerPushIntentService(this.getApplicationContext(), PushIntentService.class);
     }
 }

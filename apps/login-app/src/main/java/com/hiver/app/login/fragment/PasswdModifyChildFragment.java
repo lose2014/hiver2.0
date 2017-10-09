@@ -11,6 +11,11 @@ import android.widget.EditText;
 
 import com.hiver.app.login.R;
 import com.hiver.ui.spinner.UISelectionBoxView;
+import com.hiver.ui.toast.UIToast;
+import com.seaway.hiver.apps.common.HiverApplication;
+import com.seaway.hiver.apps.common.fragment.BaseFragment;
+import com.seaway.hiver.biz.login.contract.LoginPwdModifyContract;
+import com.seaway.hiver.biz.login.presenter.LoginPwdModifyPresenter;
 import com.seaway.pinpad.main.SWPINPadEdit;
 
 
@@ -69,15 +74,15 @@ public class PasswdModifyChildFragment extends BaseFragment<LoginPwdModifyContra
 
         oldPwdEdit = (SWPINPadEdit) getView().findViewById(R.id.first_login_sec_setting_old_pwd_edit_text);
         oldPwdEdit.setEncryptionType(SWPINPadEdit.SWKeyboardEncryptionTypeLogin);
-        oldPwdEdit.setShowHighlighted(XtBankApplication.getInstance().isShowHighlight);
+//        oldPwdEdit.setShowHighlighted(HiverApplication.getInstance().isShowHighlight);
 
         newPwdEdit = (SWPINPadEdit) getView().findViewById(R.id.first_login_sec_setting_new_pwd_edit_text);
         newPwdEdit.setEncryptionType(SWPINPadEdit.SWKeyboardEncryptionTypeLogin);
-        newPwdEdit.setShowHighlighted(XtBankApplication.getInstance().isShowHighlight);
+//        newPwdEdit.setShowHighlighted(HiverApplication.getInstance().isShowHighlight);
 
         confirmPwdEdit = (SWPINPadEdit) getView().findViewById(R.id.first_login_sec_setting_confirm_pwd_edit_text);
         confirmPwdEdit.setEncryptionType(SWPINPadEdit.SWKeyboardEncryptionTypeLogin);
-        confirmPwdEdit.setShowHighlighted(XtBankApplication.getInstance().isShowHighlight);
+//        confirmPwdEdit.setShowHighlighted(HiverApplication.getInstance().isShowHighlight);
 
         setOnClickListener();
     }
@@ -113,5 +118,25 @@ public class PasswdModifyChildFragment extends BaseFragment<LoginPwdModifyContra
         }
 
         return true;
+    }
+
+    @Override
+    public void showAutoHidenDialog(int rid) {
+
+    }
+
+    @Override
+    public void showUnconnectDialog(String msg) {
+
+    }
+
+    @Override
+    public void showOnConnectionDialog(int rid) {
+
+    }
+
+    @Override
+    public void disMissConnectingDialog() {
+
     }
 }

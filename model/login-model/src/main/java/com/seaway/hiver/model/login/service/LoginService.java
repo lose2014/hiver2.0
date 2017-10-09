@@ -48,4 +48,13 @@ public interface LoginService {
      */
     @POST("sendCookie")
     Observable<BaseVo> requestLogout(@Body BankBaseParam<String> param);
+
+    /**
+     * 修改登录密码
+     *
+     * @param param
+     * @return
+     */
+    @POST("sendCookie")
+    Observable<BaseVo> requestLoginPwdModify(@Body BankBaseParam<String> param);
 }
