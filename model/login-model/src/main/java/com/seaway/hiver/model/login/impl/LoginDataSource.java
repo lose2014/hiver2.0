@@ -15,6 +15,7 @@ import com.seaway.hiver.model.common.impl.DataSource;
 import com.seaway.hiver.model.login.ILoginDataSource;
 import com.seaway.hiver.model.login.data.param.LoginParam;
 import com.seaway.hiver.model.login.data.param.RequestBindDeviceManageParam;
+import com.seaway.hiver.model.login.data.param.RequestLoginPwdModifyParam;
 import com.seaway.hiver.model.login.service.LoginService;
 import com.seaway.hiver.model.login.shared.LoginSharedPreferences;
 
@@ -152,4 +153,28 @@ public class LoginDataSource extends DataSource implements ILoginDataSource {
         return null;
     }
 
+    /**
+     * 修改登录密码
+     *
+     * @param oldPwd           旧密码
+     * @param newPwd           新密码
+     * @param credentialType   证件类型
+     * @param credentialNumber 证件号码
+     * @return
+     */
+    @Override
+    public Observable<BaseOutputVo> requestLoginPwdModify(String oldPwd, String newPwd, String credentialType, String credentialNumber) {
+        RequestLoginPwdModifyParam param = new RequestLoginPwdModifyParam(credentialType, credentialNumber, oldPwd, newPwd);
+
+        return Observable.just(param)
+                .flatMap(new Function<RequestLoginPwdModifyParam, ObservableSource<BaseVo>>() {
+                    @Override
+                    public ObservableSource<BaseVo> apply(@NonNull RequestLoginPwdModifyParam param) throws Exception {
+                        return RetrofitClient.getInstance().create(LoginService.class).requestLoginPwdModify(Util.transformat("requestLoginPwdModify", param));
+                    }
+                })
+                .map(new ServerResponseFunc<BaseOutputVo>(BaseOutputVo.class))
+                .onErrorResumeNext(new ErrorInterceptorFunc<BaseOutputVo>())
+                .subscribeOn(Schedulers.newThread());
+    }
 }

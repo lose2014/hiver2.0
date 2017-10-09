@@ -69,4 +69,15 @@ public interface ILoginDataSource extends IDataSource {
      * @return 登录信息
      */
     LoginVo getLoginUserInfo();
+
+    /**
+     * 修改登录密码
+     *
+     * @param oldPwd           旧密码
+     * @param newPwd           新密码
+     * @param credentialType   证件类型
+     * @param credentialNumber 证件号码
+     * @return
+     */
+    Observable<BaseOutputVo> requestLoginPwdModify(String oldPwd, String newPwd, String credentialType, String credentialNumber);
 }

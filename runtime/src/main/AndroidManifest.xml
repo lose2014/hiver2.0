@@ -18,7 +18,6 @@
 
     <uses-feature android:name="android.hardware.camera" /> <!-- 使用照相机权限 -->
     <uses-feature android:name="android.hardware.camera.autofocus" /> <!-- 自动聚焦权限 -->
-    <permission android:name="android.permission.BAIDU_LOCATION_SERVICE" />
 
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
     <uses-permission android:name="android.permission.BLUETOOTH" />
@@ -41,6 +40,12 @@
     <uses-permission android:name="android.permission.SMARTPOS_SYSTEMDEV_INSTALL" />
     <uses-permission android:name="android.permission.SMARTPOS_SYSTEMDEV_OS_UPDATE" />
     <uses-permission android:name="android.permission.SMARTPOS_UPDATE_APPLICATION_AUTH_LIST" />
+    <!-- iBeancon功能所需权限 -->;
+    <uses-permission android:name="android.permission.BLUETOOTH"/>
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
+    <!-- 个推3.0电子围栏功能所需权限 -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
     <application
         android:name="com.seaway.hiver.apps.common.HiverApplication"
@@ -67,6 +72,16 @@
             android:configChanges="orientation|keyboardHidden">
 
         </activity>
+        <service
+            android:name=".service.PushService"
+            android:exported="true"
+            android:process=":pushservice"/>
+
+        <service android:name=".service.PushIntentService"/>
+        <!-- 发布版本类型 -->
+        <meta-data
+            android:name="version_type"
+            android:value="${version_type_value}"/>
     </application>
 
 </manifest>

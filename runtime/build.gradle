@@ -2,10 +2,14 @@ apply plugin: 'com.android.application'
 android {
     signingConfigs {
         debug {
-            keyAlias 'hiver'
-            keyPassword '123456'
-            storeFile file('F:/android/hiver.jks')
-            storePassword '123456'
+//            keyAlias 'hiver'
+//            keyPassword '123456'
+//            storeFile file('F:/android/hiver.jks')
+//            storePassword '123456'
+            keyAlias 'sumpay'
+            keyPassword 'sumpay2017'
+            storeFile file('E:/asworkspace/tianjian/AggregateWeb/trc_aggregateweb.jks')
+            storePassword 'sumpay2017'
         }
     }
     aaptOptions.cruncherEnabled = false
@@ -34,7 +38,10 @@ android {
         release {
             manifestPlaceholders = [
                     launcher_icon_res : "@mipmap/login_logo",
-                    version_type_value: "@string/version_type_release"]
+                    version_type_value: "@string/version_type_release",
+                    GETUI_APP_ID      : GETUI_APP_ID,
+                    GETUI_APP_KEY     : GETUI_APP_KEY,
+                    GETUI_APP_SECRET  : GETUI_APP_SECRET]
             shrinkResources true
             minifyEnabled true
             zipAlignEnabled true
@@ -44,7 +51,10 @@ android {
         beta {
             manifestPlaceholders = [
                     launcher_icon_res : "@mipmap/login_logo",
-                    version_type_value: "@string/version_type_pre"]
+                    version_type_value: "@string/version_type_pre",
+                    GETUI_APP_ID      : GETUI_APP_ID,
+                    GETUI_APP_KEY     : GETUI_APP_KEY,
+                    GETUI_APP_SECRET  : GETUI_APP_SECRET]
             shrinkResources true
             minifyEnabled true
             zipAlignEnabled true
@@ -54,7 +64,10 @@ android {
         alpha {
             manifestPlaceholders = [
                     launcher_icon_res : "@mipmap/login_logo",
-                    version_type_value: "@string/version_type_pre"]
+                    version_type_value: "@string/version_type_pre",
+                    GETUI_APP_ID      : GETUI_APP_ID,
+                    GETUI_APP_KEY     : GETUI_APP_KEY,
+                    GETUI_APP_SECRET  : GETUI_APP_SECRET]
             shrinkResources true
             minifyEnabled true
             zipAlignEnabled true
@@ -64,7 +77,10 @@ android {
         debug {
             manifestPlaceholders = [
                     launcher_icon_res : "@mipmap/login_logo",
-                    version_type_value: "@string/version_type_pre"]
+                    version_type_value: "@string/version_type_pre",
+                    GETUI_APP_ID      : GETUI_APP_ID,
+                    GETUI_APP_KEY     : GETUI_APP_KEY,
+                    GETUI_APP_SECRET  : GETUI_APP_SECRET]
             debuggable true
             jniDebuggable true
             buildConfigField("boolean", "LOG_DEBUG", "true")
@@ -73,6 +89,18 @@ android {
 //            minifyEnabled true
 //            zipAlignEnabled true
             signingConfig signingConfigs.debug
+        }
+    }
+
+
+    // 设置输出apk文件的文件名格式
+    applicationVariants.all { variant ->
+        variant.outputs.each { output ->
+            def outputFile = output.outputFile
+            if (outputFile != null && outputFile.name.endsWith('.apk')) {
+                def fileName = "hiver${variant.buildType.name}_V${defaultConfig.versionName}.apk"
+                output.outputFile = new File(outputFile.parent, fileName)
+            }
         }
     }
 }
@@ -85,6 +113,7 @@ dependencies {
     compile 'com.android.support:appcompat-v7:25.2.0'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
     compile 'com.google.code.gson:gson:2.6.2'
+    compile 'com.getui:sdk:2.9.5.0'
     compile 'com.android.support:design:25.3.1'
     testCompile 'junit:junit:4.12'
 }
