@@ -1,30 +1,298 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<com.zhy.android.percent.support.PercentLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="@color/ui_portal_background">
+    android:background="@color/ui_portal_background"
+    android:orientation="vertical">
+
     <LinearLayout
-        android:layout_height="50dp"
         android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginBottom="10dp"
+        android:background="@color/aqua"
         android:gravity="center_horizontal"
         android:orientation="vertical"
-        android:background="@color/aqua"
-        android:layout_marginBottom="10dp">
+        app:layout_heightPercent="6%">
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="孙老师好"
             android:layout_marginLeft="10dp"
-            android:gravity="center_vertical"
-            android:drawablePadding="5dp"
             android:drawableLeft="@drawable/ui_tips_icon"
-            android:textSize="20dp"/>
+            android:drawablePadding="5dp"
+            android:gravity="center_vertical"
+            android:text="孙老师好"
+            android:textSize="16sp" />
     </LinearLayout>
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/main_portal_recycler_view"
+
+    <com.zhy.android.percent.support.PercentLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_heightPercent="94%">
+
+        <com.zhy.android.percent.support.PercentLinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-</LinearLayout>
+            android:layout_height="0dp"
+            android:orientation="horizontal"
+            app:layout_heightPercent="24%">
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/main_portal_recycler_view"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginRight="10dp"
+                android:background="@color/grey"
+                app:layout_widthPercent="65%" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:background="@color/grey"
+                android:gravity="center"
+                android:orientation="vertical"
+                app:layout_widthPercent="35%">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:paddingRight="10dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentLeft="true"
+                        android:layout_marginLeft="10dp"
+                        android:gravity="center_vertical"
+                        android:text="我的账单" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="10dp"
+                        android:gravity="center"
+                        android:text="查看详情" />
+                </RelativeLayout>
+
+                <View style="@style/ui_custom_horizontal_splite_line_style" />
+
+                <com.zhy.android.percent.support.PercentLinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="5"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="0dp"
+                        android:layout_marginRight="10dp"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/ui_tips_icon"
+                        app:layout_heightPercent="45%" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:text="本月收入：30元" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:text="账户余额：30元" />
+                    </LinearLayout>
+
+                </com.zhy.android.percent.support.PercentLinearLayout>
+
+            </LinearLayout>
+        </com.zhy.android.percent.support.PercentLinearLayout>
+
+        <com.zhy.android.percent.support.PercentLinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="horizontal"
+            app:layout_heightPercent="38%">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="10dp"
+                android:background="@color/grey"
+                android:orientation="vertical"
+                app:layout_widthPercent="65%">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentLeft="true"
+                        android:layout_marginLeft="10dp"
+                        android:gravity="center_vertical"
+                        android:text="我的微课" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="10dp"
+                        android:gravity="center"
+                        android:text="更多" />
+                </RelativeLayout>
+
+                <View style="@style/ui_custom_horizontal_splite_line_style" />
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/main_portal_recycler_view2"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="5"
+                    android:background="@color/grey" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginTop="10dp"
+                android:background="@color/grey"
+                android:gravity="center"
+                android:orientation="vertical"
+                app:layout_widthPercent="35%">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentLeft="true"
+                        android:layout_marginLeft="10dp"
+                        android:gravity="center_vertical"
+                        android:text="在线答疑" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="20dp"
+                        android:gravity="center"
+                        android:text="更多" />
+                </RelativeLayout>
+
+                <View style="@style/ui_custom_horizontal_splite_line_style" />
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/main_portal_recycler_view3"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="5"
+                    android:background="@color/grey" />
+            </LinearLayout>
+        </com.zhy.android.percent.support.PercentLinearLayout>
+
+        <com.zhy.android.percent.support.PercentLinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="horizontal"
+            app:layout_heightPercent="38%">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="10dp"
+                android:background="@color/grey"
+                android:orientation="vertical"
+                app:layout_widthPercent="65%">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentLeft="true"
+                        android:layout_marginLeft="10dp"
+                        android:gravity="center_vertical"
+                        android:text="我的云课堂" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="10dp"
+                        android:gravity="center"
+                        android:text="更多" />
+                </RelativeLayout>
+
+                <View style="@style/ui_custom_horizontal_splite_line_style" />
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/main_portal_recycler_view4"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="5"
+                    android:background="@color/grey" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginTop="10dp"
+                android:background="@color/grey"
+                android:gravity="center"
+                android:orientation="vertical"
+                app:layout_widthPercent="35%">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentLeft="true"
+                        android:layout_marginLeft="10dp"
+                        android:gravity="center_vertical"
+                        android:text="消息" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="20dp"
+                        android:gravity="center"
+                        android:text="更多" />
+                </RelativeLayout>
+
+                <View style="@style/ui_custom_horizontal_splite_line_style" />
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/main_portal_recycler_view5"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="5"
+                    android:background="@color/grey" />
+            </LinearLayout>
+        </com.zhy.android.percent.support.PercentLinearLayout>
+    </com.zhy.android.percent.support.PercentLinearLayout>
+</com.zhy.android.percent.support.PercentLinearLayout>

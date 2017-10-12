@@ -2,14 +2,14 @@ apply plugin: 'com.android.application'
 android {
     signingConfigs {
         debug {
+//            keyAlias 'hiver'
+//            keyPassword '123456'
+//            storeFile file('F:/android/hiver.jks')
+//            storePassword '123456'
             keyAlias 'hiver'
             keyPassword '123456'
-            storeFile file('F:/android/hiver.jks')
+            storeFile file('F:/xingxiangfuPos/Thiver/hiver.jks')
             storePassword '123456'
-//            keyAlias 'sumpay'
-//            keyPassword 'sumpay2017'
-//            storeFile file('E:/asworkspace/tianjian/AggregateWeb/trc_aggregateweb.jks')
-//            storePassword 'sumpay2017'
         }
     }
     aaptOptions.cruncherEnabled = false

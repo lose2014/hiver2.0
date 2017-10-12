@@ -1,23 +1,18 @@
 package com.seaway.hiver.main.teacher.apps.fragment;
 
-import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 
-import com.seaway.android.sdk.logger.Logger;
 import com.seaway.hiver.apps.common.fragment.BaseFragment;
 import com.seaway.hiver.main.teacher.apps.R;
 import com.seaway.hiver.main.teacher.apps.adapter.MainViewAdapter;
@@ -25,19 +20,15 @@ import com.seaway.hiver.main.teacher.biz.contract.TMainContract;
 import com.seaway.hiver.main.teacher.biz.presenter.TMainPresenter;
 import com.seaway.hiver.model.common.data.vo.QueryAdvertListVo;
 import com.seaway.hiver.model.main.teacher.data.vo.GetIconCodeVo;
-import com.tbruyelle.rxpermissions2.Permission;
 import com.tbruyelle.rxpermissions2.RxPermissions;
 
-
 import java.util.Map;
-
-import io.reactivex.functions.Consumer;
 
 /**
  * 首界面
  * Created by Leo.Chang on 2017/5/10.
  */
-public class TMainFragment extends BaseFragment<TMainContract.Presenter> implements View.OnClickListener, TMainContract.View, AdapterView.OnItemClickListener {
+public class THelpFragment extends BaseFragment<TMainContract.Presenter> implements View.OnClickListener, TMainContract.View, AdapterView.OnItemClickListener {
 
     private RecyclerView recyclerView;
     private LinearLayoutManager mLayoutManager;
