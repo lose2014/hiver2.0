@@ -3,6 +3,7 @@ package com.seaway.hiver.model.login;
 
 import com.seaway.hiver.model.common.IDataSource;
 import com.seaway.hiver.model.common.data.vo.BaseOutputVo;
+import com.seaway.hiver.model.common.data.vo.CheckUserNameVo;
 import com.seaway.hiver.model.common.data.vo.LoginVo;
 
 import io.reactivex.Observable;
@@ -18,12 +19,9 @@ public interface ILoginDataSource extends IDataSource {
      *
      * @param user      用户名
      * @param pwd       密码
-     * @param loginMode 1:账号2：手势3：指纹
-     * @param codeId    图片验证密码编号
-     * @param code      验证码
      * @return
      */
-    Observable<LoginVo> login(String user, String pwd, String loginMode, String codeId, String code);
+    Observable<LoginVo> login(String user, String pwd);
 
     /**
      * 绑定设备
@@ -41,6 +39,13 @@ public interface ILoginDataSource extends IDataSource {
      * @return
      */
     Observable<BaseOutputVo> requestLogout();
+
+    /**
+     * 检查用户是否存在
+     *
+     * @return
+     */
+    Observable<CheckUserNameVo>  checkUserName(String userName);
 
     /**
      * 记录登录账号
@@ -75,9 +80,8 @@ public interface ILoginDataSource extends IDataSource {
      *
      * @param oldPwd           旧密码
      * @param newPwd           新密码
-     * @param credentialType   证件类型
-     * @param credentialNumber 证件号码
+
      * @return
      */
-    Observable<BaseOutputVo> requestLoginPwdModify(String oldPwd, String newPwd, String credentialType, String credentialNumber);
+    Observable<BaseOutputVo> requestLoginPwdModify(String oldPwd, String newPwd);
 }

@@ -4,6 +4,7 @@ import com.seaway.android.sdk.logger.Logger;
 import com.seaway.hiver.biz.login.contract.LoginContract;
 import com.seaway.hiver.common.biz.function.CommonObserver;
 import com.seaway.hiver.common.biz.presenter.BasePresenter;
+import com.seaway.hiver.model.common.data.vo.CheckUserNameVo;
 import com.seaway.hiver.model.common.data.vo.LoginVo;
 import com.seaway.hiver.model.login.ILoginDataSource;
 import com.seaway.hiver.model.login.impl.LoginDataSource;
@@ -33,12 +34,12 @@ public class LoginPresenter extends BasePresenter<LoginContract.View, ILoginData
     @Override
     public void subscribe() {
         getUserName();
-        getIconCode();
+//        getIconCode();
     }
 
     @Override
-    public void login(String userName, String pwd, String codeId, String code) {
-        mDataSource.login(userName, pwd, "1", codeId, code).observeOn(AndroidSchedulers.mainThread())
+    public void login(String userName, String pwd) {
+        mDataSource.login(userName, pwd).observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new CommonObserver<LoginVo>(mView, mDisposable) {
 
                     @Override
@@ -97,5 +98,27 @@ public class LoginPresenter extends BasePresenter<LoginContract.View, ILoginData
             }
         });
         mDisposable.add(d);
+    }
+
+    @Override
+    public void checkUserName(String userName) {
+        mDataSource.checkUserName(userName).observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new CommonObserver<CheckUserNameVo>(mView,mDisposable) {
+                    @Override
+                    public void onSubscribe(@NonNull Disposable d) {
+                        super.onSubscribe(d);
+                        mView.showPregressDialog();
+                    }
+
+                    @Override
+                    public void onNext(@NonNull CheckUserNameVo checkUserNameVo) {
+                        mView.checkUserNameSuccess(checkUserNameVo);
+                    }
+
+                    @Override
+                    protected void error(@NonNull Throwable e) {
+                        mView.loginFail();
+                    }
+                });
     }
 }

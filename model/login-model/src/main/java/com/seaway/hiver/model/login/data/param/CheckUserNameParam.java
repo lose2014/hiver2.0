@@ -5,12 +5,10 @@ import com.seaway.hiver.model.common.data.param.BaseInputParam;
 
 
 /**
- * 登录请求参数
- * Created by Leo.Chang on 2017/5/16.
+ * 检测用户名是否存在(POST /teacher/checkUsernameExist)
  */
-public class LoginParam extends BaseInputParam {
+public class CheckUserNameParam extends BaseInputParam {
     private String userName;
-    private String loginPasswd;
 
     public String getUserName() {
         return userName;
@@ -18,14 +16,6 @@ public class LoginParam extends BaseInputParam {
 
     public void setUserName(String userName) {
         this.userName = userName;
-    }
-
-    public String getLoginPasswd() {
-        return loginPasswd;
-    }
-
-    public void setLoginPasswd(String loginPasswd) {
-        this.loginPasswd = loginPasswd;
     }
 
 }

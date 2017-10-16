@@ -8,11 +8,13 @@ import com.seaway.hiver.model.common.Util;
 import com.seaway.hiver.model.common.data.param.BaseInputParam;
 import com.seaway.hiver.model.common.data.vo.BaseOutputVo;
 import com.seaway.hiver.model.common.data.vo.BaseVo;
+import com.seaway.hiver.model.common.data.vo.CheckUserNameVo;
 import com.seaway.hiver.model.common.data.vo.LoginVo;
 import com.seaway.hiver.model.common.function.ErrorInterceptorFunc;
 import com.seaway.hiver.model.common.function.ServerResponseFunc;
 import com.seaway.hiver.model.common.impl.DataSource;
 import com.seaway.hiver.model.login.ILoginDataSource;
+import com.seaway.hiver.model.login.data.param.CheckUserNameParam;
 import com.seaway.hiver.model.login.data.param.LoginParam;
 import com.seaway.hiver.model.login.data.param.RequestBindDeviceManageParam;
 import com.seaway.hiver.model.login.data.param.RequestLoginPwdModifyParam;
@@ -35,25 +37,20 @@ public class LoginDataSource extends DataSource implements ILoginDataSource {
      *
      * @param user      用户名
      * @param pwd       密码
-     * @param loginMode 登录方式 1:账号2：手势3：指纹
-     * @param codeId    图片验证密码编号
-     * @param code      验证码
      * @return
      */
     @Override
-    public Observable<LoginVo> login(String user, String pwd, String loginMode, String codeId, String code) {
+    public Observable<LoginVo> login(String user, String pwd) {
         LoginParam param = new LoginParam();
         param.setUserName(user);
         param.setLoginPasswd(pwd);
-        param.setCodeId(codeId);
-        param.setCode(code);
-        param.setLoginMode(loginMode);
 
         return Observable.just(param)
                 .flatMap(new Function<LoginParam, ObservableSource<BaseVo>>() {
                     @Override
                     public ObservableSource<BaseVo> apply(@NonNull LoginParam loginParam) throws Exception {
-                        return RetrofitClient.getInstance().create(LoginService.class).login(Util.transformat("requestUserLogin", loginParam));
+//                        return RetrofitClient.getInstance().create(LoginService.class).login(Util.transformat("requestUserLogin", loginParam));
+                        return RetrofitClient.getInstance().create(LoginService.class).login(loginParam);
                     }
                 })
                 .map(new ServerResponseFunc<LoginVo>(LoginVo.class))
@@ -101,6 +98,23 @@ public class LoginDataSource extends DataSource implements ILoginDataSource {
                 .requestLogout(Util.transformat("requestLogout", new BaseInputParam()))
                 .map(new ServerResponseFunc<BaseOutputVo>(BaseOutputVo.class))
                 .onErrorResumeNext(new ErrorInterceptorFunc<BaseOutputVo>())
+                .subscribeOn(Schedulers.newThread());
+    }
+
+    /**
+     * 检查用户是否已注册
+     *
+     * @return
+     */
+    @Override
+    public Observable<CheckUserNameVo> checkUserName(String userName) {
+        CheckUserNameParam checkUserNameParam =new CheckUserNameParam();
+        checkUserNameParam.setUserName(userName);
+        return RetrofitClient.getInstance()
+                .create(LoginService.class)
+                .checkUserName(checkUserNameParam)
+                .map(new ServerResponseFunc<CheckUserNameVo>(CheckUserNameVo.class))
+                .onErrorResumeNext(new ErrorInterceptorFunc<CheckUserNameVo>())
                 .subscribeOn(Schedulers.newThread());
     }
 
@@ -158,19 +172,19 @@ public class LoginDataSource extends DataSource implements ILoginDataSource {
      *
      * @param oldPwd           旧密码
      * @param newPwd           新密码
-     * @param credentialType   证件类型
-     * @param credentialNumber 证件号码
+//     * @param credentialType   证件类型
+//     * @param credentialNumber 证件号码
      * @return
      */
     @Override
-    public Observable<BaseOutputVo> requestLoginPwdModify(String oldPwd, String newPwd, String credentialType, String credentialNumber) {
-        RequestLoginPwdModifyParam param = new RequestLoginPwdModifyParam(credentialType, credentialNumber, oldPwd, newPwd);
+    public Observable<BaseOutputVo> requestLoginPwdModify(String oldPwd, String newPwd) {
+        RequestLoginPwdModifyParam param = new RequestLoginPwdModifyParam(oldPwd, newPwd,newPwd);
 
         return Observable.just(param)
                 .flatMap(new Function<RequestLoginPwdModifyParam, ObservableSource<BaseVo>>() {
                     @Override
                     public ObservableSource<BaseVo> apply(@NonNull RequestLoginPwdModifyParam param) throws Exception {
-                        return RetrofitClient.getInstance().create(LoginService.class).requestLoginPwdModify(Util.transformat("requestLoginPwdModify", param));
+                        return RetrofitClient.getInstance().create(LoginService.class).requestLoginPwdModify(param);
                     }
                 })
                 .map(new ServerResponseFunc<BaseOutputVo>(BaseOutputVo.class))

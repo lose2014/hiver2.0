@@ -16,6 +16,7 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.alipay.sdk.app.AuthTask;
+import com.hiver.app.login.activity.LoginActivity;
 import com.hiver.app.vc.ICheckVersionListener;
 import com.hiver.app.vc.fragment.VersionCheckFragment;
 import com.igexin.sdk.PushManager;
@@ -230,7 +231,8 @@ public class LaunchActivity extends BaseActivity implements ICheckVersionListene
 //        getWindow().getDecorView().postDelayed(new Runnable() {
 //            @Override
 //            public void run() {
-                Intent intent = new Intent(LaunchActivity.this,MainActivity.class);
+//                Intent intent = new Intent(LaunchActivity.this,MainActivity.class);
+                Intent intent = new Intent(LaunchActivity.this,LoginActivity.class);
                 startActivity(intent);
                 finish();
 //            }

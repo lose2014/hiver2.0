@@ -10,159 +10,65 @@ import com.seaway.android.sdk.tools.DeviceUtil;
  * Created by Leo.Chang on 2017/5/16.
  */
 public class LoginVo extends BaseOutputVo implements Parcelable {
-    private String accountId;
-    private String mobileNumber;
-    private String nickName;
-    private String accountName;
-    private String accountType;
-    private String lastLoginTime;
-    private String checkInfo;
-    private String pwdState;
-    private String deviceBindFlag;
-    private String sessionId;
-    private String credentialType;
-    private String credentialNumber;
-    private String credentialNumberEncrypt;
-    private String accountNameEncrypt;
-    private String mobileNumberEncrypt;
-    private String pwdIdentify;
-    private String pwdEndDate;
+    private String teacherId;
+    private String mobile;
+    private String accessToken;
+    private String nickname;
+    private String realname;
+    private String headimgPath;
+
     private String uuid = DeviceUtil.getDeviceId();
 
-    public String getAccountId() {
-        return accountId;
+    public String getTeacherId() {
+        return teacherId;
     }
 
-    public void setAccountId(String accountId) {
-        this.accountId = accountId;
+    public void setTeacherId(String teacherId) {
+        this.teacherId = teacherId;
     }
 
-    public String getMobileNumber() {
-        return mobileNumber;
+    public String getMobile() {
+        return mobile;
     }
 
-    public void setMobileNumber(String mobileNumber) {
-        this.mobileNumber = mobileNumber;
+    public void setMobile(String mobile) {
+        this.mobile = mobile;
     }
 
-    public String getNickName() {
-        return nickName;
+    public String getAccessToken() {
+        return accessToken;
     }
 
-    public void setNickName(String nickName) {
-        this.nickName = nickName;
+    public void setAccessToken(String accessToken) {
+        this.accessToken = accessToken;
     }
 
-    public String getAccountName() {
-        return accountName;
+    public String getNickname() {
+        return nickname;
     }
 
-    public void setAccountName(String accountName) {
-        this.accountName = accountName;
+    public void setNickname(String nickname) {
+        this.nickname = nickname;
     }
 
-    public String getAccountType() {
-        return accountType;
+    public String getRealname() {
+        return realname;
     }
 
-    public void setAccountType(String accountType) {
-        this.accountType = accountType;
+    public void setRealname(String realname) {
+        this.realname = realname;
     }
 
-    public String getLastLoginTime() {
-        return lastLoginTime;
+    public String getHeadimgPath() {
+        return headimgPath;
     }
 
-    public void setLastLoginTime(String lastLoginTime) {
-        this.lastLoginTime = lastLoginTime;
+    public void setHeadimgPath(String headimgPath) {
+        this.headimgPath = headimgPath;
     }
 
-    public String getCheckInfo() {
-        return checkInfo;
-    }
-
-    public void setCheckInfo(String checkInfo) {
-        this.checkInfo = checkInfo;
-    }
-
-    public String getPwdState() {
-        return pwdState;
-    }
-
-    public void setPwdState(String pwdState) {
-        this.pwdState = pwdState;
-    }
-
-    public String getDeviceBindFlag() {
-        return deviceBindFlag;
-    }
-
-    public void setDeviceBindFlag(String deviceBindFlag) {
-        this.deviceBindFlag = deviceBindFlag;
-    }
-
-    public String getSessionId() {
-        return sessionId;
-    }
-
-    public void setSessionId(String sessionId) {
-        this.sessionId = sessionId;
-    }
-
-    public String getCredentialType() {
-        return credentialType;
-    }
-
-    public void setCredentialType(String credentialType) {
-        this.credentialType = credentialType;
-    }
-
-    public String getCredentialNumber() {
-        return credentialNumber;
-    }
-
-    public void setCredentialNumber(String credentialNumber) {
-        this.credentialNumber = credentialNumber;
-    }
-
-    public String getCredentialNumberEncrypt() {
-        return credentialNumberEncrypt;
-    }
-
-    public void setCredentialNumberEncrypt(String credentialNumberEncrypt) {
-        this.credentialNumberEncrypt = credentialNumberEncrypt;
-    }
-
-    public String getAccountNameEncrypt() {
-        return accountNameEncrypt;
-    }
-
-    public void setAccountNameEncrypt(String accountNameEncrypt) {
-        this.accountNameEncrypt = accountNameEncrypt;
-    }
-
-    public String getMobileNumberEncrypt() {
-        return mobileNumberEncrypt;
-    }
-
-    public void setMobileNumberEncrypt(String mobileNumberEncrypt) {
-        this.mobileNumberEncrypt = mobileNumberEncrypt;
-    }
-
-    public String getPwdIdentify() {
-        return pwdIdentify;
-    }
-
-    public void setPwdIdentify(String pwdIdentify) {
-        this.pwdIdentify = pwdIdentify;
-    }
-
-    public String getPwdEndDate() {
-        return pwdEndDate;
-    }
-
-    public void setPwdEndDate(String pwdEndDate) {
-        this.pwdEndDate = pwdEndDate;
+    public static Creator<LoginVo> getCREATOR() {
+        return CREATOR;
     }
 
     public String getUuid() {
@@ -180,23 +86,12 @@ public class LoginVo extends BaseOutputVo implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        dest.writeString(this.accountId);
-        dest.writeString(this.mobileNumber);
-        dest.writeString(this.nickName);
-        dest.writeString(this.accountName);
-        dest.writeString(this.accountType);
-        dest.writeString(this.lastLoginTime);
-        dest.writeString(this.checkInfo);
-        dest.writeString(this.pwdState);
-        dest.writeString(this.deviceBindFlag);
-        dest.writeString(this.sessionId);
-        dest.writeString(this.credentialType);
-        dest.writeString(this.credentialNumber);
-        dest.writeString(this.credentialNumberEncrypt);
-        dest.writeString(this.accountNameEncrypt);
-        dest.writeString(this.mobileNumberEncrypt);
-        dest.writeString(this.pwdIdentify);
-        dest.writeString(this.pwdEndDate);
+        dest.writeString(this.teacherId);
+        dest.writeString(this.mobile);
+        dest.writeString(this.accessToken);
+        dest.writeString(this.nickname);
+        dest.writeString(this.realname);
+        dest.writeString(this.headimgPath);
         dest.writeString(this.uuid);
     }
 
@@ -204,23 +99,12 @@ public class LoginVo extends BaseOutputVo implements Parcelable {
     }
 
     protected LoginVo(Parcel in) {
-        this.accountId = in.readString();
-        this.mobileNumber = in.readString();
-        this.nickName = in.readString();
-        this.accountName = in.readString();
-        this.accountType = in.readString();
-        this.lastLoginTime = in.readString();
-        this.checkInfo = in.readString();
-        this.pwdState = in.readString();
-        this.deviceBindFlag = in.readString();
-        this.sessionId = in.readString();
-        this.credentialType = in.readString();
-        this.credentialNumber = in.readString();
-        this.credentialNumberEncrypt = in.readString();
-        this.accountNameEncrypt = in.readString();
-        this.mobileNumberEncrypt = in.readString();
-        this.pwdIdentify = in.readString();
-        this.pwdEndDate = in.readString();
+        this.teacherId = in.readString();
+        this.mobile = in.readString();
+        this.accessToken = in.readString();
+        this.nickname = in.readString();
+        this.realname = in.readString();
+        this.headimgPath = in.readString();
         this.uuid = in.readString();
     }
 

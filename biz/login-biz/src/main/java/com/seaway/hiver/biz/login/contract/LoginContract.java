@@ -3,6 +3,7 @@ package com.seaway.hiver.biz.login.contract;
 
 import com.seaway.hiver.common.biz.IBasePresenter;
 import com.seaway.hiver.common.biz.IBaseView;
+import com.seaway.hiver.model.common.data.vo.CheckUserNameVo;
 import com.seaway.hiver.model.common.data.vo.LoginVo;
 
 /**
@@ -19,6 +20,7 @@ public interface LoginContract {
          */
         void getRememberUserName(String userName);
 
+        void checkUserNameSuccess(CheckUserNameVo checkUserNameVo);
 
         /**
          * 登录成功
@@ -42,9 +44,8 @@ public interface LoginContract {
          *
          * @param userName 用户名
          * @param pwd      密码
-         * @param code     验证码
          */
-        void login(String userName, String pwd, String codeId, String code);
+        void login(String userName, String pwd);
 
         /**
          * 获取图形验证码
@@ -62,5 +63,10 @@ public interface LoginContract {
          * 获取登录账号
          */
         void getUserName();
+
+        /**
+         * 检测登录账号是否存在
+         */
+        void checkUserName(String userName);
     }
 }

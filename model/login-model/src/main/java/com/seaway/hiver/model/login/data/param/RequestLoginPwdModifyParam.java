@@ -8,52 +8,38 @@ import com.seaway.hiver.model.common.data.param.BaseInputParam;
  * Created by Leo.Chang on 2017/5/19.
  */
 public class RequestLoginPwdModifyParam extends BaseInputParam {
-    private String credentialType;
-    private String credentialNumber;
-    private String oldPwd;
-    private String newPwd;
+    private String password;
+    private String newPassword;
+    private String passwordConfirm;
 
-    public RequestLoginPwdModifyParam(String oldPwd, String newPwd) {
-        this.oldPwd = oldPwd;
-        this.newPwd = newPwd;
+
+    public RequestLoginPwdModifyParam(String oldPwd, String newPwd,String passwordConfirm) {
+        this.passwordConfirm = passwordConfirm;
+        this.password = oldPwd;
+        this.newPassword = newPwd;
     }
 
-    public RequestLoginPwdModifyParam(String credentialType, String credentialNumber, String oldPwd, String newPwd) {
-        this.credentialType = credentialType;
-        this.credentialNumber = credentialNumber;
-        this.oldPwd = oldPwd;
-        this.newPwd = newPwd;
+    public String getPassword() {
+        return password;
     }
 
-    public String getCredentialType() {
-        return credentialType;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
-    public void setCredentialType(String credentialType) {
-        this.credentialType = credentialType;
+    public String getNewPassword() {
+        return newPassword;
     }
 
-    public String getCredentialNumber() {
-        return credentialNumber;
+    public void setNewPassword(String newPassword) {
+        this.newPassword = newPassword;
     }
 
-    public void setCredentialNumber(String credentialNumber) {
-        this.credentialNumber = credentialNumber;
+    public String getPasswordConfirm() {
+        return passwordConfirm;
     }
 
-    public String getOldPwd() {
-        return oldPwd;
-    }
-
-    public void setOldPwd(String oldPwd) {
-        this.oldPwd = oldPwd;
-    }
-
-    public String getNewPwd() {
-        return newPwd;
-    }
-
-    public void setNewPwd(String newPwd) {
-        this.newPwd = newPwd;
+    public void setPasswordConfirm(String passwordConfirm) {
+        this.passwordConfirm = passwordConfirm;
     }
 }

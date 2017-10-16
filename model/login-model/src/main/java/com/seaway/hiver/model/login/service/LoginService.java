@@ -2,6 +2,7 @@ package com.seaway.hiver.model.login.service;
 
 
 import com.seaway.hiver.model.common.data.param.BankBaseParam;
+import com.seaway.hiver.model.common.data.param.BaseInputParam;
 import com.seaway.hiver.model.common.data.vo.BaseVo;
 
 import io.reactivex.Observable;
@@ -19,8 +20,19 @@ public interface LoginService {
      * @param param
      * @return
      */
-    @POST("sendCookie")
-    Observable<BaseVo> login(@Body BankBaseParam<String> param);
+    @POST("/teacher/login")
+    Observable<BaseVo> login(@Body BaseInputParam param);
+
+
+    /**
+     * 检查username是否存在
+     *
+     * @param param
+     * @return
+     */
+    @POST("/teacher/checkUsernameExist")
+    Observable<BaseVo> checkUserName(@Body BaseInputParam param);
+
 
     /**
      * 获取图片验证码
@@ -55,6 +67,6 @@ public interface LoginService {
      * @param param
      * @return
      */
-    @POST("sendCookie")
-    Observable<BaseVo> requestLoginPwdModify(@Body BankBaseParam<String> param);
+    @POST("/teacher/modifyPwd")
+    Observable<BaseVo> requestLoginPwdModify(@Body BaseInputParam param);
 }

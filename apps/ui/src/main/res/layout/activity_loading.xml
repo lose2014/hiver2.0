@@ -19,7 +19,7 @@
         android:gravity="center_horizontal"
         android:orientation="vertical">
         <EditText
-            android:id="@+id/login_name_et"
+            android:id="@+id/login_portal_mobile_edit_text"
             android:layout_width="0dp"
             android:layout_height="0dp"
             app:layout_heightPercent="15%"
@@ -37,7 +37,7 @@
             <requestFocus />
         </EditText>
         <EditText
-            android:id="@+id/login_password_et"
+            android:id="@+id/login_portal_pwd_edit_text"
             android:layout_width="0dp"
             android:layout_height="0dp"
             app:layout_heightPercent="15%"
@@ -54,7 +54,7 @@
             android:paddingLeft="10dp"
             android:textSize="12sp" >
         </EditText>
-        <Button android:id="@+id/login_forget_btn"
+        <Button android:id="@+id/login_portal_forget_text_view"
             android:layout_width="0dp"
             android:layout_height="0dp"
             app:layout_heightPercent="8%"
@@ -67,7 +67,7 @@
             android:background="@null"
             />
 
-        <Button android:id="@+id/login_login_btn"
+        <Button android:id="@+id/login_portal_login_button"
             android:layout_width="0dp"
             android:layout_height="0dp"
             app:layout_heightPercent="15%"
