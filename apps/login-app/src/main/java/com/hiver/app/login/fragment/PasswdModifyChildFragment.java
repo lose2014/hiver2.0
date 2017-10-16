@@ -20,17 +20,14 @@ import com.seaway.pinpad.main.SWPINPadEdit;
 
 
 /**
- * 修改首次登录密码
+ * 修改登录密码
  * Created by Leo.Chang on 2017/5/15.
  */
 
 public class PasswdModifyChildFragment extends BaseFragment<LoginPwdModifyContract.Presenter> implements LoginPwdModifyContract.View {
-    UISelectionBoxView idTypeText;
-    EditText idNoEdit;
-
-    SWPINPadEdit oldPwdEdit;
-    SWPINPadEdit newPwdEdit;
-    SWPINPadEdit confirmPwdEdit;
+    EditText oldPwdEdit;
+    EditText newPwdEdit;
+    EditText confirmPwdEdit;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -58,7 +55,7 @@ public class PasswdModifyChildFragment extends BaseFragment<LoginPwdModifyContra
         if (v.getId() == R.id.first_login_sec_setting_next_button) {
             // 设置
             if (verifyParam()) {
-                mPresenter.requestLoginPwdModify(oldPwdEdit.getPassword(1), newPwdEdit.getPassword(1), idTypeText.getSelectedValue(), idNoEdit.getText().toString());
+                mPresenter.requestLoginPwdModify(oldPwdEdit.getText().toString(), newPwdEdit.getText().toString());
             }
         }
     }
@@ -69,19 +66,19 @@ public class PasswdModifyChildFragment extends BaseFragment<LoginPwdModifyContra
     }
 
     private void getViews() {
-        idTypeText = (UISelectionBoxView) getView().findViewById(R.id.first_login_sec_setting_id_type_text_view);
-        idNoEdit = (EditText) getView().findViewById(R.id.first_login_sec_setting_id_no_edit_text);
+//        idTypeText = (UISelectionBoxView) getView().findViewById(R.id.first_login_sec_setting_id_type_text_view);
+//        idNoEdit = (EditText) getView().findViewById(R.id.first_login_sec_setting_id_no_edit_text);
 
-        oldPwdEdit = (SWPINPadEdit) getView().findViewById(R.id.first_login_sec_setting_old_pwd_edit_text);
-        oldPwdEdit.setEncryptionType(SWPINPadEdit.SWKeyboardEncryptionTypeLogin);
+        oldPwdEdit = (EditText) getView().findViewById(R.id.first_login_sec_setting_old_pwd_edit_text);
+//        oldPwdEdit.setEncryptionType(SWPINPadEdit.SWKeyboardEncryptionTypeLogin);
 //        oldPwdEdit.setShowHighlighted(HiverApplication.getInstance().isShowHighlight);
 
-        newPwdEdit = (SWPINPadEdit) getView().findViewById(R.id.first_login_sec_setting_new_pwd_edit_text);
-        newPwdEdit.setEncryptionType(SWPINPadEdit.SWKeyboardEncryptionTypeLogin);
+        newPwdEdit = (EditText) getView().findViewById(R.id.first_login_sec_setting_new_pwd_edit_text);
+//        newPwdEdit.setEncryptionType(SWPINPadEdit.SWKeyboardEncryptionTypeLogin);
 //        newPwdEdit.setShowHighlighted(HiverApplication.getInstance().isShowHighlight);
 
-        confirmPwdEdit = (SWPINPadEdit) getView().findViewById(R.id.first_login_sec_setting_confirm_pwd_edit_text);
-        confirmPwdEdit.setEncryptionType(SWPINPadEdit.SWKeyboardEncryptionTypeLogin);
+        confirmPwdEdit = (EditText) getView().findViewById(R.id.first_login_sec_setting_confirm_pwd_edit_text);
+//        confirmPwdEdit.setEncryptionType(SWPINPadEdit.SWKeyboardEncryptionTypeLogin);
 //        confirmPwdEdit.setShowHighlighted(HiverApplication.getInstance().isShowHighlight);
 
         setOnClickListener();
@@ -92,27 +89,24 @@ public class PasswdModifyChildFragment extends BaseFragment<LoginPwdModifyContra
     }
 
     private boolean verifyParam() {
-        if (TextUtils.isEmpty(idNoEdit.getText())) {
-            UIToast.showToast(getActivity(), "请输入证件号码");
-            return false;
-        }
-        if (0 == oldPwdEdit.getPasswdLevel()) {
+
+        if (0 == oldPwdEdit.getText().toString().length()) {
             UIToast.showToast(getActivity(), "请输入原密码");
             return false;
         }
-        if (0 == newPwdEdit.getPasswdLevel()) {
+        if (0 == newPwdEdit.getText().toString().length()) {
             UIToast.showToast(getActivity(), "请输入新密码");
             return false;
         }
-        if (newPwdEdit.length() < 6 || newPwdEdit.getPasswdLevel() < 2) {
+        if (newPwdEdit.getText().toString().length() < 6 || newPwdEdit.getText().toString().length() > 20) {
             UIToast.showToast(getActivity(), "新密码长度为6-20位，必须包含字母和数字，请重新输入");
             return false;
         }
-        if (0 == confirmPwdEdit.getPasswdLevel()) {
+        if (0 == confirmPwdEdit.getText().toString().length()) {
             UIToast.showToast(getActivity(), "请再次输入新密码");
             return false;
         }
-        if (!newPwdEdit.getMD5().equalsIgnoreCase(confirmPwdEdit.getMD5())) {
+        if (!newPwdEdit.getText().toString().equalsIgnoreCase(confirmPwdEdit.getText().toString())) {
             UIToast.showToast(getActivity(), "两次输入的新密码不一致，请重新输入");
             return false;
         }

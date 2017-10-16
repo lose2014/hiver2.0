@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ui="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.hiver.ui.navigation.UINavigationBar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        ui:navigation_bar_title="忘记密码" />
+
+
+    <!-- 手机号 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/white"
+        android:orientation="horizontal">
+
+        <TextView
+            style="@style/ui_custom_input_title_style"
+            android:text="@string/forget_portal_title_1006" />
+
+        <EditText
+            android:id="@+id/forget_portal_mobile_edit_text"
+            style="@style/ui_custom_edit_text_style"
+            android:hint="@string/ui_edit_text_hint"
+            android:inputType="number"
+            android:maxLength="11" />
+    </LinearLayout>
+
+    <View style="@style/ui_custom_horizontal_splite_line_style" />
+
+    <View
+        style="@style/ui_custom_horizontal_splite_line_style"
+        android:layout_marginTop="8dp" />
+
+    <!-- 获取验证码 -->
+    <include layout="@layout/ui_view_get_sms_code" />
+
+    <View style="@style/ui_custom_horizontal_splite_line_style" />
+    <!-- 新密码 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/white"
+        android:orientation="horizontal">
+
+        <TextView
+            style="@style/ui_custom_input_title_style"
+            android:text="@string/forget_portal_title_1008" />
+
+        <EditText
+            android:id="@+id/forget_portal_new_pwd_edit_text"
+            style="@style/ui_custom_edit_text_style"
+            android:hint="@string/ui_edit_text_hint"
+            android:maxLength="20" />
+    </LinearLayout>
+
+    <View style="@style/ui_custom_horizontal_splite_line_style" />
+
+    <!-- 确定密码 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/white"
+        android:orientation="horizontal">
+
+        <TextView
+            style="@style/ui_custom_input_title_style"
+            android:text="@string/forget_portal_title_1009" />
+
+        <EditText
+            android:id="@+id/forget_portal_confirm_pwd_edit_text"
+            style="@style/ui_custom_edit_text_style"
+            android:hint="@string/ui_edit_text_hint"
+            android:maxLength="20" />
+    </LinearLayout>
+
+    <View style="@style/ui_custom_horizontal_splite_line_style" />
+    <!-- 下一步按钮 -->
+    <Button
+        android:id="@+id/forget_portal_comfirm_button"
+        style="@style/ui_custom_button_style"
+        android:layout_marginTop="14dp"
+        android:text="确定" />
+
+</LinearLayout>

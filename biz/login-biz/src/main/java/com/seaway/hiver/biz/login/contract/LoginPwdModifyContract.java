@@ -20,9 +20,9 @@ public interface LoginPwdModifyContract {
          *
          * @param oldPwd           旧密码
          * @param newPwd           新密码
-         * @param credentialType   证件类型
-         * @param credentialNumber 证件号码
+//         * @param credentialType   证件类型
+//         * @param credentialNumber 证件号码
          */
-        void requestLoginPwdModify(String oldPwd, String newPwd, String credentialType, String credentialNumber);
+        void requestLoginPwdModify(String oldPwd, String newPwd);
     }
 }

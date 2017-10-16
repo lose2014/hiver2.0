@@ -84,4 +84,14 @@ public interface ILoginDataSource extends IDataSource {
      * @return
      */
     Observable<BaseOutputVo> requestLoginPwdModify(String oldPwd, String newPwd);
+    /**
+     * 重置登录密码
+     *
+     * @param newPwdConfirm   确认密码
+     * @param newPwd           新密码
+        @param mobile   手机号
+      * @param captcha           验证码
+     * @return
+     */
+    Observable<BaseOutputVo>  requestResetPwd(String mobile,String captcha, String newPwd, String newPwdConfirm);
 }

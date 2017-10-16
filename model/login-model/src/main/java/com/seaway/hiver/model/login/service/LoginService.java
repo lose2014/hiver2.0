@@ -69,4 +69,14 @@ public interface LoginService {
      */
     @POST("/teacher/modifyPwd")
     Observable<BaseVo> requestLoginPwdModify(@Body BaseInputParam param);
+
+    /**
+     * 重置登录密码
+     *
+     * @param param
+     * @return
+     */
+    @POST("/teacher/findPwd")
+    Observable<BaseVo> requestResetPwd(@Body BaseInputParam param);
+
 }

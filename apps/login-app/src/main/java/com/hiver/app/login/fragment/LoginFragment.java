@@ -125,7 +125,7 @@ public class LoginFragment extends BaseFragment<LoginContract.Presenter> impleme
             codeEdit.setText("");
         } else if (v.getId() == R.id.login_portal_forget_text_view) {
             // 忘记密码
-//            addFragment(new ForgetFragment(), R.id.login_fragment_content, "ForgetFragment");
+            addFragment(new ForgetFragment(), R.id.login_fragment_content, "ForgetFragment");
         }
 // else if (v.getId() == R.id.login_portal_code_image_view) {
 //            // 获取图片验证码

@@ -18,6 +18,7 @@ import com.seaway.hiver.model.login.data.param.CheckUserNameParam;
 import com.seaway.hiver.model.login.data.param.LoginParam;
 import com.seaway.hiver.model.login.data.param.RequestBindDeviceManageParam;
 import com.seaway.hiver.model.login.data.param.RequestLoginPwdModifyParam;
+import com.seaway.hiver.model.login.data.param.RequestResetPwdParam;
 import com.seaway.hiver.model.login.service.LoginService;
 import com.seaway.hiver.model.login.shared.LoginSharedPreferences;
 
@@ -189,6 +190,21 @@ public class LoginDataSource extends DataSource implements ILoginDataSource {
                 })
                 .map(new ServerResponseFunc<BaseOutputVo>(BaseOutputVo.class))
                 .onErrorResumeNext(new ErrorInterceptorFunc<BaseOutputVo>())
+                .subscribeOn(Schedulers.newThread());
+    }
+
+    @Override
+    public Observable<BaseOutputVo> requestResetPwd(String mobile,String captcha, String newPwd, String newPwdConfirm) {
+        RequestResetPwdParam param = new RequestResetPwdParam(mobile,captcha, newPwd, newPwdConfirm);
+        return Observable.just(param)
+                .flatMap(new Function<RequestResetPwdParam, ObservableSource<BaseVo>>() {
+                    @Override
+                    public ObservableSource<BaseVo> apply(@NonNull RequestResetPwdParam param) throws Exception {
+                        return RetrofitClient.getInstance().create(LoginService.class).requestResetPwd( param);
+                    }
+                })
+                .map(new ServerResponseFunc<BaseOutputVo>(BaseOutputVo.class))
+                .onErrorResumeNext(new ErrorInterceptorFunc())
                 .subscribeOn(Schedulers.newThread());
     }
 }

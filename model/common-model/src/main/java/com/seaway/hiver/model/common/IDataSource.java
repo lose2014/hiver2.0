@@ -34,6 +34,18 @@ public interface IDataSource {
      */
     Observable<BaseVo> uploadCrashInfo(CrashInfoParam param);
 
+    /**
+     * 获取短信验证码
+     *
+     * @param mobile       手机号码
+     * @param businessType 业务类型
+     * @param cardId       卡号
+     * @param transAmt     交易金额
+     * @param codeId       图形验证码编号
+     * @param code         图形验证码内容
+     * @return
+     */
+    Observable<RequestSmsCodeVo> requestSmsCode(String mobile, String businessType, String cardId, String transAmt, String codeId, String code);
 
     /**
      * 上传Crash日志
