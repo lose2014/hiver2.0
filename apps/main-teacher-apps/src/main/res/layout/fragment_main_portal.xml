@@ -15,7 +15,7 @@
         android:orientation="vertical"
         app:layout_heightPercent="6%">
 
-        <TextView
+        <TextView android:id="@+id/tmain_portal_account_name"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginLeft="10dp"
@@ -39,12 +39,22 @@
             app:layout_heightPercent="24%">
 
             <android.support.v7.widget.RecyclerView
-                android:id="@+id/main_portal_recycler_view"
+                android:id="@+id/main_portal_recycler_view_ad"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_marginRight="10dp"
                 android:background="@color/grey"
+                android:visibility="gone"
                 app:layout_widthPercent="65%" />
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginRight="10dp"
+                android:background="@color/grey"
+                android:orientation="horizontal"
+                app:layout_widthPercent="65%">
+                <include layout="@layout/bank_view_banner"/>
+            </LinearLayout>
 
             <LinearLayout
                 android:layout_width="0dp"
@@ -68,7 +78,7 @@
                         android:gravity="center_vertical"
                         android:text="我的账单" />
 
-                    <TextView
+                    <TextView android:id="@+id/t_main_portal_accout_detail"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:layout_alignParentRight="true"
@@ -99,13 +109,13 @@
                         android:gravity="center"
                         android:orientation="vertical">
 
-                        <TextView
+                        <TextView android:id="@+id/tmain_portal_month_income"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:gravity="center_vertical"
                             android:text="本月收入：30元" />
 
-                        <TextView
+                        <TextView android:id="@+id/tmain_portal_account"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:gravity="center_vertical"
@@ -145,7 +155,7 @@
                         android:gravity="center_vertical"
                         android:text="我的微课" />
 
-                    <TextView
+                    <TextView android:id="@+id/t_main_portal_weke_detail"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:layout_alignParentRight="true"
@@ -157,7 +167,7 @@
                 <View style="@style/ui_custom_horizontal_splite_line_style" />
 
                 <android.support.v7.widget.RecyclerView
-                    android:id="@+id/main_portal_recycler_view2"
+                    android:id="@+id/main_portal_recycler_view_weke"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="5"
@@ -186,7 +196,7 @@
                         android:gravity="center_vertical"
                         android:text="在线答疑" />
 
-                    <TextView
+                    <TextView android:id="@+id/t_main_portal_qa_detail"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:layout_alignParentRight="true"
@@ -198,7 +208,7 @@
                 <View style="@style/ui_custom_horizontal_splite_line_style" />
 
                 <android.support.v7.widget.RecyclerView
-                    android:id="@+id/main_portal_recycler_view3"
+                    android:id="@+id/main_portal_recycler_view_qa"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="5"
@@ -234,7 +244,7 @@
                         android:gravity="center_vertical"
                         android:text="我的云课堂" />
 
-                    <TextView
+                    <TextView android:id="@+id/t_main_portal_cloud_detail"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:layout_alignParentRight="true"
@@ -246,7 +256,7 @@
                 <View style="@style/ui_custom_horizontal_splite_line_style" />
 
                 <android.support.v7.widget.RecyclerView
-                    android:id="@+id/main_portal_recycler_view4"
+                    android:id="@+id/main_portal_recycler_view_cloud_class"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="5"
@@ -275,7 +285,7 @@
                         android:gravity="center_vertical"
                         android:text="消息" />
 
-                    <TextView
+                    <TextView android:id="@+id/t_main_portal_information_detail"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:layout_alignParentRight="true"
@@ -287,7 +297,7 @@
                 <View style="@style/ui_custom_horizontal_splite_line_style" />
 
                 <android.support.v7.widget.RecyclerView
-                    android:id="@+id/main_portal_recycler_view5"
+                    android:id="@+id/main_portal_recycler_view_information"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="5"

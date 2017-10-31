@@ -17,6 +17,7 @@ import com.seaway.hiver.model.common.Util;
 import com.seaway.hiver.model.common.data.CrashParam;
 import com.seaway.hiver.model.common.data.param.CrashInfoParam;
 import com.seaway.hiver.model.common.data.vo.BaseVo;
+import com.seaway.hiver.model.common.data.vo.RequestSmsCodeVo;
 import com.seaway.hiver.model.common.service.CommonService;
 
 import java.io.File;
@@ -52,6 +53,11 @@ public  class DataSource implements IDataSource {
                 .create(CommonService.class)
                 .requestUploadPhoneLogs(new CrashParam(new Gson().toJson(param)))
                 .observeOn(Schedulers.newThread());
+    }
+
+    @Override
+    public Observable<RequestSmsCodeVo> requestSmsCode(String mobile, String businessType, String cardId, String transAmt, String codeId, String code) {
+        return null;
     }
 
 

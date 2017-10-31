@@ -5,6 +5,7 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v7.app.AppCompatActivity;
 
 
 import com.seaway.hiver.apps.common.HiverApplication;
@@ -17,7 +18,7 @@ import com.hiver.ui.dialog.UIProgressDialog;
 /**
  * Created by Leo.Chang on 2017/5/10.
  */
-public class BaseActivity<T extends IBasePresenter>  extends FragmentActivity {
+public class BaseActivity<T extends IBasePresenter>  extends AppCompatActivity {
     protected T mPresenter;
 
     protected UIProgressDialog mProgressDialog;

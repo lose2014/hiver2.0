@@ -69,13 +69,13 @@
         <activity
             android:name=".MainActivity"
             android:windowSoftInputMode="adjustResize"
-            android:configChanges="orientation|keyboardHidden"
+            android:configChanges="orientation|keyboardHidden|screenSize"
             android:screenOrientation="landscape">
         </activity>
         <activity
             android:name="com.hiver.app.login.activity.LoginActivity"
             android:windowSoftInputMode="adjustResize"
-            android:configChanges="orientation|keyboardHidden"
+            android:configChanges="orientation|keyboardHidden|screenSize"
             android:screenOrientation="landscape">
         </activity>
         <service

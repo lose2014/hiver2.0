@@ -11,24 +11,35 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.seaway.android.sdk.logger.Logger;
+import com.seaway.android.view.banner.UIBanner;
 import com.seaway.hiver.apps.common.fragment.BaseFragment;
 import com.seaway.hiver.main.teacher.apps.R;
 import com.seaway.hiver.main.teacher.apps.adapter.MainViewAdapter;
 import com.seaway.hiver.main.teacher.biz.contract.TMainContract;
 import com.seaway.hiver.main.teacher.biz.presenter.TMainPresenter;
+import com.seaway.hiver.model.common.data.vo.AdvertVo;
+import com.seaway.hiver.model.common.data.vo.LoginVo;
 import com.seaway.hiver.model.common.data.vo.QueryAdvertListVo;
 import com.seaway.hiver.model.main.teacher.data.vo.GetIconCodeVo;
 import com.tbruyelle.rxpermissions2.Permission;
 import com.tbruyelle.rxpermissions2.RxPermissions;
+import com.zhy.adapter.recyclerview.CommonAdapter;
+import com.zhy.adapter.recyclerview.MultiItemTypeAdapter;
+import com.zhy.adapter.recyclerview.base.ViewHolder;
 
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 import io.reactivex.functions.Consumer;
@@ -39,15 +50,14 @@ import io.reactivex.functions.Consumer;
  */
 public class TMainFragment extends BaseFragment<TMainContract.Presenter> implements View.OnClickListener, TMainContract.View, AdapterView.OnItemClickListener {
 
-    private RecyclerView recyclerView;
+    private RecyclerView recyclerViewAd,recyclerViewWeke,recyclerViewQA,recyclerViewCloudClass,recyclerViewInformation;
     private LinearLayoutManager mLayoutManager;
-
     private MainViewAdapter mAdapter;
 
     private int selectedViewId = -1;
-
+    List<String> mDatas;
     private RxPermissions permissions;
-
+    private UIBanner banner;
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -75,22 +85,37 @@ public class TMainFragment extends BaseFragment<TMainContract.Presenter> impleme
         super.onActivityCreated(savedInstanceState);
 
         setOnClickListener();
+        initUI();
+        QueryAdvertListVo queryAdvertListVo=null;
+        updateView(queryAdvertListVo);
+    }
 
-        // 初化 RecyclerView
-        recyclerView = (RecyclerView) getView().findViewById(R.id.main_portal_recycler_view);
-        recyclerView.setHasFixedSize(true);
-        mLayoutManager = new LinearLayoutManager(getActivity());
-        recyclerView.setLayoutManager(mLayoutManager);
-        DefaultItemAnimator animator = new DefaultItemAnimator() {
-            @Override
-            public boolean canReuseUpdatedViewHolder(RecyclerView.ViewHolder viewHolder) {
-                return true;
-            }
-        };
-        recyclerView.setItemAnimator(animator);
-
-        mAdapter = new MainViewAdapter(this, this);
-        recyclerView.setAdapter(mAdapter);
+    public void updateView(QueryAdvertListVo vo) {
+        if (null == vo) {
+            List<AdvertVo> list=new ArrayList<>();
+            AdvertVo advertVo =new AdvertVo();
+            advertVo.setContent("1111");
+            advertVo.setId("1");
+            advertVo.setIconUrl("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1508208411&di=f5256dc29ef6b48ec5f4d28e629ba2ae&imgtype=jpg&er=1&src=http%3A%2F%2F5.66825.com%2Fdownload%2Fpic%2F000%2F330%2Fcf0f6d186a2f14b9dbf1df36b271ae8c.jpg");
+            advertVo.setUrlPath("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1508208411&di=f5256dc29ef6b48ec5f4d28e629ba2ae&imgtype=jpg&er=1&src=http%3A%2F%2F5.66825.com%2Fdownload%2Fpic%2F000%2F330%2Fcf0f6d186a2f14b9dbf1df36b271ae8c.jpg");
+            list.add(advertVo);
+            AdvertVo advertVo2 =new AdvertVo();
+            advertVo2.setContent("2222");
+            advertVo2.setId("2");
+            advertVo2.setIconUrl("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1507613691076&di=66a45ea1454ab7f11fdcf549b817bc93&imgtype=0&src=http%3A%2F%2Fimgm.cnmo-img.com.cn%2Fappimg%2Fscreenpic%2Fmiddle%2F779%2F778678.jpg");
+            advertVo2.setUrlPath("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1507613691076&di=66a45ea1454ab7f11fdcf549b817bc93&imgtype=0&src=http%3A%2F%2Fimgm.cnmo-img.com.cn%2Fappimg%2Fscreenpic%2Fmiddle%2F779%2F778678.jpg");
+            list.add(advertVo2);
+            vo =new QueryAdvertListVo();
+            vo.setAdvertInfos(list);
+            banner.setIsLoop("0".equals(vo.getLoopView()));
+            banner.setDuration(Integer.parseInt(vo.getViewTime()));
+            banner.notifyDataChanged(vo.getAdvertInfos());
+//            banner.notifyDataChanged(null);
+        } else {
+            banner.setIsLoop("0".equals(vo.getLoopView()));
+            banner.setDuration(Integer.parseInt(vo.getViewTime()));
+            banner.notifyDataChanged(vo.getAdvertInfos());
+        }
     }
 
     @Override
@@ -124,29 +149,31 @@ public class TMainFragment extends BaseFragment<TMainContract.Presenter> impleme
     @Override
     public void onClick(View v) {
         this.selectedViewId = v.getId();
-//        if (v.getId() == R.id.bank_portal_bill_text) {
-//            // 账单
-//            mPresenter.checkResource("592");
-//        } else if (v.getId() == R.id.bank_portal_message_text) {
-//            // 消息
-//        } else if (v.getId() == R.id.bank_portal_scan_text) {
-//            // 扫一扫
-//            mPresenter.checkResource(String.valueOf(v.getTag(R.id.bank_resource_id)));
-//        } else if (v.getId() == R.id.bank_portal_payments_text) {
-//            // 收/付款
-//            mPresenter.checkResource(String.valueOf(v.getTag(R.id.bank_resource_id)));
-//        } else if (v.getId() == R.id.bank_portal_network_text) {
-//            // 网点
-//            mPresenter.checkResource(String.valueOf(v.getTag(R.id.bank_resource_id)));
-//        } else if (v.getId() == R.id.ui_view_banner_id) {
-//            // Banner图
-//            if (null != v.getTag(R.id.ui_view_banner_info) && v.getTag(R.id.ui_view_banner_info) instanceof AdvertVo) {
-//                AdvertVo vo = (AdvertVo) v.getTag(R.id.ui_view_banner_info);
-//                if (!TextUtils.isEmpty(vo.getUrlPath())) {
-//                    addWebViewFragment(vo.getUrlPath());
-//                }
-//            }
-//        } else if (v.getId() == R.id.bank_portal_financial_title_text) {
+        if (v.getId() == R.id.t_main_portal_accout_detail) {
+            // 账单详情
+            mPresenter.checkResource("592");
+        } else if (v.getId() == R.id.t_main_portal_cloud_detail) {
+            // 云课程更多
+        } else if (v.getId() == R.id.t_main_portal_information_detail) {
+            // 消息更多
+            mPresenter.checkResource(String.valueOf(v.getTag(R.id.bank_resource_id)));
+        } else if (v.getId() == R.id.t_main_portal_qa_detail) {
+            // 问答更多
+            mPresenter.checkResource(String.valueOf(v.getTag(R.id.bank_resource_id)));
+        } else if (v.getId() == R.id.t_main_portal_weke_detail) {
+            // 微客更多
+            mPresenter.checkResource(String.valueOf(v.getTag(R.id.bank_resource_id)));
+        } else if (v.getId() == R.id.ui_view_banner_id) {
+            // Banner图
+            if (null != v.getTag(R.id.ui_view_banner_info) && v.getTag(R.id.ui_view_banner_info) instanceof AdvertVo) {
+                AdvertVo vo = (AdvertVo) v.getTag(R.id.ui_view_banner_info);
+                if (!TextUtils.isEmpty(vo.getUrlPath())) {
+                    addWebViewFragment(vo.getUrlPath());
+                }
+            }
+        }
+//
+// else if (v.getId() == R.id.bank_portal_financial_title_text) {
 //            // 更多理财
 //            mPresenter.checkResource("150");
 //        } else if (v.getId() == R.id.bank_portal_financial_info_layout) {
@@ -286,13 +313,108 @@ public class TMainFragment extends BaseFragment<TMainContract.Presenter> impleme
 //        mPresenter.queryFinancialInfo(1);
     }
 
+    /**
+     * 初始化view
+     * */
+    private void initUI(){
+        banner = (UIBanner)  getView().findViewById(R.id.bank_portal_banner_view);
+        banner.setOnBannerClickListener(this);
+        // 初化 recyclerViewAd
+        recyclerViewAd = (RecyclerView) getView().findViewById(R.id.main_portal_recycler_view_ad);
+        recyclerViewAd.setHasFixedSize(true);
+        mLayoutManager = new LinearLayoutManager(getActivity());
+//        mLayoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
+        recyclerViewAd.setLayoutManager(mLayoutManager);
+        DefaultItemAnimator animator = new DefaultItemAnimator() {
+            @Override
+            public boolean canReuseUpdatedViewHolder(RecyclerView.ViewHolder viewHolder) {
+                return true;
+            }
+        };
+        recyclerViewAd.setItemAnimator(animator);
+
+        mAdapter = new MainViewAdapter(this, this);
+        recyclerViewAd.setAdapter(mAdapter);
+
+        mDatas =new ArrayList<>();
+        mDatas.add("第一次");
+        mDatas.add("第二次");
+        List<LoginVo> loginVos =new ArrayList<>();
+        for(int i=0;i<6;i++){
+            LoginVo loginVo =new LoginVo();
+            loginVo.setMobile("1810838"+i+"电话呀");
+            loginVos.add(loginVo);
+        }
+
+        recyclerViewWeke =(RecyclerView) getView().findViewById(R.id.main_portal_recycler_view_weke);
+        recyclerViewWeke.setHasFixedSize(true);
+        recyclerViewWeke.setLayoutManager(new StaggeredGridLayoutManager(2,
+                StaggeredGridLayoutManager.VERTICAL));
+        recyclerViewWeke.setItemAnimator(animator);
+
+        recyclerViewCloudClass =(RecyclerView) getView().findViewById(R.id.main_portal_recycler_view_cloud_class);
+        recyclerViewCloudClass.setHasFixedSize(true);
+        recyclerViewCloudClass.setLayoutManager(new StaggeredGridLayoutManager(2,
+                StaggeredGridLayoutManager.VERTICAL));
+        recyclerViewCloudClass.setItemAnimator(animator);
+
+        recyclerViewQA =(RecyclerView) getView().findViewById(R.id.main_portal_recycler_view_qa);
+        recyclerViewQA.setHasFixedSize(true);
+        recyclerViewQA.setLayoutManager(new LinearLayoutManager(getActivity()));
+        recyclerViewQA.setItemAnimator(animator);
+        recyclerViewQA.setAdapter(new CommonAdapter<LoginVo>(getActivity(),R.layout.t_main_information_view,loginVos) {
+            @Override
+            protected void convert(ViewHolder holder,final LoginVo loginVo, int position) {
+                holder.setText(R.id.t_mian_item_content_tv,loginVo.getMobile());
+                holder.getConvertView().setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Toast.makeText(getActivity(),loginVo.getMobile(),Toast.LENGTH_SHORT).show();
+                    }
+                });
+            }
+        });
+
+        recyclerViewInformation =(RecyclerView) getView().findViewById(R.id.main_portal_recycler_view_information);
+        recyclerViewInformation.setHasFixedSize(true);
+        recyclerViewInformation.setLayoutManager(new LinearLayoutManager(getActivity()));
+        recyclerViewInformation.setItemAnimator(animator);
+        recyclerViewInformation.setAdapter(new CommonAdapter<String>(getActivity(),R.layout.t_main_information_view,mDatas) {
+            @Override
+            protected void convert(ViewHolder holder, String s, int position) {
+
+            }
+        });
+
+        recyclerViewCloudClass.setAdapter(new CommonAdapter<String>(getActivity(),R.layout.t_main_weike_view,mDatas) {
+            @Override
+            protected void convert(ViewHolder holder, String s, final int position) {
+                holder.setText(R.id.textView1,s);
+                holder.getConvertView().setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Toast.makeText(getActivity(),mDatas.get(position),Toast.LENGTH_SHORT).show();
+//                        addData();
+                    }
+                });
+            }
+        });
+    }
+
+//    private void addData(){
+//        mDatas.add("第三次");
+//        recyclerViewCloudClass.getAdapter().notifyDataSetChanged();
+//    }
 
     /**
      * 设置点击事件监听
      */
     private void setOnClickListener() {
-//        getView().findViewById(R.id.bank_portal_bill_text).setOnClickListener(this);
-//        getView().findViewById(R.id.bank_portal_message_text).setOnClickListener(this);
+        getView().findViewById(R.id.t_main_portal_accout_detail).setOnClickListener(this);
+        getView().findViewById(R.id.t_main_portal_cloud_detail).setOnClickListener(this);
+        getView().findViewById(R.id.t_main_portal_information_detail).setOnClickListener(this);
+        getView().findViewById(R.id.t_main_portal_qa_detail).setOnClickListener(this);
+        getView().findViewById(R.id.t_main_portal_weke_detail).setOnClickListener(this);
     }
 
     private void execute() {

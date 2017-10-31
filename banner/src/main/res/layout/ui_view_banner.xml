@@ -19,12 +19,14 @@
 
     <RadioGroup
         android:id="@+id/ui_view_banner_flag_group"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
+        android:gravity="center"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="4dp"
         android:orientation="horizontal"
-        android:visibility="gone"></RadioGroup>
+        android:visibility="gone">
+    </RadioGroup>
 
 </merge>

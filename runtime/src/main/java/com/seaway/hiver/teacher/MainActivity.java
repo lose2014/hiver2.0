@@ -15,6 +15,7 @@ import com.seaway.hiver.apps.common.util.BackPressedHandler;
 import com.seaway.hiver.main.teacher.apps.fragment.THelpFragment;
 import com.seaway.hiver.main.teacher.apps.fragment.TMainFragment;
 import com.seaway.hiver.teacher.util.VoiceUtil;
+import com.xiao.nicevideoplayer.NiceVideoPlayerManager;
 
 public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedChangeListener{
     private int selectId;
@@ -87,6 +88,9 @@ public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedCh
 
     @Override
     public void onBackPressed() {
+        // 在全屏或者小窗口时按返回键要先退出全屏或小窗口，
+        // 所以在Activity中onBackPress要交给NiceVideoPlayer先处理。
+        if (NiceVideoPlayerManager.instance().onBackPressd()) return;
         if (1 == mFragmentManager.getBackStackEntryCount()) {
             // 如果栈中只有1个Fragment，则说明在登录界面，点击退出登录界面
             finish();

@@ -40,7 +40,7 @@
                     android:drawableTop="@drawable/ui_light_open"
                     android:gravity="center"
                     android:textColor="@color/white"
-                    android:paddingTop="20dp"
+                    android:paddingTop="10dp"
                     android:text="首页" />
 
                 <RadioButton
@@ -51,7 +51,7 @@
                     android:drawableTop="@drawable/ui_light_open"
                     android:gravity="center"
                     android:textColor="@color/white"
-                    android:paddingTop="20dp"
+                    android:paddingTop="10dp"
                     android:text="设置" />
 
                 <RadioButton
@@ -61,7 +61,7 @@
                     android:button="@null"
                     android:drawableTop="@drawable/ui_light_open"
                     android:gravity="center"
-                    android:paddingTop="20dp"
+                    android:paddingTop="10dp"
                     android:textColor="@color/white"
                     android:text="帮助" />
             </RadioGroup>

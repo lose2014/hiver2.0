@@ -68,7 +68,7 @@ public class THelpFragment extends BaseFragment<TMainContract.Presenter> impleme
         setOnClickListener();
 
         // 初化 RecyclerView
-        recyclerView = (RecyclerView) getView().findViewById(R.id.main_portal_recycler_view);
+        recyclerView = (RecyclerView) getView().findViewById(R.id.main_portal_recycler_view_ad);
         recyclerView.setHasFixedSize(true);
         mLayoutManager = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(mLayoutManager);
