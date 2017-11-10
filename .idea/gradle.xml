@@ -26,6 +26,7 @@
             <option value="$PROJECT_DIR$/model/login-model" />
             <option value="$PROJECT_DIR$/model/main-teacher-model" />
             <option value="$PROJECT_DIR$/model/version-check-model" />
+            <option value="$PROJECT_DIR$/nicevideoplayer" />
             <option value="$PROJECT_DIR$/runtime" />
           </set>
         </option>
