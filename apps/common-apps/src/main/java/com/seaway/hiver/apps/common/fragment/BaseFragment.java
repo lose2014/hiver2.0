@@ -297,7 +297,7 @@ public class BaseFragment<T extends IBasePresenter> extends Fragment implements 
      */
     protected void addFragment(Fragment fragment, String tag) {
         FragmentTransaction t = mFragmentManager.beginTransaction();
-        t.hide(this).add(R.id.portal_fragment_content_layout, fragment, tag);
+        t.hide(this).add(R.id.main_fragment_content, fragment, tag);
         t.addToBackStack(tag);
         t.commit();
     }
@@ -315,7 +315,7 @@ public class BaseFragment<T extends IBasePresenter> extends Fragment implements 
             bundle.putString("url", url);
             fragment.setArguments(bundle);
             FragmentTransaction t = mFragmentManager.beginTransaction();
-            t.hide(this).add(R.id.portal_fragment_content_layout, fragment, "UIWebViewFragment");
+            t.hide(this).add(R.id.main_fragment_content, fragment, "UIWebViewFragment");
             t.addToBackStack("UIWebViewFragment");
             t.commit();
         } catch (Exception e) {

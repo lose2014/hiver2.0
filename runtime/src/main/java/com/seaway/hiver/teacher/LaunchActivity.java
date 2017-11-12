@@ -58,7 +58,6 @@ import io.reactivex.schedulers.Schedulers;
 
 public class LaunchActivity extends BaseActivity implements ICheckVersionListener {
     private String mPath = Environment.getExternalStorageDirectory().getPath()+ "/hiver";
-    private String[] urls=new String[]{"https://www.4008889112.com:18087","https://www.4008889112.com:18088","https://www.4008889112.cn:18087"};
     private int i=0;
 
     private EditText nameEt,passWordEt;
@@ -138,53 +137,6 @@ public class LaunchActivity extends BaseActivity implements ICheckVersionListene
         }
     }
 
-    /**
-     * 检测哪个服务端地址可用
-     */
-    private void checkNetWork(final String url){
-            Logger.e(url+"连接中..."+i);
-            Util.isNetWorkAvailableOfGet(url, new Comparable<Boolean>() {
-                @Override
-                public int compareTo(@NonNull Boolean available) {
-                    Logger.e(url+"连接返回..."+available);
-                    if (available) {// 设备访问Internet正常
-                        Logger.e(url+"可用");
-                        Util.setTxt(url);
-                        NetUtil.setWebViewUrl(url);
-                        checkVersion();
-                    } else {// 设备无法访问Internet
-                        if(i<urls.length) {
-                            if (!urls[i].equals(url)) {
-                                i++;
-                                checkNetWork(urls[i - 1]);
-                            } else {
-                                i++;
-                                if(i!=urls.length) {
-                                    checkNetWork(urls[i]);
-                                }else{
-                                    Logger.e(i+"结束？");
-                                    UIDefaultDialogHelper.showDefaultAlert(LaunchActivity.this, "您的网络差，建议更换网络后重试！", new View.OnClickListener() {
-                                        @Override
-                                        public void onClick(View v) {
-                                            finish();
-                                        }
-                                    });
-                                }
-                            }
-                        }else{
-                            Logger.e(i+"结束？");
-                            UIDefaultDialogHelper.showDefaultAlert(LaunchActivity.this, "您的网络差，建议更换网络后重试！", new View.OnClickListener() {
-                                @Override
-                                public void onClick(View v) {
-                                    finish();
-                                }
-                            });
-                        }
-                    }
-                    return 0;
-                }
-            });
-    }
 
     public boolean clear(){
         ActivityManager am = (ActivityManager) getSystemService(Context.ACTIVITY_SERVICE);

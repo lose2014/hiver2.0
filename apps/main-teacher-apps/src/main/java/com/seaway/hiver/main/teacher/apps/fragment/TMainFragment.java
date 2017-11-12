@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
@@ -148,10 +149,11 @@ public class TMainFragment extends BaseFragment<TMainContract.Presenter> impleme
 
     @Override
     public void onClick(View v) {
-        this.selectedViewId = v.getId();
+        this.selectedViewId = v.getId();;
         if (v.getId() == R.id.t_main_portal_accout_detail) {
             // 账单详情
-            mPresenter.checkResource("592");
+//            mPresenter.checkResource("592");
+            addFragment(new TMyAcountFragment(),"myaccount");
         } else if (v.getId() == R.id.t_main_portal_cloud_detail) {
             // 云课程更多
         } else if (v.getId() == R.id.t_main_portal_information_detail) {
@@ -163,14 +165,6 @@ public class TMainFragment extends BaseFragment<TMainContract.Presenter> impleme
         } else if (v.getId() == R.id.t_main_portal_weke_detail) {
             // 微客更多
             mPresenter.checkResource(String.valueOf(v.getTag(R.id.bank_resource_id)));
-        } else if (v.getId() == R.id.ui_view_banner_id) {
-            // Banner图
-            if (null != v.getTag(R.id.ui_view_banner_info) && v.getTag(R.id.ui_view_banner_info) instanceof AdvertVo) {
-                AdvertVo vo = (AdvertVo) v.getTag(R.id.ui_view_banner_info);
-                if (!TextUtils.isEmpty(vo.getUrlPath())) {
-                    addWebViewFragment(vo.getUrlPath());
-                }
-            }
         }
 //
 // else if (v.getId() == R.id.bank_portal_financial_title_text) {

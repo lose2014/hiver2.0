@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.android.percent.support.PercentLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:ui="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/ui_portal_background"
+    android:orientation="vertical">
+
+    <com.hiver.ui.navigation.UINavigationBar
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_heightPercent="6%"
+        ui:navigation_bar_title="我的账单" />
+    <com.zhy.android.percent.support.PercentLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        app:layout_heightPercent="6%">
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"></View>
+        <Button
+            android:layout_width="0dp"
+            android:layout_weight="3"
+            android:text="账户余额：309元"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            app:layout_marginBottomPercent="20%"
+            app:layout_marginTopPercent="20%"
+            app:layout_marginRightPercent="2%"/>
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="3"
+            android:gravity="center_vertical"
+            android:text="本月收入：100元"
+            app:layout_marginBottomPercent="20%"
+            app:layout_marginTopPercent="20%" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="15"></View>
+    </com.zhy.android.percent.support.PercentLinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/main_portal_recycler_view_account"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </LinearLayout>
+</com.zhy.android.percent.support.PercentLinearLayout>
