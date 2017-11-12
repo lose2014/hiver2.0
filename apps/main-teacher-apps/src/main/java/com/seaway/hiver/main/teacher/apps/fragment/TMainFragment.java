@@ -161,10 +161,12 @@ public class TMainFragment extends BaseFragment<TMainContract.Presenter> impleme
             mPresenter.checkResource(String.valueOf(v.getTag(R.id.bank_resource_id)));
         } else if (v.getId() == R.id.t_main_portal_qa_detail) {
             // 问答更多
-            mPresenter.checkResource(String.valueOf(v.getTag(R.id.bank_resource_id)));
+            addFragment(new TQAFragment(),"myweke");
+//            mPresenter.checkResource(String.valueOf(v.getTag(R.id.bank_resource_id)));
         } else if (v.getId() == R.id.t_main_portal_weke_detail) {
             // 微客更多
-            mPresenter.checkResource(String.valueOf(v.getTag(R.id.bank_resource_id)));
+            addFragment(new TMyWeKeFragment(),"myweke");
+//            mPresenter.checkResource(String.valueOf(v.getTag(R.id.bank_resource_id)));
         }
 //
 // else if (v.getId() == R.id.bank_portal_financial_title_text) {

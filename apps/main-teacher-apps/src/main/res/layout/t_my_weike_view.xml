@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_margin="10dp">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:textColor="@color/white"
+        android:background="@color/orange_bg"
+        android:textSize="12sp"
+        android:text="三年级 语文"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:paddingBottom="5dp"
+        android:paddingTop="5dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/t_my_weke_title_view"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:layout_marginLeft="10dp"
+            android:text="语文特训班之积累课(1)" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/orange_bg"
+            android:textColor="@color/white"
+            android:paddingLeft="3dp"
+            android:paddingRight="3dp"
+            android:layout_marginLeft="5dp"
+            android:textSize="10sp"
+            android:text="￥:5" />
+            <View
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"></View>
+        <TextView android:id="@+id/t_my_weke_load_view"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="下架"
+            android:gravity="center_vertical"
+            android:layout_marginRight="10dp"
+            android:textColor="@color/font_red"/>
+        <TextView android:id="@+id/t_my_weke_change_view"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="编辑"
+            android:gravity="center_vertical"
+            android:layout_marginRight="10dp"
+            android:textColor="@color/blue_txt"/>
+
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/gray"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_margin="10dp"
+        android:layout_marginRight="0dp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/weike_img_iv"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="3"
+            android:scaleType="fitXY"
+            android:src="@drawable/loading_bg" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="2"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:paddingBottom="5dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingTop="5dp"
+                android:text="介绍微课介绍微课介绍微课介绍微课介绍微课介绍微课介绍微课介绍微课"
+                android:textColor="@color/black_txt"
+                android:textSize="13sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:gravity="right|center_vertical"
+                android:textSize="12sp"
+                android:singleLine="true"
+                android:text="2017-03-13 12:12:12"/>
+        </LinearLayout>
+
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/gray"/>
+</LinearLayout>

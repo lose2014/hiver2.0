@@ -1,31 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-              android:layout_width="match_parent"
-              android:layout_height="wrap_content"
-              android:orientation="vertical">
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
 
     <View
         android:layout_width="match_parent"
         android:layout_height="8dp"
-        android:background="#f1f1f1"/>
+        android:background="#f1f1f1" />
+
     <com.zhy.android.percent.support.PercentLinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="horizontal">
+
         <com.xiao.nicevideoplayer.NiceVideoPlayer
             android:id="@+id/nice_video_player"
             android:layout_width="0dp"
-            app:layout_widthPercent="64%w"
-            app:layout_heightPercent="36%w"
-            android:layout_height="0dp"/>
-        <TextView
             android:layout_height="0dp"
-            android:layout_width="0dp"
-            app:layout_widthPercent="36%w"
             app:layout_heightPercent="36%w"
+            app:layout_widthPercent="64%w" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
             android:gravity="center"
-            android:text="我的个天啊"/>
+            android:text="我的个天啊"
+            app:layout_heightPercent="36%w"
+            app:layout_widthPercent="36%w" />
     </com.zhy.android.percent.support.PercentLinearLayout>
 
 </LinearLayout>

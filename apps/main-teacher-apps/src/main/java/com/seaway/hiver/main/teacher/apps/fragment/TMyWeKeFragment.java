@@ -9,6 +9,7 @@ import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -32,10 +33,10 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * 首界面
+ * w我的微课界面
  * Created by Leo.Chang on 2017/5/10.
  */
-public class TMyAcountFragment extends BaseFragment<TMainContract.Presenter> implements View.OnClickListener, TMainContract.View, AdapterView.OnItemClickListener {
+public class TMyWeKeFragment extends BaseFragment<TMainContract.Presenter> implements View.OnClickListener, TMainContract.View, AdapterView.OnItemClickListener {
 
     private RecyclerView recyclerView;
     private LinearLayoutManager mLayoutManager;
@@ -65,13 +66,12 @@ public class TMyAcountFragment extends BaseFragment<TMainContract.Presenter> imp
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_main_tmyaccountl, container, false);
+        return inflater.inflate(R.layout.fragement_my_weike, container, false);
     }
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-
         setOnClickListener();
         DefaultItemAnimator animator = new DefaultItemAnimator() {
             @Override
@@ -85,23 +85,29 @@ public class TMyAcountFragment extends BaseFragment<TMainContract.Presenter> imp
             loginVo.setMobile("张"+i+"买了课程"+i);
             loginVos.add(loginVo);
         }
+
         // 初化 RecyclerView
-        recyclerView = (RecyclerView) getView().findViewById(R.id.main_portal_recycler_view_account);
+        recyclerView = (RecyclerView) getView().findViewById(R.id.t_my_weke_recycler_view);
         recyclerView.setHasFixedSize(true);
-        recyclerView.addItemDecoration(new DividerItemDecoration(getActivity(),
-                DividerItemDecoration.VERTICAL));
-        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        recyclerView.setLayoutManager(new StaggeredGridLayoutManager(2,
+                StaggeredGridLayoutManager.VERTICAL));
         recyclerView.setItemAnimator(animator);
-        recyclerView.setAdapter(new CommonAdapter<LoginVo>(getActivity(),R.layout.t_main_account_view,loginVos) {
+        List<String> mDatas =new ArrayList<>();
+        mDatas.add("第一次");
+        mDatas.add("第二次");
+        mDatas.add("第一次");
+        mDatas.add("第二次");
+        mDatas.add("第一次");
+        recyclerView.setAdapter(new CommonAdapter<String>(getActivity(),R.layout.t_my_weike_view,mDatas) {
             @Override
-            protected void convert(ViewHolder holder, final LoginVo loginVo, int position) {
-                holder.setText(R.id.t_mian_item_content_tv,loginVo.getMobile());
-                holder.getConvertView().setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        Toast.makeText(getActivity(),loginVo.getMobile(),Toast.LENGTH_SHORT).show();
-                    }
-                });
+            protected void convert(ViewHolder holder, final String loginVo, int position) {
+//                holder.setText(R.id.t_mian_item_content_tv,loginVo.getMobile());
+//                holder.getConvertView().setOnClickListener(new View.OnClickListener() {
+//                    @Override
+//                    public void onClick(View v) {
+//                        Toast.makeText(getActivity(),loginVo.getMobile(),Toast.LENGTH_SHORT).show();
+//                    }
+//                });
             }
         });
     }
@@ -110,6 +116,17 @@ public class TMyAcountFragment extends BaseFragment<TMainContract.Presenter> imp
     public void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
         outState.putInt("selectedViewId", selectedViewId);
+    }
+    /**
+     * 设置点击事件监听
+     */
+    private void setOnClickListener() {
+        getView().findViewById(R.id.ui_navigation_bar_back_button).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mFragmentManager.popBackStack();
+            }
+        });
     }
 
     @Override
@@ -125,6 +142,11 @@ public class TMyAcountFragment extends BaseFragment<TMainContract.Presenter> imp
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
+//        if (requestCode == QrCodeScannerActivity.SCAN_QR_CODE_REQUEST_CODE) {
+//            if (resultCode == QrCodeScannerActivity.SCANCODE_RESULT_CODE && null != data) {
+//                addWebViewFragment(NetUtil.web_view_path + "/scan/pay?qrCodeResult=" + data.getStringExtra("Barcode"));
+//            }
+//        }
     }
 
     @Override
@@ -141,7 +163,8 @@ public class TMyAcountFragment extends BaseFragment<TMainContract.Presenter> imp
 
     @Override
     public void showPortal(@NonNull Map<Integer, Object> dataSource) {
-
+//        mAdapter.setDataSource(dataSource);
+//        mAdapter.notifyDataSetChanged();
     }
 
     @Override
@@ -195,19 +218,6 @@ public class TMyAcountFragment extends BaseFragment<TMainContract.Presenter> imp
     public void queryFinancialInCacheSuccess(GetIconCodeVo financial) {
         // 先显示缓存数据，再去服务器获取新的数据
 
-    }
-
-
-    /**
-     * 设置点击事件监听
-     */
-    private void setOnClickListener() {
-        getView().findViewById(R.id.ui_navigation_bar_back_button).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mFragmentManager.popBackStack();
-            }
-        });
     }
 
     private void execute() {

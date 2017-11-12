@@ -17,7 +17,7 @@ import com.seaway.hiver.main.teacher.apps.fragment.TMainFragment;
 import com.seaway.hiver.teacher.util.VoiceUtil;
 import com.xiao.nicevideoplayer.NiceVideoPlayerManager;
 
-public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedChangeListener{
+public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedChangeListener,View.OnClickListener{
     private int selectId;
     // 首页
     RadioButton portalRadio;
@@ -52,10 +52,14 @@ public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedCh
         //通过findViewById()来找到我们需要的RadioGroup
         RadioGroup radioGroup = (RadioGroup) findViewById(R.id.rg);
         //设置状态改变的事件
-        radioGroup.setOnCheckedChangeListener(this);
+//        radioGroup.setOnCheckedChangeListener(this);
+
         portalRadio =(RadioButton) findViewById(R.id.tmain_portal_radioButton_portal);
         settingRadio =(RadioButton) findViewById(R.id.tmain_portal_radioButton_setting);
         helpRadio =(RadioButton) findViewById(R.id.tmain_portal_radioButton_help);
+        portalRadio.setOnClickListener(this);
+        settingRadio.setOnClickListener(this);
+        helpRadio.setOnClickListener(this);
     }
 
     private void transferFragment(){
@@ -112,6 +116,21 @@ public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedCh
             return;
         }
         this.selectId = checkedId;
+        // 切换界面
+        transferFragment();
+    }
+
+    @Override
+    public void onClick(View v) {
+        //根据不同ID 弹出不同的吐司
+        if (this.selectId == v.getId()) {
+            Logger.e("-----------"+mFragmentManager.getBackStackEntryCount());
+            if (mFragmentManager.getBackStackEntryCount() > 1) {
+                mFragmentManager.popBackStack("portal", 0);
+            }
+            return;
+        }
+        this.selectId = v.getId();
         // 切换界面
         transferFragment();
     }
