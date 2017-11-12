@@ -30,4 +30,5 @@ dependencies {
     compile project(':biz:common-biz')
     compile project(path: ':apps:ui')
     compile project(':biz:BankQrCode')
+    compile project(':nicevideoplayer')
 }

@@ -47,5 +47,9 @@ ext {
 
     // 公用库版本
     recyclerview = 'com.android.support:recyclerview-v7:25.+'
+    espresso = "com.android.support.test.espresso:espresso-core:2.2.2"
+    glide= "com.github.bumptech.glide:glide:3.7.0"
+    // 测试
+    junit ="junit:junit:4.12"
 }
 
