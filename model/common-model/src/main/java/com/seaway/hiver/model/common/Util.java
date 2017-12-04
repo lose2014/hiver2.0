@@ -45,6 +45,19 @@ public class Util {
     /**
      * 转换请求参数
      *
+     * @param t        请求参数
+     * @param <T>      请求参数类型
+     * @return
+     */
+    public static <T> BankBaseParam<T> transformat( T t) {
+        String json = new Gson().toJson(t);
+        Logger.i( "param is : " + json);
+        return new BankBaseParam<T>(t);
+    }
+
+    /**
+     * 转换请求参数
+     *
      * @param methodId 请求方法名
      * @param t        请求参数
      * @return

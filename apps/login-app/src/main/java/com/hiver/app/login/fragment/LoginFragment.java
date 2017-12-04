@@ -6,6 +6,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
@@ -122,7 +123,7 @@ public class LoginFragment extends BaseFragment<LoginContract.Presenter> impleme
 
             mPresenter.login(mobileEdit.getText().toString(), pwdEdit.getText().toString());
 //            pwdEdit.clear();
-            codeEdit.setText("");
+//            codeEdit.setText("");
         } else if (v.getId() == R.id.login_portal_forget_text_view) {
             // 忘记密码
             addFragment(new ForgetFragment(), R.id.login_fragment_content, "ForgetFragment");
@@ -184,8 +185,16 @@ public class LoginFragment extends BaseFragment<LoginContract.Presenter> impleme
 //            getActivity().finish();
 //            return;
 //        }
-        HiverApplication.getInstance().hasLogin = false;
+        HiverApplication.getInstance().hasLogin = true;
         HiverApplication.getInstance().loginVo = loginVo;
+        try {
+            Class cls = Class.forName("com.seaway.hiver.teacher.MainActivity");
+            Intent intent = new Intent(getActivity(),cls);
+            startActivity(intent);
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+
 //        if ("0".equalsIgnoreCase(loginVo.getPwdState()) && "0".equalsIgnoreCase(loginVo.getDeviceBindFlag())) {
 //            // 如果设备未绑定，且是初始密码，则跳转到首次登录界面
 //            FirstLoginSecSettingFragment fragment = new FirstLoginSecSettingFragment();

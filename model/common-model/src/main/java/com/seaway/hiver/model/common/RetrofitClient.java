@@ -58,7 +58,7 @@ public class RetrofitClient extends BaseRetrofit {
 //        return "http://ebao.seaway.net.cn:18600/phoneVersions/";//银客多测试地址
 //        if(SWVerificationUtil.isEmpty(Util.readFromPath())||"https://www.4008889112.cn:18087".equals(Util.readFromPath())){
 //            return "https://www.4008889112.cn:18087/phoneVersions/";//正式地址
-            return NetUtil.web_view_path+"/phoneVersions/";
+            return NetUtil.web_view_path;
 ////            return "http://ebao.seaway.net.cn:18600/quickeasy-terminal/phoneVersions/";
 //        }else{
 //            return  Util.readFromPath()+"/phoneVersions/";//存储地址
@@ -116,6 +116,8 @@ public class RetrofitClient extends BaseRetrofit {
                         .addHeader("accessToken", null == Application.getInstance().loginVo ? "" : Application.getInstance().loginVo.getAccessToken())
                         // 推送编号
                         .addHeader("pushId", deviceId)
+                        // 推送编号
+                        .addHeader("channelCode", deviceId)
                         .build();
 
                 return chain.proceed(request);

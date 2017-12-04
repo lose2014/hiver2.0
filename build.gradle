@@ -46,7 +46,7 @@ ext {
     versionName = "1.0.0.0"
 
     // 公用库版本
-    recyclerview = 'com.android.support:recyclerview-v7:25.+'
+    recyclerview = "com.android.support:recyclerview-v7:25.+"
     espresso = "com.android.support.test.espresso:espresso-core:2.2.2"
     glide= "com.github.bumptech.glide:glide:3.7.0"
     // 测试

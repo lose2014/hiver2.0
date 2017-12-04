@@ -50,6 +50,7 @@ public class LoginPresenter extends BasePresenter<LoginContract.View, ILoginData
 
                     @Override
                     public void onNext(@NonNull LoginVo loginVo) {
+                        Logger.e("登录成功");
                         // 登录成功
                         mView.loginSuccess(loginVo);
                         // 记录登录信息

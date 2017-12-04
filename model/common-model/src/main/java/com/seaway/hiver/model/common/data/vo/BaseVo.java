@@ -1,5 +1,7 @@
 package com.seaway.hiver.model.common.data.vo;
 
+
+
 /**
  * Created by Leo.Chang on 2017/5/16.
  */
@@ -8,7 +10,7 @@ public class BaseVo {
     private String respCode;
     private String respMsg;
     private String output;
-    private CheckVersionVo entity;
+    private Object entity;
     private Boolean succ;
     private String errorObj;
     private String checkSign;
@@ -39,11 +41,11 @@ public class BaseVo {
         this.errorObj = errorObj;
     }
 
-    public CheckVersionVo getEntity() {
+    public Object getEntity() {
         return entity;
     }
 
-    public void setEntity(CheckVersionVo entity) {
+    public void setEntity(Object entity) {
         this.entity = entity;
     }
 

@@ -19,7 +19,6 @@
       <module fileurl="file://$PROJECT_DIR$/model/main-teacher-model/main-teacher-model.iml" filepath="$PROJECT_DIR$/model/main-teacher-model/main-teacher-model.iml" />
       <module fileurl="file://$PROJECT_DIR$/model/model.iml" filepath="$PROJECT_DIR$/model/model.iml" />
       <module fileurl="file://$PROJECT_DIR$/nicevideoplayer/nicevideoplayer.iml" filepath="$PROJECT_DIR$/nicevideoplayer/nicevideoplayer.iml" />
-      <module fileurl="file://$PROJECT_DIR$/nicevideoplayer/nicevideoplayer.iml" filepath="$PROJECT_DIR$/nicevideoplayer/nicevideoplayer.iml" />
       <module fileurl="file://$PROJECT_DIR$/runtime/runtime.iml" filepath="$PROJECT_DIR$/runtime/runtime.iml" />
       <module fileurl="file://$PROJECT_DIR$/apps/ui/ui.iml" filepath="$PROJECT_DIR$/apps/ui/ui.iml" />
       <module fileurl="file://$PROJECT_DIR$/apps/version-check-app/version-check-app.iml" filepath="$PROJECT_DIR$/apps/version-check-app/version-check-app.iml" />

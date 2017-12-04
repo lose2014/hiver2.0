@@ -113,6 +113,9 @@
     public *;
 }
 
+-dontwarn com.xiao.**
+-keep class com.xiao.nicevideoplayer.** { *;}
+
 #pos设备打印混淆
 -dontwarn com.nexgo.oaf.apiv3.**
 -keep class com.nexgo.oaf.apiv3.** { *;}

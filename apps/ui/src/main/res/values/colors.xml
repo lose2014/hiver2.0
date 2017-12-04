@@ -5,10 +5,13 @@
 
     <!-- 主页底背景色 -->
     <color name="ui_portal_background">#f7f7f7</color>
+    <!-- 首页底背景色 -->
+    <color name="ui_portal_main_background">#EEEEEE</color>
+    <!-- 首页蓝色字体 -->
+    <color name="ui_portal_blue_txt">#0291FF</color>
 
     <!-- 导航栏背景色 -->
     <color name="ui_navigation_bar_background_color">#4a7ac0</color>
-
     <!-- 分割线颜色 -->
     <color name="ui_splite_line_color">#DCDCDC</color>
 
@@ -30,6 +33,8 @@
 
     <!-- 列表左边标题颜色 -->
     <color name="text_left_color">#999999</color>
+    <!-- 首页列表时间颜色 -->
+    <color name="portal_text_time_color">#8A8A8A</color>
     <!-- 列表右边内容颜色 -->
     <color name="text_right_color">#666666</color>
     <!-- 分割线颜色 -->

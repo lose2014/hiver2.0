@@ -1,5 +1,6 @@
 package com.seaway.hiver.teacher;
 
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.annotation.IdRes;
 import android.support.v4.app.FragmentManager;
@@ -68,6 +69,9 @@ public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedCh
             mFragmentTransaction = mFragmentManager.beginTransaction();
             BaseFragment baseFragment =null;
             if (selectId==R.id.tmain_portal_radioButton_portal){
+                Drawable dra= getResources().getDrawable(R.drawable.icon_portal_click);
+                dra.setBounds( 0, 0, dra.getMinimumWidth(),dra.getMinimumHeight());
+                portalRadio.setCompoundDrawables(null,dra,null,null);
                 baseFragment = new TMainFragment();
             }else if (selectId==R.id.tmain_portal_radioButton_setting){
                 baseFragment = new THelpFragment();

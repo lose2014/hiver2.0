@@ -8,8 +8,8 @@ import com.seaway.android.sdk.toolkit.SWVerificationUtil;
 
 public class NetUtil {
 //    public static String web_view_path = "http://192.168.32.93:28600/#";
-    public static String web_view_path = "http://121.199.44.229:18410/";
-//      public static String web_view_path = "https://terminal.4008889112.cn:18087";//正式环境测试
+    public static String web_view_path = "http://121.199.44.229:18400/";
+//      public static String web_view_path = "https://terminal.4008889112.cn:18087";//正式环境测试http://121.199.44.229:18400
 
 
 

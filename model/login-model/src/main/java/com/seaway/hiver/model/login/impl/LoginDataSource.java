@@ -3,6 +3,7 @@ package com.seaway.hiver.model.login.impl;
 import android.text.TextUtils;
 
 import com.google.gson.Gson;
+import com.seaway.android.sdk.logger.Logger;
 import com.seaway.hiver.model.common.RetrofitClient;
 import com.seaway.hiver.model.common.Util;
 import com.seaway.hiver.model.common.data.param.BaseInputParam;
@@ -43,15 +44,15 @@ public class LoginDataSource extends DataSource implements ILoginDataSource {
     @Override
     public Observable<LoginVo> login(String user, String pwd) {
         LoginParam param = new LoginParam();
-        param.setUserName(user);
-        param.setLoginPasswd(pwd);
+        param.setUsername(user);
+        param.setPassword(pwd);
 
         return Observable.just(param)
                 .flatMap(new Function<LoginParam, ObservableSource<BaseVo>>() {
                     @Override
                     public ObservableSource<BaseVo> apply(@NonNull LoginParam loginParam) throws Exception {
 //                        return RetrofitClient.getInstance().create(LoginService.class).login(Util.transformat("requestUserLogin", loginParam));
-                        return RetrofitClient.getInstance().create(LoginService.class).login(loginParam);
+                        return RetrofitClient.getInstance().create(LoginService.class).login(Util.transformat(loginParam));
                     }
                 })
                 .map(new ServerResponseFunc<LoginVo>(LoginVo.class))

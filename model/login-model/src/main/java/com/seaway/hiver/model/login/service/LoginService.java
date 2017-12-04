@@ -4,6 +4,7 @@ package com.seaway.hiver.model.login.service;
 import com.seaway.hiver.model.common.data.param.BankBaseParam;
 import com.seaway.hiver.model.common.data.param.BaseInputParam;
 import com.seaway.hiver.model.common.data.vo.BaseVo;
+import com.seaway.hiver.model.login.data.param.LoginParam;
 
 import io.reactivex.Observable;
 import retrofit2.http.Body;
@@ -21,7 +22,7 @@ public interface LoginService {
      * @return
      */
     @POST("/teacher/login")
-    Observable<BaseVo> login(@Body BaseInputParam param);
+    Observable<BaseVo> login(@Body BankBaseParam param);
 
 
     /**

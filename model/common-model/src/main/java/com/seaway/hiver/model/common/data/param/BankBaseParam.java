@@ -6,6 +6,10 @@ package com.seaway.hiver.model.common.data.param;
 public class BankBaseParam<T> extends BaseParam {
     private String method;
 
+    public BankBaseParam(T input) {
+        super(input);
+    }
+
     public BankBaseParam(String method, T input) {
         super(input);
         this.method = method;

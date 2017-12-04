@@ -40,6 +40,7 @@ public class ServerResponseFunc<T> implements Function<BaseVo, T> {
 //                throw new ServerResponseException("-100002", "系统异常，请稍后再试");
 //            }
 //        }
-        return (T) vo.getEntity();
+        String json = new Gson().toJson(vo.getEntity());
+        return (T) new Gson().fromJson(json,t);
     }
 }

@@ -8,22 +8,23 @@ import com.seaway.hiver.model.common.Constants;
  */
 
 public class BaseInputParam {
-    private long tokenId = ++Constants.tokenId;
-    private String token = ApplicationUtil.getApplicationSignMd5();
-
-    public long getTokenId() {
-        return tokenId;
-    }
-
-    public void setTokenId(long tokenId) {
-        this.tokenId = tokenId;
-    }
-
-    public String getToken() {
-        return token;
-    }
-
-    public void setToken(String token) {
-        this.token = token;
-    }
+//    private long tokenId = ++Constants.tokenId;
+//    private String token = ApplicationUtil.getApplicationSignMd5();
+//    private long tokenId ;
+//    private String token ;
+//    public long getTokenId() {
+//        return tokenId;
+//    }
+//
+//    public void setTokenId(long tokenId) {
+//        this.tokenId = tokenId;
+//    }
+//
+//    public String getToken() {
+//        return token;
+//    }
+//
+//    public void setToken(String token) {
+//        this.token = token;
+//    }
 }

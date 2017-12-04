@@ -26,7 +26,7 @@ public class UIProgressDialog extends Dialog {
         setContentView(R.layout.ui_default_waiting_dialog);
         this.getWindow().getAttributes().gravity = Gravity.CENTER;
         this.setCancelable(false);
-        mTv =(TextView) findViewById(R.id.ui_tv);
+//        mTv =(TextView) findViewById(R.id.ui_tv);
 //        colorArcProgressBar =(ColorArcProgressBar) findViewById(R.id.ui_waiting_dialog_progress_bar);
 //        colorArcProgressBar.setCurrentValues(100);
 //        progressBar =(ProgressBar) findViewById(R.id.ui_waiting_dialog_progress_bar);
@@ -44,7 +44,7 @@ public class UIProgressDialog extends Dialog {
     }
     public void setProcess(int num){
 //        progressBar.setProgress(num);
-        mTv.setText("正在下载中！("+num+"%)");
+//        mTv.setText("正在下载中！("+num+"%)");
 //        colorArcProgressBar.setCurrentValues(num);
     }
 }
