@@ -114,23 +114,4 @@ public class PasswdModifyChildFragment extends BaseFragment<LoginPwdModifyContra
         return true;
     }
 
-    @Override
-    public void showAutoHidenDialog(int rid) {
-
-    }
-
-    @Override
-    public void showUnconnectDialog(String msg) {
-
-    }
-
-    @Override
-    public void showOnConnectionDialog(int rid) {
-
-    }
-
-    @Override
-    public void disMissConnectingDialog() {
-
-    }
 }

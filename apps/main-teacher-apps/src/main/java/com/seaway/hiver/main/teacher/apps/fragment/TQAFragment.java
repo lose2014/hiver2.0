@@ -246,23 +246,4 @@ public class TQAFragment extends BaseFragment<TMainContract.Presenter> implement
 
     }
 
-    @Override
-    public void showAutoHidenDialog(int rid) {
-
-    }
-
-    @Override
-    public void showUnconnectDialog(String msg) {
-
-    }
-
-    @Override
-    public void showOnConnectionDialog(int rid) {
-
-    }
-
-    @Override
-    public void disMissConnectingDialog() {
-
-    }
 }

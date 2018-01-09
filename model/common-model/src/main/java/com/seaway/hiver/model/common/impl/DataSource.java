@@ -16,8 +16,15 @@ import com.seaway.hiver.model.common.RetrofitClient;
 import com.seaway.hiver.model.common.Util;
 import com.seaway.hiver.model.common.data.CrashParam;
 import com.seaway.hiver.model.common.data.param.CrashInfoParam;
+import com.seaway.hiver.model.common.data.param.RequestMessageListParam;
+import com.seaway.hiver.model.common.data.param.RequestSmsCodeParam;
+import com.seaway.hiver.model.common.data.vo.BaseOutputVo;
 import com.seaway.hiver.model.common.data.vo.BaseVo;
+import com.seaway.hiver.model.common.data.vo.LoginVo;
+import com.seaway.hiver.model.common.data.vo.RequestMessageListVo;
 import com.seaway.hiver.model.common.data.vo.RequestSmsCodeVo;
+import com.seaway.hiver.model.common.function.ErrorInterceptorFunc;
+import com.seaway.hiver.model.common.function.ServerResponseFunc;
 import com.seaway.hiver.model.common.service.CommonService;
 
 import java.io.File;
@@ -56,8 +63,38 @@ public  class DataSource implements IDataSource {
     }
 
     @Override
-    public Observable<RequestSmsCodeVo> requestSmsCode(String mobile, String businessType, String cardId, String transAmt, String codeId, String code) {
+    public Observable<BaseOutputVo> requestSmsCode(String mobile, String businessType, String cardId, String transAmt, String codeId, String code) {
         return null;
+    }
+
+    /**
+     * 消息列表
+     *
+     *   @param page 页码1表示第1页，默认为1
+     *   @param size 每页数量 默认10
+     *    @param messageBelong 消息所属对象(1-教师;2-学生)
+     * @return
+     */
+    @Override
+    public Observable<RequestMessageListVo> requestMessageInfo(int page,int size,int messageBelong) {
+        return RetrofitClient.getInstance()
+                .create(CommonService.class)
+                .requestMessageList( Util.transformat(new RequestMessageListParam(page+"",size+"",messageBelong+"",Application.getInstance().loginVo.getTeacherId())))
+                .map(new ServerResponseFunc<RequestMessageListVo>(RequestMessageListVo.class))
+                .onErrorResumeNext(new ErrorInterceptorFunc<RequestMessageListVo>())
+                .subscribeOn(Schedulers.newThread());
+    }
+
+    @Override
+    public Observable<BaseOutputVo> requestSmsCode(String mobile, String businessType) {
+        Logger.e("super");
+        RequestSmsCodeParam param =new RequestSmsCodeParam(mobile,"REGISTER");
+        return RetrofitClient.getInstance()
+                .create(CommonService.class)
+                .requestSmsCode( Util.transformat(param))
+                .map(new ServerResponseFunc<BaseOutputVo>(BaseOutputVo.class))
+                .onErrorResumeNext(new ErrorInterceptorFunc<BaseOutputVo>())
+                .subscribeOn(Schedulers.newThread());
     }
 
 

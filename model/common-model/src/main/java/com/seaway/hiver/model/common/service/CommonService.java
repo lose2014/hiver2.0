@@ -2,7 +2,10 @@ package com.seaway.hiver.model.common.service;
 
 import com.seaway.hiver.model.common.data.CrashParam;
 import com.seaway.hiver.model.common.data.param.BankBaseParam;
+import com.seaway.hiver.model.common.data.param.BankBaseParam;
+import com.seaway.hiver.model.common.data.param.RequestSmsCodeParam;
 import com.seaway.hiver.model.common.data.vo.BaseVo;
+import com.seaway.hiver.model.common.data.vo.RequestSmsCodeVo;
 
 import io.reactivex.Observable;
 import okhttp3.ResponseBody;
@@ -24,9 +27,16 @@ public interface CommonService {
      * @param param 请求参数
      * @return
      */
-    @POST("sendCookie")
-    Observable<BaseVo> requestSmsCode(@Body BankBaseParam<String> param);
-
+    @POST("/captcha")
+    Observable<BaseVo> requestSmsCode(@Body BankBaseParam param);
+    /**
+     * 获取短信验证码
+     *
+     * @param param 请求参数
+     * @return
+     */
+    @POST("/message/list")
+    Observable<BaseVo> requestMessageList(@Body BankBaseParam param);
     /**
      * 获取协议
      *
@@ -35,7 +45,6 @@ public interface CommonService {
      */
     @POST("sendCookie")
     Observable<BaseVo> getAgreement(@Body BankBaseParam<String> param);
-
     /**
      * 客户端资源检查
      *

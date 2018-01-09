@@ -214,23 +214,4 @@ public class TMyAcountFragment extends BaseFragment<TMainContract.Presenter> imp
 
     }
 
-    @Override
-    public void showAutoHidenDialog(int rid) {
-
-    }
-
-    @Override
-    public void showUnconnectDialog(String msg) {
-
-    }
-
-    @Override
-    public void showOnConnectionDialog(int rid) {
-
-    }
-
-    @Override
-    public void disMissConnectingDialog() {
-
-    }
 }

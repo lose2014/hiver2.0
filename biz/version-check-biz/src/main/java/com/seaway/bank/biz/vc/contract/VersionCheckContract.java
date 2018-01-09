@@ -33,6 +33,7 @@ public interface VersionCheckContract {
          * @param reason 失败原因
          */
         void checkVersionFail(String reason);
+        void disMissConnectingDialog();
     }
 
     interface Presenter extends IBasePresenter {

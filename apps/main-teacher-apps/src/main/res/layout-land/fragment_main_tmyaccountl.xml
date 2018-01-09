@@ -18,11 +18,12 @@
         android:orientation="horizontal">
         <TextView
             android:layout_width="wrap_content"
-            android:text="账户余额：309元"
+            android:text="账户余额：308889元"
             android:background="@drawable/btn_angle_normal_bg"
             android:layout_height="wrap_content"
             android:gravity="center_vertical"
             app:layout_marginBottomPercent="2%"
+            android:textColor="@color/blue_btn"
             app:layout_marginTopPercent="2%"
             app:layout_marginLeftPercent="2%"
             app:layout_marginRightPercent="2%"/>
@@ -32,6 +33,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center_vertical"
+            android:textColor="@color/blue_btn"
             android:background="@drawable/btn_angle_normal_bg"
             android:text="本月收入：100元"
             android:textSize="15sp"

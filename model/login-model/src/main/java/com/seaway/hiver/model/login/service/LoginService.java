@@ -32,7 +32,7 @@ public interface LoginService {
      * @return
      */
     @POST("/teacher/checkUsernameExist")
-    Observable<BaseVo> checkUserName(@Body BaseInputParam param);
+    Observable<BaseVo> checkUserName(@Body BankBaseParam param);
 
 
     /**
@@ -59,7 +59,7 @@ public interface LoginService {
      * @param param
      * @return
      */
-    @POST("sendCookie")
+    @POST("/teacher/logout")
     Observable<BaseVo> requestLogout(@Body BankBaseParam<String> param);
 
     /**
@@ -69,7 +69,7 @@ public interface LoginService {
      * @return
      */
     @POST("/teacher/modifyPwd")
-    Observable<BaseVo> requestLoginPwdModify(@Body BaseInputParam param);
+    Observable<BaseVo> requestLoginPwdModify(@Body BankBaseParam param);
 
     /**
      * 重置登录密码
@@ -78,6 +78,6 @@ public interface LoginService {
      * @return
      */
     @POST("/teacher/findPwd")
-    Observable<BaseVo> requestResetPwd(@Body BaseInputParam param);
+    Observable<BaseVo> requestResetPwd(@Body BankBaseParam param);
 
 }

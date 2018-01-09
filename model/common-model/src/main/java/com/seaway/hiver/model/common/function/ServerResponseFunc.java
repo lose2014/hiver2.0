@@ -1,5 +1,7 @@
 package com.seaway.hiver.model.common.function;
 
+import android.text.TextUtils;
+
 import com.google.gson.Gson;
 import com.seaway.android.ndk.NativeSDK;
 import com.seaway.hiver.model.common.data.vo.BaseVo;
@@ -40,7 +42,12 @@ public class ServerResponseFunc<T> implements Function<BaseVo, T> {
 //                throw new ServerResponseException("-100002", "系统异常，请稍后再试");
 //            }
 //        }
-        String json = new Gson().toJson(vo.getEntity());
-        return (T) new Gson().fromJson(json,t);
+        if(vo.getEntity()!=null){
+            String json = new Gson().toJson(vo.getEntity());
+            return (T) new Gson().fromJson(json,t);
+        }else{
+            return (T) new Gson().fromJson("{}",t);
+        }
+
     }
 }

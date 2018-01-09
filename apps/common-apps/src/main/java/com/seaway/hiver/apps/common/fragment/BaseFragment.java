@@ -39,6 +39,7 @@ public class BaseFragment<T extends IBasePresenter> extends Fragment implements 
     protected UIProgressDialog mProgressDialog;
 
     public void setPresenter(T presenter) {
+
         this.mPresenter = presenter;
     }
 

@@ -7,6 +7,7 @@ import com.seaway.hiver.model.common.data.vo.CheckResourceVo;
 import com.seaway.hiver.model.common.data.vo.GetAgreementVo;
 import com.seaway.hiver.model.common.data.vo.LoginVo;
 import com.seaway.hiver.model.common.data.vo.QueryAdvertListVo;
+import com.seaway.hiver.model.common.data.vo.RequestMessageListVo;
 import com.seaway.hiver.model.common.data.vo.RequestSmsCodeVo;
 
 import io.reactivex.Observable;
@@ -45,7 +46,23 @@ public interface IDataSource {
      * @param code         图形验证码内容
      * @return
      */
-    Observable<RequestSmsCodeVo> requestSmsCode(String mobile, String businessType, String cardId, String transAmt, String codeId, String code);
+    Observable<BaseOutputVo> requestSmsCode(String mobile, String businessType, String cardId, String transAmt, String codeId, String code);
+    /**
+     * 获取消息列表
+     *
+     * @return
+     */
+    Observable<RequestMessageListVo> requestMessageInfo(int page, int size, int messageBelong);
+
+
+    /**
+     * 获取短信验证码
+     *
+     * @param mobile       手机号码
+     * @param businessType 业务类型
+     * @return
+     */
+    Observable<BaseOutputVo> requestSmsCode(String mobile, String businessType);
 
     /**
      * 上传Crash日志

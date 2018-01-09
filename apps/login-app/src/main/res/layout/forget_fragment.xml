@@ -54,6 +54,7 @@
         <EditText
             android:id="@+id/forget_portal_new_pwd_edit_text"
             style="@style/ui_custom_edit_text_style"
+            android:inputType="textPassword"
             android:hint="@string/ui_edit_text_hint"
             android:maxLength="20" />
     </LinearLayout>
@@ -74,6 +75,7 @@
         <EditText
             android:id="@+id/forget_portal_confirm_pwd_edit_text"
             style="@style/ui_custom_edit_text_style"
+            android:inputType="textPassword"
             android:hint="@string/ui_edit_text_hint"
             android:maxLength="20" />
     </LinearLayout>

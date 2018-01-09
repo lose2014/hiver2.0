@@ -16,10 +16,7 @@ public interface IBaseView<T> {
      * 显示加载框
      */
     void showPregressDialog();
-    void showAutoHidenDialog(int rid);
-    void showUnconnectDialog(String msg);
-    void showOnConnectionDialog(int rid);
-    void disMissConnectingDialog();
+
     /**
      * 隐藏加载框
      */

@@ -262,17 +262,17 @@ public class VersionCheckFragment extends BaseFragment<VersionCheckContract.Pres
         return flag;
     }
 
-    @Override
+
     public void showAutoHidenDialog(int rid) {
 
     }
 
-    @Override
+
     public void showUnconnectDialog(String msg) {
         uiProgressDialog.show();
     }
 
-    @Override
+
     public void showOnConnectionDialog(int rid) {
 
     }

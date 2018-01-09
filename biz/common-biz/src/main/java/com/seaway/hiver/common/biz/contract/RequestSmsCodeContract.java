@@ -2,6 +2,8 @@ package com.seaway.hiver.common.biz.contract;
 
 import com.seaway.hiver.common.biz.IBasePresenter;
 import com.seaway.hiver.common.biz.IBaseView;
+import com.seaway.hiver.model.common.data.vo.BaseOutputVo;
+import com.seaway.hiver.model.common.data.vo.BaseVo;
 import com.seaway.hiver.model.common.data.vo.RequestSmsCodeVo;
 
 /**
@@ -17,7 +19,7 @@ public interface RequestSmsCodeContract {
          *
          * @param vo 获取短信验证码成功
          */
-        void getSmsCodeSuccess(RequestSmsCodeVo vo);
+        void getSmsCodeSuccess(BaseOutputVo vo);
     }
 
     interface RequestSmsCodePresenter extends IBasePresenter {

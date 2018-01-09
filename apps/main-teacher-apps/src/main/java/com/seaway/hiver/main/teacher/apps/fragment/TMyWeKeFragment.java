@@ -224,23 +224,4 @@ public class TMyWeKeFragment extends BaseFragment<TMainContract.Presenter> imple
 
     }
 
-    @Override
-    public void showAutoHidenDialog(int rid) {
-
-    }
-
-    @Override
-    public void showUnconnectDialog(String msg) {
-
-    }
-
-    @Override
-    public void showOnConnectionDialog(int rid) {
-
-    }
-
-    @Override
-    public void disMissConnectingDialog() {
-
-    }
 }

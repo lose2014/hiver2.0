@@ -1,7 +1,7 @@
 package com.seaway.hiver.model.common.data.vo;
 
 /**
- * 获取短信验证码返回参数
+ * 获取短信验证码
  * Created by Leo.Chang on 2017/5/18.
  */
 public class RequestSmsCodeVo extends BaseOutputVo {

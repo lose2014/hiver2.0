@@ -5,6 +5,8 @@ import com.seaway.hiver.common.biz.contract.RequestSmsCodeContract;
 import com.seaway.hiver.common.biz.function.CommonObserver;
 import com.seaway.hiver.common.biz.presenter.BasePresenter;
 import com.seaway.hiver.model.common.IDataSource;
+import com.seaway.hiver.model.common.data.vo.BaseOutputVo;
+import com.seaway.hiver.model.common.data.vo.BaseVo;
 import com.seaway.hiver.model.common.data.vo.RequestSmsCodeVo;
 
 import io.reactivex.android.schedulers.AndroidSchedulers;
@@ -42,7 +44,7 @@ public class RequestSmsCodePresenter<T extends RequestSmsCodeContract.RequestSms
     public void requestSmsCode(String mobile, String businessType, String cardId, String transAmt, String codeId, String code) {
         mDataSource.requestSmsCode(mobile, businessType, cardId, transAmt, codeId, code)
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new CommonObserver<RequestSmsCodeVo>(mView,mDisposable) {
+                .subscribe(new CommonObserver<BaseOutputVo>(mView,mDisposable) {
 
                     @Override
                     public void onSubscribe(@NonNull Disposable d) {
@@ -51,7 +53,7 @@ public class RequestSmsCodePresenter<T extends RequestSmsCodeContract.RequestSms
                     }
 
                     @Override
-                    public void onNext(@NonNull RequestSmsCodeVo vo) {
+                    public void onNext(@NonNull BaseOutputVo vo) {
                         mView.getSmsCodeSuccess(vo);
                     }
                 });

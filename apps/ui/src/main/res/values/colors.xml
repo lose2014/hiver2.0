@@ -9,19 +9,22 @@
     <color name="ui_portal_main_background">#EEEEEE</color>
     <!-- 首页蓝色字体 -->
     <color name="ui_portal_blue_txt">#0291FF</color>
+    <color name="account_red_money_txt">#FF6702</color>
 
     <!-- 导航栏背景色 -->
     <color name="ui_navigation_bar_background_color">#4a7ac0</color>
     <!-- 分割线颜色 -->
     <color name="ui_splite_line_color">#DCDCDC</color>
-
+    <color name="blue_btn">#0291FF</color>
     <!-- 透明色 -->
     <color name="transparent">@android:color/transparent</color>
-
+    <!-- 半透明色 -->
+    <color name="color_777">#777777</color>
     <color name="sms_button_text_color">#5997f1</color>
     <color name="light_gray">#DEDDEB</color>
     <color name="black_txt">#505050</color>
     <color name="blue_txt">#076fd0</color>
+
     <color name="orange_txt">#ff6600</color>
     <color name="green_txt">#009b1d</color>
     <color name="orange_bg">#FB9200</color>
@@ -126,7 +129,7 @@
         <color name="darkorange">#FF8C00</color><!--暗桔黄色 -->
 
         <color name="coral">#FF7F50</color><!--珊瑚色 -->
-
+        <color name="color_FE4229">#FE4229</color><!--珊瑚色 -->
         <color name="hotpink">#FF69B4</color><!--热粉红色 -->
 
         <color name="tomato">#FF6347</color><!--西红柿色 -->

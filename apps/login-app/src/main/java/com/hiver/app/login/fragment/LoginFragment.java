@@ -225,7 +225,7 @@ public class LoginFragment extends BaseFragment<LoginContract.Presenter> impleme
     @Override
     public void loginFail() {
         // 登录失败时，重新获取图片验证码
-        mPresenter.getIconCode();
+//        mPresenter.getIconCode();
     }
 
     @Override
@@ -275,23 +275,5 @@ public class LoginFragment extends BaseFragment<LoginContract.Presenter> impleme
         return bitmap;
     }
 
-    @Override
-    public void showAutoHidenDialog(int rid) {
 
-    }
-
-    @Override
-    public void showUnconnectDialog(String msg) {
-
-    }
-
-    @Override
-    public void showOnConnectionDialog(int rid) {
-
-    }
-
-    @Override
-    public void disMissConnectingDialog() {
-
-    }
 }
