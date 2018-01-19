@@ -33,7 +33,17 @@
             android:textColor="@android:color/black"
             android:textSize="16sp"
             android:visibility="gone" />
-
+        <TextView
+            android:id="@+id/ui_dialog_messag1e"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:textColor="@android:color/black"
+            android:textIsSelectable="false"
+            android:textSize="14sp" />
         <TextView
             android:id="@+id/ui_dialog_message"
             android:layout_width="match_parent"

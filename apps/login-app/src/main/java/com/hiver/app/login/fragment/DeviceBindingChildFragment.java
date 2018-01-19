@@ -15,6 +15,7 @@ import com.seaway.android.ui.UIButtonSmsCountDown;
 import com.seaway.hiver.apps.common.fragment.BaseFragment;
 import com.seaway.hiver.biz.login.contract.DeviceBindingContract;
 import com.seaway.hiver.biz.login.presenter.DeviceBindingPresenter;
+import com.seaway.hiver.model.common.data.vo.BaseOutputVo;
 import com.seaway.hiver.model.common.data.vo.RequestSmsCodeVo;
 
 
@@ -66,10 +67,10 @@ public class DeviceBindingChildFragment extends BaseFragment<DeviceBindingContra
     }
 
     @Override
-    public void getSmsCodeSuccess(RequestSmsCodeVo vo) {
+    public void getSmsCodeSuccess(BaseOutputVo vo) {
         smsCountDownButton.setEnabled(false);
-        Toast.makeText(getActivity(), String.format(getString(R.string.common_tips_1001),vo.getMobileNo()), Toast.LENGTH_SHORT).show();
-        this.codeId = vo.getSmsCodeId();
+//        Toast.makeText(getActivity(), String.format(getString(R.string.common_tips_1001),vo.getMobileNo()), Toast.LENGTH_SHORT).show();
+//        this.codeId = vo.getSmsCodeId();
     }
 
     private void getViews() {

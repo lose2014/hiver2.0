@@ -4,7 +4,7 @@ android {
         debug {
             keyAlias 'hiver'
             keyPassword '123456'
-            storeFile file('F:/android/hiver.jks')
+            storeFile file('hiver.jks')
             storePassword '123456'
 //            keyAlias 'hiver'
 //            keyPassword '123456'

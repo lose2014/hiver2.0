@@ -17,8 +17,12 @@ import com.seaway.hiver.apps.common.fragment.BaseFragment;
 import com.seaway.hiver.main.teacher.apps.R;
 import com.seaway.hiver.main.teacher.apps.adapter.MainViewAdapter;
 import com.seaway.hiver.main.teacher.biz.contract.TMainContract;
+import com.seaway.hiver.main.teacher.biz.contract.TWekeContract;
 import com.seaway.hiver.main.teacher.biz.presenter.TMainPresenter;
+import com.seaway.hiver.main.teacher.biz.presenter.TWekePresenter;
 import com.seaway.hiver.model.common.data.vo.QueryAdvertListVo;
+import com.seaway.hiver.model.main.teacher.data.vo.GetBillListVo;
+import com.seaway.hiver.model.main.teacher.data.vo.GetCourseListVo;
 import com.seaway.hiver.model.main.teacher.data.vo.GetIconCodeVo;
 import com.tbruyelle.rxpermissions2.RxPermissions;
 
@@ -28,7 +32,7 @@ import java.util.Map;
  * 首界面
  * Created by Leo.Chang on 2017/5/10.
  */
-public class THelpFragment extends BaseFragment<TMainContract.Presenter> implements View.OnClickListener, TMainContract.View, AdapterView.OnItemClickListener {
+public class THelpFragment extends BaseFragment<TWekeContract.Presenter> implements View.OnClickListener, TWekeContract.View, AdapterView.OnItemClickListener {
 
     private RecyclerView recyclerView;
     private LinearLayoutManager mLayoutManager;
@@ -46,7 +50,7 @@ public class THelpFragment extends BaseFragment<TMainContract.Presenter> impleme
             selectedViewId = savedInstanceState.getInt("selectedViewId", -1);
         }
         // 注入Presenter
-        new TMainPresenter(this);
+        new TWekePresenter(this);
     }
 
     @Override
@@ -156,11 +160,6 @@ public class THelpFragment extends BaseFragment<TMainContract.Presenter> impleme
         mPresenter.checkResource(String.valueOf(view.getTag(R.id.bank_resource_id)));
     }
 
-    @Override
-    public void showPortal(@NonNull Map<Integer, Object> dataSource) {
-//        mAdapter.setDataSource(dataSource);
-//        mAdapter.notifyDataSetChanged();
-    }
 
     @Override
     public void loginSuccess() {
@@ -227,55 +226,6 @@ public class THelpFragment extends BaseFragment<TMainContract.Presenter> impleme
 //        }
     }
 
-
-    /**
-     * 广告页查询成功
-     *
-     * @param advertVo 广告位信息
-     * @param flag     true：要更新；false：不需要更新
-     */
-    @Override
-    public void queryAdvertListSuccess(QueryAdvertListVo advertVo, boolean flag) {
-//        mAdapter.setAdvertListVo(advertVo);
-//        mAdapter.notifyItemChanged(2);
-    }
-
-    /**
-     * 获取缓存广告信息成功
-     *
-     * @param advertListVo 广告信息
-     */
-    @Override
-    public void queryAdvertListInCacheSuccess(QueryAdvertListVo advertListVo) {
-//        mAdapter.setAdvertListVo(advertListVo);
-//        mAdapter.notifyItemChanged(2);
-//        // 先显示缓存数据，再去服务器获取新的数据
-//        mPresenter.queryAdvertList(1);
-    }
-
-    /**
-     * 查询理财产品成功
-     *
-     * @param financial 理财产品
-     */
-    @Override
-    public void queryFinancialSuccess( GetIconCodeVo financial) {
-//        mAdapter.setFinanceProductVo(financial);
-//        mAdapter.notifyItemChanged(3);
-    }
-
-    /**
-     * 查询缓存理财产品成功
-     *
-     * @param financial 理财产品
-     */
-    @Override
-    public void queryFinancialInCacheSuccess(GetIconCodeVo financial) {
-        // 先显示缓存数据，再去服务器获取新的数据
-//        mAdapter.setFinanceProductVo(financial);
-//        mAdapter.notifyItemChanged(3);
-//        mPresenter.queryFinancialInfo(1);
-    }
 
 
     /**
@@ -353,4 +303,8 @@ public class THelpFragment extends BaseFragment<TMainContract.Presenter> impleme
 //        }
     }
 
+    @Override
+    public void queryCourseListSuccess(GetCourseListVo getCourseListVo) {
+
+    }
 }

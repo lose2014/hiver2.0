@@ -69,15 +69,26 @@
         <activity
             android:name=".MainActivity"
             android:windowSoftInputMode="adjustResize"
+
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:screenOrientation="landscape">
         </activity>
+        <!--android:launchMode="singleTask"-->
         <activity
             android:name="com.hiver.app.login.activity.LoginActivity"
             android:windowSoftInputMode="adjustResize"
             android:configChanges="orientation|keyboardHidden|screenSize"
-            android:screenOrientation="landscape">
-        </activity>
+            android:screenOrientation="landscape"/>
+        <activity
+            android:name="com.xiao.nicevideoplayer.demo.TinyWindowPlayActivity"
+            android:windowSoftInputMode="adjustResize"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:screenOrientation="landscape"/>
+        <activity
+            android:name="com.xiao.nicevideoplayer.demo.ProcessHome2Activity"
+            android:windowSoftInputMode="adjustResize"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:screenOrientation="landscape"/>
         <service
             android:name=".service.PushService"
             android:exported="true"

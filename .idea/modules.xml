@@ -4,13 +4,13 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/biz/BankQrCode/BankQrCode.iml" filepath="$PROJECT_DIR$/biz/BankQrCode/BankQrCode.iml" />
       <module fileurl="file://$PROJECT_DIR$/Thiver.iml" filepath="$PROJECT_DIR$/Thiver.iml" />
+      <module fileurl="file://$PROJECT_DIR$/UploadSdk/UploadSdk.iml" filepath="$PROJECT_DIR$/UploadSdk/UploadSdk.iml" />
       <module fileurl="file://$PROJECT_DIR$/apps/apps.iml" filepath="$PROJECT_DIR$/apps/apps.iml" />
       <module fileurl="file://$PROJECT_DIR$/banner/banner.iml" filepath="$PROJECT_DIR$/banner/banner.iml" />
       <module fileurl="file://$PROJECT_DIR$/biz/biz.iml" filepath="$PROJECT_DIR$/biz/biz.iml" />
       <module fileurl="file://$PROJECT_DIR$/apps/common-apps/common-apps.iml" filepath="$PROJECT_DIR$/apps/common-apps/common-apps.iml" />
       <module fileurl="file://$PROJECT_DIR$/biz/common-biz/common-biz.iml" filepath="$PROJECT_DIR$/biz/common-biz/common-biz.iml" />
       <module fileurl="file://$PROJECT_DIR$/model/common-model/common-model.iml" filepath="$PROJECT_DIR$/model/common-model/common-model.iml" />
-      <module fileurl="file://$PROJECT_DIR$/hiver2.0.iml" filepath="$PROJECT_DIR$/hiver2.0.iml" />
       <module fileurl="file://$PROJECT_DIR$/apps/login-app/login-app.iml" filepath="$PROJECT_DIR$/apps/login-app/login-app.iml" />
       <module fileurl="file://$PROJECT_DIR$/biz/login-biz/login-biz.iml" filepath="$PROJECT_DIR$/biz/login-biz/login-biz.iml" />
       <module fileurl="file://$PROJECT_DIR$/model/login-model/login-model.iml" filepath="$PROJECT_DIR$/model/login-model/login-model.iml" />

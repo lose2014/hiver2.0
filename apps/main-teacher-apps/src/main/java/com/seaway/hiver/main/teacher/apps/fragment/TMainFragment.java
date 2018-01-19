@@ -1,19 +1,17 @@
 package com.seaway.hiver.main.teacher.apps.fragment;
 
-import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
-import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,29 +20,37 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.seaway.android.sdk.logger.Logger;
+import com.seaway.android.sdk.upload.util.FileMapUtil;
+import com.seaway.android.sdk.upload.util.UploadUtil;
 import com.seaway.android.view.banner.UIBanner;
 import com.seaway.hiver.apps.common.HiverApplication;
 import com.seaway.hiver.apps.common.fragment.BaseFragment;
 import com.seaway.hiver.main.teacher.apps.R;
 import com.seaway.hiver.main.teacher.apps.adapter.MainViewAdapter;
+import com.seaway.hiver.main.teacher.apps.adapter.TPortalListAdapter;
 import com.seaway.hiver.main.teacher.biz.contract.TMainContract;
 import com.seaway.hiver.main.teacher.biz.presenter.TMainPresenter;
 import com.seaway.hiver.model.common.data.vo.AdvertVo;
 import com.seaway.hiver.model.common.data.vo.LoginVo;
 import com.seaway.hiver.model.common.data.vo.QueryAdvertListVo;
+import com.seaway.hiver.model.main.teacher.data.vo.CourseVo;
+import com.seaway.hiver.model.main.teacher.data.vo.GetBillListVo;
+import com.seaway.hiver.model.main.teacher.data.vo.GetCourseListVo;
 import com.seaway.hiver.model.main.teacher.data.vo.GetIconCodeVo;
-import com.tbruyelle.rxpermissions2.Permission;
+import com.seaway.hiver.model.main.teacher.data.vo.GetQuestionListVo;
+import com.seaway.hiver.model.main.teacher.data.vo.IncomeVo;
+import com.seaway.hiver.model.main.teacher.data.vo.QuestionVo;
 import com.tbruyelle.rxpermissions2.RxPermissions;
+import com.xiao.nicevideoplayer.demo.ProcessHome2Activity;
+import com.xiao.nicevideoplayer.demo.TinyWindowPlayActivity;
 import com.zhy.adapter.recyclerview.CommonAdapter;
-import com.zhy.adapter.recyclerview.MultiItemTypeAdapter;
 import com.zhy.adapter.recyclerview.base.ViewHolder;
 
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-import io.reactivex.functions.Consumer;
 
 /**
  * 首界面
@@ -55,9 +61,11 @@ public class TMainFragment extends BaseFragment<TMainContract.Presenter> impleme
     private RecyclerView recyclerViewAd,recyclerViewWeke,recyclerViewQA,recyclerViewCloudClass,recyclerViewInformation;
     private LinearLayoutManager mLayoutManager;
     private MainViewAdapter mAdapter;
-
+    private  TextView teacherName,inComeTv,accoutMoneyTv;
     private int selectedViewId = -1;
     List<String> mDatas;
+    List<CourseVo> courseVoList,weikeVolist;
+    private TPortalListAdapter weikeAdapter,cloudAdapter;
     private RxPermissions permissions;
     private UIBanner banner;
     @Override
@@ -118,6 +126,13 @@ public class TMainFragment extends BaseFragment<TMainContract.Presenter> impleme
             banner.setDuration(Integer.parseInt(vo.getViewTime()));
             banner.notifyDataChanged(vo.getAdvertInfos());
         }
+        LoginVo loginVo =HiverApplication.getInstance().loginVo;
+        Logger.d("teacherId---"+loginVo.getTeacherId());
+//        mPresenter.queryBillList("1",loginVo.getTeacherId()+"");
+//        mPresenter.queryMonthIncome();
+//        mPresenter.queryCourseList("1",loginVo.getTeacherId()+"",1,"");
+//        mPresenter.queryQuestionList("1","","","","","","");
+//        upLoadPic();
     }
 
     @Override
@@ -136,6 +151,7 @@ public class TMainFragment extends BaseFragment<TMainContract.Presenter> impleme
         super.onResume();
         // 从缓存中获取轮播广告及理财数据
 //        mPresenter.subscribe();
+        upLoadPic();
     }
 
     @Override
@@ -157,6 +173,8 @@ public class TMainFragment extends BaseFragment<TMainContract.Presenter> impleme
             addFragment(new TMyAcountFragment(),"myaccount");
         } else if (v.getId() == R.id.t_main_portal_cloud_detail) {
             // 云课程更多
+            Intent intent = new Intent(getActivity(),ProcessHome2Activity.class);
+            startActivity(intent);
         } else if (v.getId() == R.id.t_main_portal_information_detail) {
             // 消息更多
             mPresenter.checkResource(String.valueOf(v.getTag(R.id.bank_resource_id)));
@@ -286,6 +304,120 @@ public class TMainFragment extends BaseFragment<TMainContract.Presenter> impleme
 //        mPresenter.queryAdvertList(1);
     }
 
+    @Override
+    public void queryBillListSuccess(GetBillListVo getBillListVo) {
+
+    }
+
+    @Override
+    public void queryCourseListSuccess(GetCourseListVo getCourseListVo) {
+        List<CourseVo> list =getCourseListVo.getItems();
+        for(int i=0;i<list.size();i++){
+            if(list.get(i).getCourseType()==1){//1-微课;2-vip一对一课程;3-vip云课堂
+                weikeVolist.add(list.get(i));
+            }else if(list.get(i).getCourseType()==3){//1-微课;2-vip一对一课程;3-vip云课堂
+                courseVoList.add(list.get(i));
+            }
+        }
+        Logger.d("size--"+weikeVolist.size());
+        if(weikeVolist.size()>0){
+            weikeAdapter.notifyDataSetChanged();
+        }
+        if(courseVoList.size()>0){
+            cloudAdapter.notifyDataSetChanged();
+        }
+    }
+
+    public void upLoadPic(){
+        //上传请求
+        Logger.d("q上传图片");
+        String[] path = {"/storage/emulated/0/video/1516098898904.mp4"};
+        HashMap<String, String> map = new HashMap<String, String>();
+        HiverApplication app = HiverApplication.getInstance();
+        map.put("userId", "" + app.loginVo.getTeacherId());
+        UploadUtil.upload(new UploadGoodPicHandler(this), map,
+                FileMapUtil.getUploadFileMap(path),
+                101, 2);
+    }
+
+    static class UploadGoodPicHandler extends Handler {
+        Fragment mFragment;
+
+        public UploadGoodPicHandler(Fragment fragment) {
+            this.mFragment = fragment;
+        }
+
+        @Override
+        public void handleMessage(Message msg) {
+            super.handleMessage(msg);
+
+//            if (null != ((TMainFragment) mFragment).waitingDialog
+//                    && ((TMainFragment) mFragment).waitingDialog.isShowing()) {
+//                ((TMainFragment) mFragment).waitingDialog.dismiss();
+//            }
+
+            //上传成功
+            Logger.d("-----"+(String) msg.obj);
+//            new Gson().fromJson((String) msg.obj,GetBillListVo.class);
+//            GoodsPicListVo shopPicListVo = JsonVoParser.getResJsonObject((String) msg.obj, GoodsPicListVo.class);
+//            if (Constants.SUCCESS_CODE.equals(shopPicListVo.getCode())) {
+//                ((TMainFragment) mFragment).updatePicSuccess(shopPicListVo);
+//            } else if (Constants.SESSION_TIMEOUT.equals(shopPicListVo.getCode())) {
+//                // 如果是登录超时，则跳转到登录界面
+////                ICommApplication.getInstance().onLogoutObservable
+////                        .onLogoutInBackground();
+//            } else if (Constants.USER_STATUS_LOCKED.equals(shopPicListVo.getCode())
+//                    || Constants.USER_STATUS_FREEZE.equals(shopPicListVo.getCode())
+//                    || Constants.USER_STATUS_DISABLE.equals(shopPicListVo.getCode())) {
+//                // 用户状态异常
+//                UIDefaultDialogHelper.showDefaultAlert(((TMainFragment) mFragment).getActivity(), shopPicListVo.getMessage(),
+//                        new View.OnClickListener() {
+//
+//                            @Override
+//                            public void onClick(View v) {
+//                                // TODO Auto-generated method stub
+//                                UIDefaultDialogHelper.dialog.dismiss();
+//                                UIDefaultDialogHelper.dialog = null;
+//
+////                                HiverApplication.getInstance().onLogoutObservable
+////                                        .onLogoutInBackground();
+//                            }
+//                        });
+//
+//            } else {
+////                Toast.showToast(((TMainFragment) mFragment).getActivity(), shopPicListVo.getMessage());
+//            }
+        }
+    }
+    
+    /**
+     * 账单收入获取成功
+     * */
+    @Override
+    public void queryMonthIncomeSuccess(IncomeVo incomeVo) {
+        inComeTv.setText("本月收入："+incomeVo.getIncome());
+        accoutMoneyTv.setText("总收入："+incomeVo.getIncome());
+    }
+
+    @Override
+    public void queryQuestionListSuccess(GetQuestionListVo advertListVo) {
+        if(advertListVo.getTotalItems()>0){
+            recyclerViewQA.setAdapter(new CommonAdapter<QuestionVo>(getActivity(),R.layout.t_main_information_view,advertListVo.getItems()) {
+                @Override
+                protected void convert(ViewHolder holder,final QuestionVo loginVo, int position) {
+                    holder.setText(R.id.t_mian_item_content_tv,loginVo.getContent());
+                    holder.getConvertView().setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            Toast.makeText(getActivity(),loginVo.getContent(),Toast.LENGTH_SHORT).show();
+                        }
+                    });
+                }
+            });
+        }
+
+    }
+
     /**
      * 查询理财产品成功
      *
@@ -318,8 +450,12 @@ public class TMainFragment extends BaseFragment<TMainContract.Presenter> impleme
 //        if(loginVo!=null){
 //
 //        }
+        inComeTv =(TextView) getView().findViewById(R.id.tmain_portal_month_income);
+        accoutMoneyTv =(TextView) getView().findViewById(R.id.tmain_portal_account);
         banner = (UIBanner)  getView().findViewById(R.id.bank_portal_banner_view);
         banner.setOnBannerClickListener(this);
+        teacherName =(TextView) getView().findViewById(R.id.tmain_portal_account_name);
+        teacherName.setText(HiverApplication.getInstance().loginVo.getNickname()+"老师好");
         // 初化 recyclerViewAd
         recyclerViewAd = (RecyclerView) getView().findViewById(R.id.main_portal_recycler_view_ad);
         recyclerViewAd.setHasFixedSize(true);
@@ -346,35 +482,47 @@ public class TMainFragment extends BaseFragment<TMainContract.Presenter> impleme
             loginVo.setMobile("1810838"+i+"电话呀");
             loginVos.add(loginVo);
         }
+        if(courseVoList!=null){
+            courseVoList.clear();
+            courseVoList= null;
+            weikeVolist.clear();
+            weikeVolist= null;
+        }
+        courseVoList =new ArrayList<>();
+        cloudAdapter =new TPortalListAdapter(getActivity(),R.layout.t_main_weike_view,courseVoList);
+        weikeVolist =new ArrayList<>();
+        weikeAdapter =new TPortalListAdapter(getActivity(),R.layout.t_main_weike_view,weikeVolist);
 
         recyclerViewWeke =(RecyclerView) getView().findViewById(R.id.main_portal_recycler_view_weke);
         recyclerViewWeke.setHasFixedSize(true);
         recyclerViewWeke.setLayoutManager(new StaggeredGridLayoutManager(2,
                 StaggeredGridLayoutManager.VERTICAL));
         recyclerViewWeke.setItemAnimator(animator);
+        recyclerViewWeke.setAdapter(weikeAdapter);
 
         recyclerViewCloudClass =(RecyclerView) getView().findViewById(R.id.main_portal_recycler_view_cloud_class);
         recyclerViewCloudClass.setHasFixedSize(true);
         recyclerViewCloudClass.setLayoutManager(new StaggeredGridLayoutManager(2,
                 StaggeredGridLayoutManager.VERTICAL));
         recyclerViewCloudClass.setItemAnimator(animator);
+        recyclerViewCloudClass.setAdapter(cloudAdapter);
 
         recyclerViewQA =(RecyclerView) getView().findViewById(R.id.main_portal_recycler_view_qa);
         recyclerViewQA.setHasFixedSize(true);
         recyclerViewQA.setLayoutManager(new LinearLayoutManager(getActivity()));
         recyclerViewQA.setItemAnimator(animator);
-        recyclerViewQA.setAdapter(new CommonAdapter<LoginVo>(getActivity(),R.layout.t_main_information_view,loginVos) {
-            @Override
-            protected void convert(ViewHolder holder,final LoginVo loginVo, int position) {
-                holder.setText(R.id.t_mian_item_content_tv,loginVo.getMobile());
-                holder.getConvertView().setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        Toast.makeText(getActivity(),loginVo.getMobile(),Toast.LENGTH_SHORT).show();
-                    }
-                });
-            }
-        });
+//        recyclerViewQA.setAdapter(new CommonAdapter<LoginVo>(getActivity(),R.layout.t_main_information_view,loginVos) {
+//            @Override
+//            protected void convert(ViewHolder holder,final LoginVo loginVo, int position) {
+//                holder.setText(R.id.t_mian_item_content_tv,loginVo.getMobile());
+//                holder.getConvertView().setOnClickListener(new View.OnClickListener() {
+//                    @Override
+//                    public void onClick(View v) {
+//                        Toast.makeText(getActivity(),loginVo.getMobile(),Toast.LENGTH_SHORT).show();
+//                    }
+//                });
+//            }
+//        });
 
         recyclerViewInformation =(RecyclerView) getView().findViewById(R.id.main_portal_recycler_view_information);
         recyclerViewInformation.setHasFixedSize(true);
@@ -387,25 +535,27 @@ public class TMainFragment extends BaseFragment<TMainContract.Presenter> impleme
             }
         });
 
-        recyclerViewCloudClass.setAdapter(new CommonAdapter<String>(getActivity(),R.layout.t_main_weike_view,mDatas) {
-            @Override
-            protected void convert(ViewHolder holder, String s, final int position) {
-                holder.setText(R.id.textView1,s);
-                holder.getConvertView().setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        Toast.makeText(getActivity(),mDatas.get(position),Toast.LENGTH_SHORT).show();
+//        recyclerViewCloudClass.setAdapter(new CommonAdapter<String>(getActivity(),R.layout.t_main_weike_view,mDatas) {
+//            @Override
+//            protected void convert(ViewHolder holder, String s, final int position) {
+//                holder.setText(R.id.textView1,s);
+//                holder.getConvertView().setOnClickListener(new View.OnClickListener() {
+//                    @Override
+//                    public void onClick(View v) {
+//                        Toast.makeText(getActivity(),mDatas.get(position),Toast.LENGTH_SHORT).show();
 //                        addData();
-                    }
-                });
-            }
-        });
+//                    }
+//                });
+//            }
+//        });
     }
 
-//    private void addData(){
+    private void addData(){
 //        mDatas.add("第三次");
 //        recyclerViewCloudClass.getAdapter().notifyDataSetChanged();
-//    }
+        Intent intent = new Intent(getActivity(),TinyWindowPlayActivity.class);
+        startActivity(intent);
+    }
 
     /**
      * 设置点击事件监听

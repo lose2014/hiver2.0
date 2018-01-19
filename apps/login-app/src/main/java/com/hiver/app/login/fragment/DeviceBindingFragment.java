@@ -18,6 +18,7 @@ import com.seaway.hiver.apps.common.HiverApplication;
 import com.seaway.hiver.apps.common.fragment.BaseFragment;
 import com.seaway.hiver.biz.login.contract.DeviceBindingContract;
 import com.seaway.hiver.biz.login.presenter.DeviceBindingPresenter;
+import com.seaway.hiver.model.common.data.vo.BaseOutputVo;
 import com.seaway.hiver.model.common.data.vo.CheckResourceVo;
 import com.seaway.hiver.model.common.data.vo.RequestSmsCodeVo;
 
@@ -74,10 +75,10 @@ public class DeviceBindingFragment extends BaseFragment<DeviceBindingContract.De
      * @param vo 获取短信验证码成功
      */
     @Override
-    public void getSmsCodeSuccess(RequestSmsCodeVo vo) {
+    public void getSmsCodeSuccess(BaseOutputVo vo) {
         smsCountDownButton.setEnabled(false);
-        Toast.makeText(getActivity(), String.format(getString(R.string.common_tips_1001),vo.getMobileNo()), Toast.LENGTH_SHORT).show();
-        this.codeId = vo.getSmsCodeId();
+//        Toast.makeText(getActivity(), String.format(getString(R.string.common_tips_1001),vo.getMobileNo()), Toast.LENGTH_SHORT).show();
+//        this.codeId = vo.getSmsCodeId();
     }
 
     @Override

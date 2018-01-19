@@ -27,4 +27,6 @@ dependencies {
     compile project(':biz:main-teacher-biz')
     compile project(':apps:common-apps')
     compile project(':banner')
+    compile project(':apps:login-app')
+    compile project(':UploadSdk')
 }

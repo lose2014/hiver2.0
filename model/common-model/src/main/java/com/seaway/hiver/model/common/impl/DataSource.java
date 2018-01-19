@@ -79,7 +79,7 @@ public  class DataSource implements IDataSource {
     public Observable<RequestMessageListVo> requestMessageInfo(int page,int size,int messageBelong) {
         return RetrofitClient.getInstance()
                 .create(CommonService.class)
-                .requestMessageList( Util.transformat(new RequestMessageListParam(page+"",size+"",messageBelong+"",Application.getInstance().loginVo.getTeacherId())))
+                .requestMessageList( Util.transformat(new RequestMessageListParam(page+"",size+"",messageBelong+"",Application.getInstance().loginVo.getTeacherId()+"")))
                 .map(new ServerResponseFunc<RequestMessageListVo>(RequestMessageListVo.class))
                 .onErrorResumeNext(new ErrorInterceptorFunc<RequestMessageListVo>())
                 .subscribeOn(Schedulers.newThread());
@@ -88,7 +88,7 @@ public  class DataSource implements IDataSource {
     @Override
     public Observable<BaseOutputVo> requestSmsCode(String mobile, String businessType) {
         Logger.e("super");
-        RequestSmsCodeParam param =new RequestSmsCodeParam(mobile,"REGISTER");
+        RequestSmsCodeParam param =new RequestSmsCodeParam(mobile,businessType);
         return RetrofitClient.getInstance()
                 .create(CommonService.class)
                 .requestSmsCode( Util.transformat(param))

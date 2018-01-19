@@ -1,5 +1,6 @@
 package com.hiver.app.login.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.text.TextUtils;
@@ -10,6 +11,8 @@ import android.widget.EditText;
 
 
 import com.hiver.app.login.R;
+import com.hiver.app.login.activity.LoginActivity;
+import com.hiver.ui.dialog.UIDefaultDialogHelper;
 import com.hiver.ui.spinner.UISelectionBoxView;
 import com.hiver.ui.toast.UIToast;
 import com.seaway.hiver.apps.common.HiverApplication;
@@ -62,7 +65,18 @@ public class PasswdModifyChildFragment extends BaseFragment<LoginPwdModifyContra
 
     @Override
     public void modifySuccess() {
-        ((FirstLoginSecSettingFragment) getParentFragment()).setStep(2);
+//        ((FirstLoginSecSettingFragment) getParentFragment()).setStep(2);
+        UIDefaultDialogHelper.showDefaultAlert(getActivity(), "密码修改成功，请重新登录！", new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                UIDefaultDialogHelper.dialog.dismiss();
+                UIDefaultDialogHelper.dialog=null;
+//                addFragment(new LoginFragment(),"loginFragment");
+                Intent intent = new Intent(getActivity(),LoginActivity.class);
+                startActivity(intent);
+                getActivity().finish();
+            }
+        });
     }
 
     private void getViews() {
@@ -98,14 +112,15 @@ public class PasswdModifyChildFragment extends BaseFragment<LoginPwdModifyContra
             UIToast.showToast(getActivity(), "请输入新密码");
             return false;
         }
+        if (0 == confirmPwdEdit.getText().toString().length()) {
+            UIToast.showToast(getActivity(), "请输入确认密码");
+            return false;
+        }
         if (newPwdEdit.getText().toString().length() < 6 || newPwdEdit.getText().toString().length() > 20) {
             UIToast.showToast(getActivity(), "新密码长度为6-20位，必须包含字母和数字，请重新输入");
             return false;
         }
-        if (0 == confirmPwdEdit.getText().toString().length()) {
-            UIToast.showToast(getActivity(), "请再次输入新密码");
-            return false;
-        }
+
         if (!newPwdEdit.getText().toString().equalsIgnoreCase(confirmPwdEdit.getText().toString())) {
             UIToast.showToast(getActivity(), "两次输入的新密码不一致，请重新输入");
             return false;

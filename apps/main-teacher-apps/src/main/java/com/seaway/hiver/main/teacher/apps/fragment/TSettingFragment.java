@@ -12,13 +12,23 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.Button;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
+import com.hiver.app.login.activity.LoginActivity;
+import com.hiver.app.login.fragment.LoginFragment;
+import com.hiver.app.login.fragment.PasswdModifyChildFragment;
 import com.seaway.hiver.apps.common.fragment.BaseFragment;
 import com.seaway.hiver.main.teacher.apps.R;
 import com.seaway.hiver.main.teacher.apps.adapter.MainViewAdapter;
 import com.seaway.hiver.main.teacher.biz.contract.TMainContract;
+import com.seaway.hiver.main.teacher.biz.contract.TWekeContract;
 import com.seaway.hiver.main.teacher.biz.presenter.TMainPresenter;
+import com.seaway.hiver.main.teacher.biz.presenter.TWekePresenter;
 import com.seaway.hiver.model.common.data.vo.QueryAdvertListVo;
+import com.seaway.hiver.model.main.teacher.data.vo.GetBillListVo;
+import com.seaway.hiver.model.main.teacher.data.vo.GetCourseListVo;
 import com.seaway.hiver.model.main.teacher.data.vo.GetIconCodeVo;
 import com.tbruyelle.rxpermissions2.RxPermissions;
 
@@ -28,11 +38,13 @@ import java.util.Map;
  * 首界面
  * Created by Leo.Chang on 2017/5/10.
  */
-public class TSettingFragment extends BaseFragment<TMainContract.Presenter> implements View.OnClickListener, TMainContract.View, AdapterView.OnItemClickListener {
+public class TSettingFragment extends BaseFragment<TWekeContract.Presenter> implements View.OnClickListener, TWekeContract.View, AdapterView.OnItemClickListener {
 
     private RecyclerView recyclerView;
     private LinearLayoutManager mLayoutManager;
-
+    private LinearLayout modifyPWLL,checkVersionLL,aboutUsLL;
+    private Button loginOutBtn;
+    private TextView curVersionTv;
     private MainViewAdapter mAdapter;
 
     private int selectedViewId = -1;
@@ -46,7 +58,7 @@ public class TSettingFragment extends BaseFragment<TMainContract.Presenter> impl
             selectedViewId = savedInstanceState.getInt("selectedViewId", -1);
         }
         // 注入Presenter
-        new TMainPresenter(this);
+        new TWekePresenter(this);
     }
 
     @Override
@@ -58,7 +70,7 @@ public class TSettingFragment extends BaseFragment<TMainContract.Presenter> impl
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_main_portal, container, false);
+        return inflater.inflate(R.layout.fragement_teacher_set, container, false);
     }
 
     @Override
@@ -67,21 +79,6 @@ public class TSettingFragment extends BaseFragment<TMainContract.Presenter> impl
 
         setOnClickListener();
 
-        // 初化 RecyclerView
-        recyclerView = (RecyclerView) getView().findViewById(R.id.main_portal_recycler_view_ad);
-        recyclerView.setHasFixedSize(true);
-        mLayoutManager = new LinearLayoutManager(getActivity());
-        recyclerView.setLayoutManager(mLayoutManager);
-        DefaultItemAnimator animator = new DefaultItemAnimator() {
-            @Override
-            public boolean canReuseUpdatedViewHolder(RecyclerView.ViewHolder viewHolder) {
-                return true;
-            }
-        };
-        recyclerView.setItemAnimator(animator);
-
-        mAdapter = new MainViewAdapter(this, this);
-        recyclerView.setAdapter(mAdapter);
     }
 
     @Override
@@ -115,18 +112,24 @@ public class TSettingFragment extends BaseFragment<TMainContract.Presenter> impl
     @Override
     public void onClick(View v) {
         this.selectedViewId = v.getId();
-//        if (v.getId() == R.id.bank_portal_bill_text) {
-//            // 账单
-//            mPresenter.checkResource("592");
-//        } else if (v.getId() == R.id.bank_portal_message_text) {
-//            // 消息
-//        } else if (v.getId() == R.id.bank_portal_scan_text) {
-//            // 扫一扫
-//            mPresenter.checkResource(String.valueOf(v.getTag(R.id.bank_resource_id)));
-//        } else if (v.getId() == R.id.bank_portal_payments_text) {
-//            // 收/付款
-//            mPresenter.checkResource(String.valueOf(v.getTag(R.id.bank_resource_id)));
-//        } else if (v.getId() == R.id.bank_portal_network_text) {
+        if (v.getId() == R.id.teacher_set_loginout_btn) {
+            // 退出登录
+            Intent intent = new Intent(getActivity(),LoginActivity.class);
+            startActivity(intent);
+            getActivity().finish();
+//            addFragment(new LoginFragment(),"loginFragment");
+        } else if (v.getId() == R.id.teacher_set_modifypw_ll) {
+            // 修改密码
+            addFragment(new PasswdModifyChildFragment(),"modifyfragment");
+        } else if (v.getId() == R.id.teacher_set_check_version_ll) {
+            // 版本检测
+
+        } else if (v.getId() == R.id.teacher_set_about_us_ll) {
+            // 关于我们
+
+        }
+//
+// else if (v.getId() == R.id.bank_portal_network_text) {
 //            // 网点
 //            mPresenter.checkResource(String.valueOf(v.getTag(R.id.bank_resource_id)));
 //        } else if (v.getId() == R.id.ui_view_banner_id) {
@@ -154,12 +157,6 @@ public class TSettingFragment extends BaseFragment<TMainContract.Presenter> impl
         // 功能菜单
         selectedViewId = (int) id;
         mPresenter.checkResource(String.valueOf(view.getTag(R.id.bank_resource_id)));
-    }
-
-    @Override
-    public void showPortal(@NonNull Map<Integer, Object> dataSource) {
-//        mAdapter.setDataSource(dataSource);
-//        mAdapter.notifyDataSetChanged();
     }
 
     @Override
@@ -227,54 +224,9 @@ public class TSettingFragment extends BaseFragment<TMainContract.Presenter> impl
 //        }
     }
 
-
-    /**
-     * 广告页查询成功
-     *
-     * @param advertVo 广告位信息
-     * @param flag     true：要更新；false：不需要更新
-     */
     @Override
-    public void queryAdvertListSuccess(QueryAdvertListVo advertVo, boolean flag) {
-//        mAdapter.setAdvertListVo(advertVo);
-//        mAdapter.notifyItemChanged(2);
-    }
+    public void queryCourseListSuccess(GetCourseListVo getBillListVo) {
 
-    /**
-     * 获取缓存广告信息成功
-     *
-     * @param advertListVo 广告信息
-     */
-    @Override
-    public void queryAdvertListInCacheSuccess(QueryAdvertListVo advertListVo) {
-//        mAdapter.setAdvertListVo(advertListVo);
-//        mAdapter.notifyItemChanged(2);
-//        // 先显示缓存数据，再去服务器获取新的数据
-//        mPresenter.queryAdvertList(1);
-    }
-
-    /**
-     * 查询理财产品成功
-     *
-     * @param financial 理财产品
-     */
-    @Override
-    public void queryFinancialSuccess( GetIconCodeVo financial) {
-//        mAdapter.setFinanceProductVo(financial);
-//        mAdapter.notifyItemChanged(3);
-    }
-
-    /**
-     * 查询缓存理财产品成功
-     *
-     * @param financial 理财产品
-     */
-    @Override
-    public void queryFinancialInCacheSuccess(GetIconCodeVo financial) {
-        // 先显示缓存数据，再去服务器获取新的数据
-//        mAdapter.setFinanceProductVo(financial);
-//        mAdapter.notifyItemChanged(3);
-//        mPresenter.queryFinancialInfo(1);
     }
 
 
@@ -282,7 +234,15 @@ public class TSettingFragment extends BaseFragment<TMainContract.Presenter> impl
      * 设置点击事件监听
      */
     private void setOnClickListener() {
-//        getView().findViewById(R.id.bank_portal_bill_text).setOnClickListener(this);
+        modifyPWLL =(LinearLayout) getView().findViewById(R.id.teacher_set_modifypw_ll);
+        checkVersionLL =(LinearLayout) getView().findViewById(R.id.teacher_set_check_version_ll);
+        aboutUsLL =(LinearLayout) getView().findViewById(R.id.teacher_set_about_us_ll);
+        curVersionTv =(TextView) getView().findViewById(R.id.teacher_set_version_tv);
+
+        modifyPWLL.setOnClickListener(this);
+        checkVersionLL.setOnClickListener(this);
+        aboutUsLL.setOnClickListener(this);
+        getView().findViewById(R.id.teacher_set_loginout_btn).setOnClickListener(this);
 //        getView().findViewById(R.id.bank_portal_message_text).setOnClickListener(this);
     }
 

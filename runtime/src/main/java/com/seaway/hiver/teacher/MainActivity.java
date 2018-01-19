@@ -7,6 +7,7 @@ import android.support.v4.app.FragmentManager;
 import android.view.View;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Toast;
 
 import com.seaway.android.sdk.logger.Logger;
 import com.seaway.hiver.apps.common.HiverApplication;
@@ -15,8 +16,10 @@ import com.seaway.hiver.apps.common.fragment.BaseFragment;
 import com.seaway.hiver.apps.common.util.BackPressedHandler;
 import com.seaway.hiver.main.teacher.apps.fragment.THelpFragment;
 import com.seaway.hiver.main.teacher.apps.fragment.TMainFragment;
+import com.seaway.hiver.main.teacher.apps.fragment.TSettingFragment;
 import com.seaway.hiver.teacher.util.VoiceUtil;
 import com.xiao.nicevideoplayer.NiceVideoPlayerManager;
+
 
 public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedChangeListener,View.OnClickListener{
     private int selectId;
@@ -26,6 +29,7 @@ public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedCh
     RadioButton settingRadio;
     // 帮助
     RadioButton helpRadio;
+    private long exitTime = 0;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -73,13 +77,18 @@ public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedCh
                 dra.setBounds( 0, 0, dra.getMinimumWidth(),dra.getMinimumHeight());
                 portalRadio.setCompoundDrawables(null,dra,null,null);
                 baseFragment = new TMainFragment();
+                mFragmentTransaction.replace(R.id.main_fragment_content, baseFragment, "portal");
+                mFragmentTransaction.addToBackStack("portal");
             }else if (selectId==R.id.tmain_portal_radioButton_setting){
-                baseFragment = new THelpFragment();
+                baseFragment = new TSettingFragment();
+                mFragmentTransaction.replace(R.id.main_fragment_content, baseFragment, "portal");
+                mFragmentTransaction.addToBackStack("portal");
             }else if (selectId==R.id.tmain_portal_radioButton_help){
                 baseFragment = new THelpFragment();
+                mFragmentTransaction.replace(R.id.main_fragment_content, baseFragment, "portal");
+                mFragmentTransaction.addToBackStack("portal");
             }
-            mFragmentTransaction.replace(R.id.main_fragment_content, baseFragment, "portal");
-            mFragmentTransaction.addToBackStack("portal");
+
             mFragmentTransaction.commit();
     }
 
@@ -101,7 +110,12 @@ public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedCh
         if (NiceVideoPlayerManager.instance().onBackPressd()) return;
         if (1 == mFragmentManager.getBackStackEntryCount()) {
             // 如果栈中只有1个Fragment，则说明在登录界面，点击退出登录界面
-            finish();
+            if ((System.currentTimeMillis() - exitTime) > 2000) {
+                Toast.makeText(this, "再按一次退出程序", Toast.LENGTH_LONG).show();
+                exitTime = System.currentTimeMillis();
+            } else {
+                finish();
+            }
         } else {
             if (!BackPressedHandler.handleBackPress(this)) {
                 // 如果栈中没有Fragment拦截返回键
@@ -138,4 +152,5 @@ public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedCh
         // 切换界面
         transferFragment();
     }
+
 }

@@ -10,7 +10,7 @@ import com.seaway.android.sdk.tools.DeviceUtil;
  * Created by Leo.Chang on 2017/5/16.
  */
 public class LoginVo extends BaseOutputVo implements Parcelable {
-    private String teacherId;
+    private Long teacherId;
     private String mobile;
     private String accessToken;
     private String nickname;
@@ -19,11 +19,11 @@ public class LoginVo extends BaseOutputVo implements Parcelable {
 
     private String uuid = DeviceUtil.getDeviceId();
 
-    public String getTeacherId() {
+    public Long getTeacherId() {
         return teacherId;
     }
 
-    public void setTeacherId(String teacherId) {
+    public void setTeacherId(Long teacherId) {
         this.teacherId = teacherId;
     }
 
@@ -86,7 +86,7 @@ public class LoginVo extends BaseOutputVo implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        dest.writeString(this.teacherId);
+        dest.writeLong(this.teacherId);
         dest.writeString(this.mobile);
         dest.writeString(this.accessToken);
         dest.writeString(this.nickname);
@@ -99,7 +99,7 @@ public class LoginVo extends BaseOutputVo implements Parcelable {
     }
 
     protected LoginVo(Parcel in) {
-        this.teacherId = in.readString();
+        this.teacherId = in.readLong();
         this.mobile = in.readString();
         this.accessToken = in.readString();
         this.nickname = in.readString();

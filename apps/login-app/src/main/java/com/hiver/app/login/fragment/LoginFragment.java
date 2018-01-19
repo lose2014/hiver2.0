@@ -7,6 +7,7 @@ import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
@@ -187,10 +188,21 @@ public class LoginFragment extends BaseFragment<LoginContract.Presenter> impleme
 //        }
         HiverApplication.getInstance().hasLogin = true;
         HiverApplication.getInstance().loginVo = loginVo;
+        int num =mFragmentManager.getBackStackEntryCount();
+       Logger.d("count--"+num);
+        for (int i = 0; i < num; i++) {
+            FragmentManager.BackStackEntry backstatck = getActivity().getSupportFragmentManager().getBackStackEntryAt(i);
+            if("portal".equals(backstatck.getName())){
+                break;
+            }
+//            TALogger.d("Fragment", backstatck.getName());
+        }
         try {
             Class cls = Class.forName("com.seaway.hiver.teacher.MainActivity");
             Intent intent = new Intent(getActivity(),cls);
             startActivity(intent);
+            pwdEdit.setText("");
+            getActivity().finish();
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }

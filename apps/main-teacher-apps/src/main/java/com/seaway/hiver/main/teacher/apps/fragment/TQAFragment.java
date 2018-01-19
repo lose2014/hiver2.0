@@ -18,10 +18,14 @@ import com.seaway.hiver.apps.common.fragment.BaseFragment;
 import com.seaway.hiver.main.teacher.apps.R;
 import com.seaway.hiver.main.teacher.apps.adapter.MainViewAdapter;
 import com.seaway.hiver.main.teacher.biz.contract.TMainContract;
+import com.seaway.hiver.main.teacher.biz.contract.TWekeContract;
 import com.seaway.hiver.main.teacher.biz.presenter.TMainPresenter;
+import com.seaway.hiver.main.teacher.biz.presenter.TWekePresenter;
 import com.seaway.hiver.model.common.data.vo.LoginVo;
 import com.seaway.hiver.model.common.data.vo.QATitleVo;
 import com.seaway.hiver.model.common.data.vo.QueryAdvertListVo;
+import com.seaway.hiver.model.main.teacher.data.vo.GetBillListVo;
+import com.seaway.hiver.model.main.teacher.data.vo.GetCourseListVo;
 import com.seaway.hiver.model.main.teacher.data.vo.GetIconCodeVo;
 import com.tbruyelle.rxpermissions2.RxPermissions;
 import com.zhy.adapter.recyclerview.CommonAdapter;
@@ -35,7 +39,7 @@ import java.util.Map;
  * 在线答疑界面
  * Created by Leo.Chang on 2017/5/10.
  */
-public class TQAFragment extends BaseFragment<TMainContract.Presenter> implements View.OnClickListener, TMainContract.View, AdapterView.OnItemClickListener {
+public class TQAFragment extends BaseFragment<TWekeContract.Presenter> implements View.OnClickListener, TWekeContract.View, AdapterView.OnItemClickListener {
 
     private RecyclerView recyclerTitleView,recyclerContentView;
     private LinearLayoutManager mLayoutManager;
@@ -54,7 +58,7 @@ public class TQAFragment extends BaseFragment<TMainContract.Presenter> implement
             selectedViewId = savedInstanceState.getInt("selectedViewId", -1);
         }
         // 注入Presenter
-        new TMainPresenter(this);
+        new TWekePresenter(this);
     }
 
     @Override
@@ -183,11 +187,6 @@ public class TQAFragment extends BaseFragment<TMainContract.Presenter> implement
         mPresenter.checkResource(String.valueOf(view.getTag(R.id.bank_resource_id)));
     }
 
-    @Override
-    public void showPortal(@NonNull Map<Integer, Object> dataSource) {
-//        mAdapter.setDataSource(dataSource);
-//        mAdapter.notifyDataSetChanged();
-    }
 
     @Override
     public void loginSuccess() {
@@ -199,46 +198,8 @@ public class TQAFragment extends BaseFragment<TMainContract.Presenter> implement
 
     }
 
-
-    /**
-     * 广告页查询成功
-     *
-     * @param advertVo 广告位信息
-     * @param flag     true：要更新；false：不需要更新
-     */
     @Override
-    public void queryAdvertListSuccess(QueryAdvertListVo advertVo, boolean flag) {
-
-    }
-
-    /**
-     * 获取缓存广告信息成功
-     *
-     * @param advertListVo 广告信息
-     */
-    @Override
-    public void queryAdvertListInCacheSuccess(QueryAdvertListVo advertListVo) {
-
-    }
-
-    /**
-     * 查询理财产品成功
-     *
-     * @param financial 理财产品
-     */
-    @Override
-    public void queryFinancialSuccess(GetIconCodeVo financial) {
-
-    }
-
-    /**
-     * 查询缓存理财产品成功
-     *
-     * @param financial 理财产品
-     */
-    @Override
-    public void queryFinancialInCacheSuccess(GetIconCodeVo financial) {
-        // 先显示缓存数据，再去服务器获取新的数据
+    public void queryCourseListSuccess(GetCourseListVo getBillListVo) {
 
     }
 

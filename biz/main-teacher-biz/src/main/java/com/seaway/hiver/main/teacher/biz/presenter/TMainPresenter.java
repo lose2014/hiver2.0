@@ -1,9 +1,17 @@
 package com.seaway.hiver.main.teacher.biz.presenter;
 
 import com.seaway.android.sdk.logger.Logger;
+import com.seaway.hiver.common.biz.function.CommonObserver;
 import com.seaway.hiver.common.biz.presenter.CommonLoginPresenter;
 import com.seaway.hiver.main.teacher.biz.contract.TMainContract;
+import com.seaway.hiver.model.common.data.vo.LoginVo;
 import com.seaway.hiver.model.main.teacher.IMainTeacherDataSource;
+import com.seaway.hiver.model.main.teacher.data.param.BillListParam;
+import com.seaway.hiver.model.main.teacher.data.vo.BillVo;
+import com.seaway.hiver.model.main.teacher.data.vo.GetBillListVo;
+import com.seaway.hiver.model.main.teacher.data.vo.GetCourseListVo;
+import com.seaway.hiver.model.main.teacher.data.vo.GetQuestionListVo;
+import com.seaway.hiver.model.main.teacher.data.vo.IncomeVo;
 import com.seaway.hiver.model.main.teacher.impl.MainTeacherDataSource;
 
 import java.util.HashMap;
@@ -32,8 +40,8 @@ public class TMainPresenter extends CommonLoginPresenter<TMainContract.View, IMa
     @Override
     public void subscribe() {
         // 获取初始数据
-        queryAdvertList(0);
-        queryFinancialInfo(0);
+//        queryAdvertList(0);
+//        queryFinancialInfo(0);
     }
 
     @Override
@@ -44,6 +52,114 @@ public class TMainPresenter extends CommonLoginPresenter<TMainContract.View, IMa
     @Override
     public void initBankPortalDataSource() {
 
+    }
+
+    @Override
+    public void queryBillList(String page, String id) {
+        mDataSource.queryBillList(page, id).observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new CommonObserver<GetBillListVo>(mView, mDisposable) {
+
+                    @Override
+                    public void onSubscribe(@NonNull Disposable d) {
+                        super.onSubscribe(d);
+                        mView.showPregressDialog();
+                    }
+
+                    @Override
+                    public void onNext(@NonNull GetBillListVo loginVo) {
+                        Logger.e("登录成功");
+                        // 登录成功
+                        mView.queryBillListSuccess(loginVo);
+                    }
+
+                    @Override
+                    protected void error(@NonNull Throwable e) {
+                        Logger.d("exception---"+e);
+//                        mView.loginFail();
+                    }
+                });
+    }
+
+    @Override
+    public void queryMonthIncome() {
+
+        mDataSource.queryMonthIncome().observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new CommonObserver<IncomeVo>(mView, mDisposable) {
+
+                    @Override
+                    public void onSubscribe(@NonNull Disposable d) {
+                        super.onSubscribe(d);
+                        mView.showPregressDialog();
+                    }
+
+                    @Override
+                    public void onNext(@NonNull IncomeVo loginVo) {
+                        Logger.e("收入获取成功");
+                        // 登录成功
+                        mView.queryMonthIncomeSuccess(loginVo);
+                    }
+
+                    @Override
+                    protected void error(@NonNull Throwable e) {
+                        Logger.d("收入获取失败---"+e);
+//                        mView.loginFail();
+                    }
+                });
+    }
+
+    /**
+     * 在线问答
+     * */
+    @Override
+    public void queryQuestionList(String page, String id, String grade, String unit, String content, String status, String subject) {
+        mDataSource.queryQuestionList(page, id,grade,unit,content,status,subject).observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new CommonObserver<GetQuestionListVo>(mView, mDisposable) {
+
+                    @Override
+                    public void onSubscribe(@NonNull Disposable d) {
+                        super.onSubscribe(d);
+                        mView.showPregressDialog();
+                    }
+
+                    @Override
+                    public void onNext(@NonNull GetQuestionListVo loginVo) {
+                        Logger.e("课程获取成功");
+                        // 登录成功
+                        mView.queryQuestionListSuccess(loginVo);
+                    }
+
+                    @Override
+                    protected void error(@NonNull Throwable e) {
+                        Logger.d("exception---"+e);
+//                        mView.loginFail();
+                    }
+                });
+    }
+
+    @Override
+    public void queryCourseList(String page, String id, int status, String subject) {
+        mDataSource.queryCourseList(page, id,status,subject).observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new CommonObserver<GetCourseListVo>(mView, mDisposable) {
+
+                    @Override
+                    public void onSubscribe(@NonNull Disposable d) {
+                        super.onSubscribe(d);
+                        mView.showPregressDialog();
+                    }
+
+                    @Override
+                    public void onNext(@NonNull GetCourseListVo loginVo) {
+                        Logger.e("课程获取成功");
+                        // 登录成功
+                        mView.queryCourseListSuccess(loginVo);
+                    }
+
+                    @Override
+                    protected void error(@NonNull Throwable e) {
+                        Logger.d("exception---"+e);
+//                        mView.loginFail();
+                    }
+                });
     }
 
     /**

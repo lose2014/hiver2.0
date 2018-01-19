@@ -22,6 +22,18 @@ public interface TMainService {
     @POST("sendCookie")
     Observable<BaseVo> queryFinanceProductList(@Body BankBaseParam<String> param);
 
+    @POST("/bill/list")
+    Observable<BaseVo> queryBillList(@Body BankBaseParam param);
+
+    @POST("/bill/monthIncome")
+    Observable<BaseVo> queryMonthIncome(@Body BankBaseParam param);
+
+    @POST("/course/list")
+    Observable<BaseVo> queryCourseList(@Body BankBaseParam param);
+
+    @POST("/question/list")
+    Observable<BaseVo> queryQuestionList(@Body BankBaseParam param);
+
     /**
      * 获取应用签名
      *

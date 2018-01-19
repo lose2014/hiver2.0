@@ -11,8 +11,9 @@ import com.xiao.nicevideoplayer.NiceVideoPlayer;
 import com.xiao.nicevideoplayer.NiceVideoPlayerManager;
 import com.xiao.nicevideoplayer.R;
 import com.xiao.nicevideoplayer.TxVideoPlayerController;
+import com.xiao.nicevideoplayer.base.CompatHomeKeyActivity;
 
-public class TinyWindowPlayActivity extends AppCompatActivity {
+public class TinyWindowPlayActivity extends CompatHomeKeyActivity {
 
     private NiceVideoPlayer mNiceVideoPlayer;
 
@@ -27,7 +28,7 @@ public class TinyWindowPlayActivity extends AppCompatActivity {
         mNiceVideoPlayer = (NiceVideoPlayer) findViewById(R.id.nice_video_player);
         mNiceVideoPlayer.setPlayerType(NiceVideoPlayer.TYPE_NATIVE); // IjkPlayer or MediaPlayer
         String videoUrl = Environment.getExternalStorageDirectory().getPath().concat("/办公室小野.mp4");
-        mNiceVideoPlayer.setUp(videoUrl, null);
+        mNiceVideoPlayer.setUp("http://tanzi27niu.cdsb.mobi/wps/wp-content/uploads/2017/05/2017-05-10_10-20-26.mp4", null);
         TxVideoPlayerController controller = new TxVideoPlayerController(this);
         controller.setTitle("办公室小野开番外了，居然在办公室开澡堂！老板还点赞？");
         controller.setLenght(98000);
@@ -46,12 +47,12 @@ public class TinyWindowPlayActivity extends AppCompatActivity {
             mNiceVideoPlayer.enterTinyWindow();
         }
     }
-
-    @Override
-    protected void onStop() {
-        super.onStop();
-        NiceVideoPlayerManager.instance().releaseNiceVideoPlayer();
-    }
+//
+//    @Override
+//    protected void onStop() {
+//        super.onStop();
+//        NiceVideoPlayerManager.instance().releaseNiceVideoPlayer();
+//    }
 
     @Override
     public void onBackPressed() {

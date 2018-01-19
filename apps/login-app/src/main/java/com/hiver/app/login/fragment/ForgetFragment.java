@@ -29,7 +29,7 @@ public class ForgetFragment extends BaseFragment<ForgetContract.Presenter> imple
     EditText psEdit,psConfirmEdit;
     EditText nameEdit;
     EditText mobileEdit;
-
+    boolean codeOk;
     EditText smsCodeEdit;
     UIButtonSmsCountDown smsCountDownButton;
 
@@ -57,6 +57,7 @@ public class ForgetFragment extends BaseFragment<ForgetContract.Presenter> imple
     @Override
     public void getSmsCodeSuccess(BaseOutputVo vo) {
         smsCountDownButton.setEnabled(false);
+        this.codeOk =true;
         Toast.makeText(getActivity(), String.format(getString(R.string.common_tips_1001), mobileEdit.getText().toString()), Toast.LENGTH_SHORT).show();
 //        this.codeId = vo.getSmsCodeId();
     }
@@ -84,8 +85,8 @@ public class ForgetFragment extends BaseFragment<ForgetContract.Presenter> imple
             mPresenter.requestResetPwd(mobileEdit.getText().toString(),  smsCodeEdit.getText().toString(),psEdit.getText().toString(),psConfirmEdit.getText().toString());
 
             mobileEdit.setText("");
-//            idNoEdit.setText("");
-//            nameEdit.setText("");
+            psEdit.setText("");
+            psConfirmEdit.setText("");
 //            codeId = null;
             smsCodeEdit.setText("");
         }
@@ -119,6 +120,10 @@ public class ForgetFragment extends BaseFragment<ForgetContract.Presenter> imple
 //            UIToast.showToast(getActivity(), "请先获取短信验证码");
 //            return false;
 //        }
+        if (!codeOk) {
+            UIToast.showToast(getActivity(), "请先获取短信验证码");
+            return false;
+        }
         if (TextUtils.isEmpty(smsCodeEdit.getText())) {
             UIToast.showToast(getActivity(), "请输入短信验证码");
             return false;

@@ -23,6 +23,6 @@ public interface LoginPwdModifyContract {
 //         * @param credentialType   证件类型
 //         * @param credentialNumber 证件号码
          */
-        void requestLoginPwdModify(String oldPwd, String newPwd);
+        void requestLoginPwdModify(String oldPwd, String newPwdString);
     }
 }

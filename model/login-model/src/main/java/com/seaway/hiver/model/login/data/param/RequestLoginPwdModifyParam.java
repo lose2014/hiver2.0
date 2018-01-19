@@ -11,12 +11,22 @@ public class RequestLoginPwdModifyParam extends BaseInputParam {
     private String password;
     private String newPassword;
     private String passwordConfirm;
+    private String captcha;
 
 
     public RequestLoginPwdModifyParam(String oldPwd, String newPwd,String passwordConfirm) {
         this.passwordConfirm = passwordConfirm;
         this.password = oldPwd;
         this.newPassword = newPwd;
+        this.captcha="1111";
+    }
+
+    public String getCaptcha() {
+        return captcha;
+    }
+
+    public void setCaptcha(String captcha) {
+        this.captcha = captcha;
     }
 
     public String getPassword() {

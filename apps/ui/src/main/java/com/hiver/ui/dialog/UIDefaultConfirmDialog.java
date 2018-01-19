@@ -87,7 +87,7 @@ public class UIDefaultConfirmDialog extends Dialog {
     @SuppressLint("InflateParams")
     private void initDialog() {
         View view = LayoutInflater.from(getContext()).inflate(
-                R.layout.ui_default_confirm_dialog, null);
+                R.layout.ui_confirm_dialog, null);
 
         uiDialogTitle = (TextView) view.findViewById(R.id.ui_dialog_title);
         uiDialogMessage = (TextView) view.findViewById(R.id.ui_dialog_message);

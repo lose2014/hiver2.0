@@ -111,7 +111,7 @@ public class RetrofitClient extends BaseRetrofit {
                         // 设备号
                         .addHeader("deviceNo", deviceId)
 //                        // 会话
-                        .addHeader("teacherId", null == Application.getInstance().loginVo ? "" : Application.getInstance().loginVo.getTeacherId())
+                        .addHeader("teacherId", null == Application.getInstance().loginVo ? "" : Application.getInstance().loginVo.getTeacherId()+"")
                         // 会话
                         .addHeader("accessToken", null == Application.getInstance().loginVo ? "" : Application.getInstance().loginVo.getAccessToken())
                         // 推送编号

@@ -3,17 +3,81 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_margin="10dp"
     android:orientation="vertical">
+
+    <TextView  android:id="@+id/wk_couser_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/orange_bg"
+        android:padding="5dp"
+        android:text="三年级 语文"
+        android:textColor="@color/white"
+        android:textSize="12sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:orientation="horizontal"
+        android:paddingBottom="5dp"
+        android:paddingTop="5dp">
+
+        <TextView
+            android:id="@+id/wk_title_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:gravity="center_vertical"
+            android:text="语文特训班之积累课(1)" />
+
+        <TextView android:id="@+id/wk_money_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:background="@color/orange_bg"
+            android:paddingLeft="3dp"
+            android:paddingRight="3dp"
+            android:text="￥:5"
+            android:textColor="@color/white"
+            android:textSize="10sp" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"></View>
+
+        <TextView android:id="@+id/wk_status_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginRight="10dp"
+            android:gravity="center_vertical"
+            android:text="下架"
+            android:textColor="@color/font_red" />
+
+        <TextView
+            android:id="@+id/t_my_weke_change_view"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginRight="10dp"
+            android:gravity="center_vertical"
+            android:text="编辑"
+            android:textColor="@color/blue_txt" />
+
+    </LinearLayout>
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="8dp"
-        android:background="#f1f1f1" />
+        android:layout_height="1dp"
+        android:background="@color/gray" />
 
     <com.zhy.android.percent.support.PercentLinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="0dp"
+        android:layout_margin="10dp"
+        android:layout_marginRight="0dp"
+        android:layout_weight="1"
         android:orientation="horizontal">
+
 
         <com.xiao.nicevideoplayer.NiceVideoPlayer
             android:id="@+id/nice_video_player"
@@ -22,13 +86,54 @@
             app:layout_heightPercent="36%w"
             app:layout_widthPercent="64%w" />
 
-        <TextView
+        <LinearLayout
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:orientation="vertical"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:gravity="center"
-            android:text="我的个天啊"
             app:layout_heightPercent="36%w"
-            app:layout_widthPercent="36%w" />
+            app:layout_widthPercent="36%w">
+
+            <TextView
+                android:id="@+id/wk_content_tv"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:paddingBottom="5dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingTop="5dp"
+                android:text="介绍微课介绍微课介绍微课介绍微课介绍微课介绍微课介绍微课介绍微课"
+                android:textColor="@color/black_txt"
+                android:textSize="13sp" />
+
+            <TextView android:id="@+id/wk_time_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:gravity="right|center_vertical"
+                android:singleLine="true"
+                android:text="2017-03-13 12:12:12"
+                android:textSize="12sp" />
+        </LinearLayout>
+
     </com.zhy.android.percent.support.PercentLinearLayout>
 
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/gray" />
 </LinearLayout>
+
+    <!--<?xml version="1.0" encoding="utf-8"?>--><!--<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"--><!--xmlns:app="http://schemas.android.com/apk/res-auto"--><!--android:layout_width="match_parent"--><!--android:layout_height="wrap_content"--><!--android:orientation="vertical">-->
+
+    <!--<View--><!--android:layout_width="match_parent"--><!--android:layout_height="8dp"--><!--android:background="#f1f1f1" />-->
+
+    <!--<com.zhy.android.percent.support.PercentLinearLayout--><!--android:layout_width="match_parent"--><!--android:layout_height="match_parent"--><!--android:orientation="horizontal">-->
+
+    <!--<com.xiao.nicevideoplayer.NiceVideoPlayer--><!--android:id="@+id/nice_video_player"--><!--android:layout_width="0dp"--><!--android:layout_height="0dp"--><!--app:layout_heightPercent="36%w"--><!--app:layout_widthPercent="64%w" />-->
+
+    <!--<TextView--><!--android:layout_width="0dp"--><!--android:layout_height="0dp"--><!--android:gravity="center"--><!--android:text="我的个天啊"--><!--app:layout_heightPercent="36%w"--><!--app:layout_widthPercent="36%w" />--><!--</com.zhy.android.percent.support.PercentLinearLayout>-->
+
+    <!--</LinearLayout>-->

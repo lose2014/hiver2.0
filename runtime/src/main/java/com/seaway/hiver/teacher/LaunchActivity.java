@@ -24,6 +24,8 @@ import com.seaway.android.ndk.NativeSDK;
 import com.seaway.android.sdk.logger.Logger;
 import com.seaway.android.sdk.toolkit.SWVerificationUtil;
 import com.seaway.android.sdk.tools.NetworkUtil;
+import com.seaway.android.sdk.upload.util.UploadUtil;
+import com.seaway.hiver.apps.common.HiverApplication;
 import com.seaway.hiver.apps.common.activity.BaseActivity;
 import com.seaway.hiver.model.common.NetUtil;
 import com.seaway.hiver.model.common.Util;
@@ -42,8 +44,8 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import java.util.HashMap;
 import java.util.Map;
-
 import io.reactivex.Observable;
 import io.reactivex.ObservableEmitter;
 import io.reactivex.ObservableOnSubscribe;
@@ -69,8 +71,8 @@ public class LaunchActivity extends BaseActivity implements ICheckVersionListene
         if(NetworkUtil.checkNetworking()){
             startToMain();
 //            checkVersion();
-//            if(!SWVerificationUtil.isEmpty(Util.readFromPath())){
-//                checkNetWork(Util.readFromPath());
+//            if(!SWVerificationUtil.isEmpty(FileMapUtil.readFromPath())){
+//                checkNetWork(FileMapUtil.readFromPath());
 //            }else{
 //            Logger.e("----------------------------"+urls[10]);
 //                checkNetWork(urls[0]);
@@ -295,4 +297,7 @@ public class LaunchActivity extends BaseActivity implements ICheckVersionListene
         PushManager.getInstance().initialize(this.getApplicationContext(), PushService.class);
         PushManager.getInstance().registerPushIntentService(this.getApplicationContext(), PushIntentService.class);
     }
+
+
+
 }

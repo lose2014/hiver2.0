@@ -3,9 +3,24 @@ package com.seaway.hiver.model.common.function;
 import android.text.TextUtils;
 
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.JsonPrimitive;
+import com.google.gson.JsonSerializationContext;
+import com.google.gson.JsonSerializer;
+import com.google.gson.reflect.TypeToken;
 import com.seaway.android.ndk.NativeSDK;
 import com.seaway.hiver.model.common.data.vo.BaseVo;
 import com.seaway.hiver.model.common.exception.ServerResponseException;
+
+import java.lang.reflect.Type;
+import java.util.Map;
+import java.util.Set;
+import java.util.TreeMap;
 
 import io.reactivex.annotations.NonNull;
 import io.reactivex.functions.Function;
@@ -43,8 +58,18 @@ public class ServerResponseFunc<T> implements Function<BaseVo, T> {
 //            }
 //        }
         if(vo.getEntity()!=null){
-            String json = new Gson().toJson(vo.getEntity());
-            return (T) new Gson().fromJson(json,t);
+            Gson gson = new GsonBuilder().
+                    registerTypeAdapter(Double.class, new JsonSerializer<Double>() {
+
+                        @Override
+                        public JsonElement serialize(Double src, Type typeOfSrc, JsonSerializationContext context) {
+                            if (src == src.longValue())
+                                return new JsonPrimitive(src.longValue());
+                            return new JsonPrimitive(src);
+                        }
+                    }).create();
+            String json = gson.toJson(vo.getEntity());
+            return (T) gson.fromJson(json,t);
         }else{
             return (T) new Gson().fromJson("{}",t);
         }

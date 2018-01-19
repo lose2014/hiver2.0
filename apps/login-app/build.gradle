@@ -29,5 +29,4 @@ dependencies {
     compile project(':biz:login-biz')
     compile project(':apps:common-apps')
     compile project(':apps:ui')
-    compile project(':apps:main-teacher-apps')
 }

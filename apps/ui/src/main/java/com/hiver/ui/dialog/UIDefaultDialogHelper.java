@@ -47,6 +47,10 @@ public class UIDefaultDialogHelper {
      * @param msg     提示内容
      */
     public static void showDefaultAlert(Context context, String msg) {
+        if(dialog!=null){
+            dialog.dismiss();
+            dialog =null;
+        }
         dialog = new UIDefaultConfirmDialog(context);
         dialog.getUiDialogMessage().setText(msg);
         dialog.getNegativeButton().setText("确定");
@@ -74,6 +78,10 @@ public class UIDefaultDialogHelper {
      */
     public static void showDefaultAlert(Context context, String msg,
                                         OnClickListener listener) {
+        if(dialog!=null){
+            dialog.dismiss();
+            dialog =null;
+        }
         dialog = new UIDefaultConfirmDialog(context);
         dialog.getUiDialogMessage().setText(msg);
         dialog.getNegativeButton().setText("确定");
@@ -96,6 +104,10 @@ public class UIDefaultDialogHelper {
     }
 
     public static void showDefaultAlert(Context context, String msg, String buttonTitle) {
+        if(dialog!=null){
+            dialog.dismiss();
+            dialog =null;
+        }
         dialog = new UIDefaultConfirmDialog(context);
         dialog.getUiDialogMessage().setText(msg);
         dialog.getNegativeButton().setText(buttonTitle);
@@ -114,6 +126,10 @@ public class UIDefaultDialogHelper {
 
     public static void showDefaultAlert(Context context, String msg, String buttonTitle,
                                         OnClickListener listener) {
+        if(dialog!=null){
+            dialog.dismiss();
+            dialog =null;
+        }
         dialog = new UIDefaultConfirmDialog(context);
         dialog.getUiDialogMessage().setText(msg);
         dialog.getNegativeButton().setText(buttonTitle);
@@ -147,6 +163,10 @@ public class UIDefaultDialogHelper {
      */
     public static void showDefaultAskAlert(Context context, String msg,
                                            String rightButtonText, OnClickListener listener) {
+        if(dialog!=null){
+            dialog.dismiss();
+            dialog =null;
+        }
         dialog = new UIDefaultConfirmDialog(context);
         dialog.getUiDialogMessage().setText(msg);
 
@@ -180,6 +200,10 @@ public class UIDefaultDialogHelper {
      */
     public static void showDefaultAskAlert(Context context, String msg,
                                            String rightButtonText, String leftButtonText, OnClickListener listener) {
+        if(dialog!=null){
+            dialog.dismiss();
+            dialog =null;
+        }
         dialog = new UIDefaultConfirmDialog(context);
         dialog.getUiDialogMessage().setText(msg);
 
@@ -213,6 +237,10 @@ public class UIDefaultDialogHelper {
      */
     public static void showDefaultAskAlert(Context context, String msg,
                                            String rightButtonText, String leftButtonText, OnClickListener listener, OnClickListener cancelListener) {
+        if(dialog!=null){
+            dialog.dismiss();
+            dialog =null;
+        }
         dialog = new UIDefaultConfirmDialog(context);
         dialog.getUiDialogMessage().setText(msg);
 
@@ -249,6 +277,10 @@ public class UIDefaultDialogHelper {
      */
     public static void showDefaultSuccessAlert(Context context, String msg,
                                                OnClickListener listener) {
+        if(dialog!=null){
+            dialog.dismiss();
+            dialog =null;
+        }
         dialog = new UIDefaultConfirmDialog(context);
         dialog.getUiDialogMessage().setText(msg);
         dialog.getPositiveButton().setText("确定");
@@ -282,6 +314,10 @@ public class UIDefaultDialogHelper {
      */
     public static void showDefaultAskAlertWithTitle(Context context, String title, String msg,
                                                     String rightButtonText, String leftButtonText, OnClickListener listener, OnClickListener cancelListener) {
+        if(dialog!=null){
+            dialog.dismiss();
+            dialog =null;
+        }
         dialog = new UIDefaultConfirmDialog(context);
         dialog.getUiDialogMessage().setText(msg);
 
@@ -316,7 +352,10 @@ public class UIDefaultDialogHelper {
      */
     public static void showPermissionAskDialog(final Context context, String title, String msg) {
         dialog = new UIDefaultConfirmDialog(context);
-
+        if(dialog!=null){
+            dialog.dismiss();
+            dialog =null;
+        }
         if (!TextUtils.isEmpty(title)) {
             dialog.getUiDialogTitle().setText(title);
             dialog.getUiDialogTitle().setVisibility(View.VISIBLE);
@@ -369,7 +408,10 @@ public class UIDefaultDialogHelper {
      */
     public static void showPermissionAskDialog(final Context context, String title, String msg ,OnClickListener onClickListener) {
         dialog = new UIDefaultConfirmDialog(context);
-
+        if(dialog!=null){
+            dialog.dismiss();
+            dialog =null;
+        }
         if (!TextUtils.isEmpty(title)) {
             dialog.getUiDialogTitle().setText(title);
             dialog.getUiDialogTitle().setVisibility(View.VISIBLE);
@@ -406,6 +448,10 @@ public class UIDefaultDialogHelper {
     }
 
     public static void showPermissionAskDialogWithExit(final Context context, String title, String msg) {
+        if(dialog!=null){
+            dialog.dismiss();
+            dialog =null;
+        }
         dialog = new UIDefaultConfirmDialog(context);
 
         if (!TextUtils.isEmpty(title)) {

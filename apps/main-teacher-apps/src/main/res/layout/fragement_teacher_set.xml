@@ -4,11 +4,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/white"
+    android:background="@color/color_f3f3f3"
     android:orientation="vertical">
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="48dp">
+        android:layout_height="48dp"
+        android:layout_marginBottom="10dp"
+        android:background="@color/white">
         <TextView
             android:id="@+id/ui_navigation_bar_title_text_view"
             android:layout_width="wrap_content"
@@ -19,15 +21,15 @@
             android:textColor="@color/grey_txt"
             android:textSize="16sp" />
 
-        <ImageView
-            android:id="@+id/ui_navigation_bar_back_button"
-            android:layout_width="wrap_content"
-            android:layout_height="48dp"
-            android:layout_alignParentLeft="true"
-            android:layout_centerVertical="true"
-            android:paddingLeft="16dp"
-            android:paddingRight="16dp"
-            android:src="@drawable/ui_back_button"/>
+        <!--<ImageView-->
+            <!--android:id="@+id/ui_navigation_bar_back_button"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="48dp"-->
+            <!--android:layout_alignParentLeft="true"-->
+            <!--android:layout_centerVertical="true"-->
+            <!--android:paddingLeft="16dp"-->
+            <!--android:paddingRight="16dp"-->
+            <!--android:src="@drawable/ui_back_button"/>-->
         <!--<TextView-->
             <!--android:id="@+id/ui_navigation_bar_right_text_view"-->
             <!--android:layout_width="wrap_content"-->
@@ -39,12 +41,14 @@
             <!--android:textColor="@android:color/black"-->
             <!--android:textSize="16sp" />-->
     </RelativeLayout>
-    <LinearLayout
+    <LinearLayout android:id="@+id/teacher_set_modifypw_ll"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
         android:gravity="center_vertical"
         android:padding="16dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/btn_angle_normal_bg"
         android:orientation="horizontal">
         <TextView
             android:layout_width="0dp"
@@ -61,11 +65,14 @@
             android:src="@drawable/ui_grey_to"/>
     </LinearLayout>
     <LinearLayout
+        android:id="@+id/teacher_set_check_version_ll"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
         android:gravity="center_vertical"
+        android:background="@drawable/btn_angle_normal_bg"
         android:padding="16dp"
+        android:layout_marginBottom="10dp"
         android:orientation="horizontal">
         <TextView
             android:layout_width="wrap_content"
@@ -74,6 +81,7 @@
             android:textColor="@color/black_user"
             android:textSize="14sp"/>
         <TextView
+            android:id="@+id/teacher_set_version_tv"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
@@ -89,11 +97,14 @@
             android:src="@drawable/ui_grey_to"/>
     </LinearLayout>
     <LinearLayout
+        android:id="@+id/teacher_set_about_us_ll"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
         android:gravity="center_vertical"
         android:padding="16dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/btn_angle_normal_bg"
         android:orientation="horizontal">
         <TextView
             android:layout_width="0dp"
@@ -115,14 +126,16 @@
         android:layout_gravity="center_vertical"
         android:gravity="center_vertical"
         android:padding="15dp"
-        android:background="@color/color_f3f3f3"
+
         android:orientation="horizontal">
-        <TextView
+        <!--android:background="@color/color_f3f3f3"-->
+        <Button android:id="@+id/teacher_set_loginout_btn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
             android:textSize="16sp"
-            android:textColor="@color/color_FE4229"
+            android:background="@drawable/login_button_selector"
+            android:textColor="@color/white"
             android:text="退出登录"/>
     </LinearLayout>
 
