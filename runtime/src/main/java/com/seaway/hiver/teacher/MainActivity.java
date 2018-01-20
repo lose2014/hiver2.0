@@ -9,6 +9,7 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
+import com.github.ikidou.fragmentBackHandler.BackHandlerHelper;
 import com.seaway.android.sdk.logger.Logger;
 import com.seaway.hiver.apps.common.HiverApplication;
 import com.seaway.hiver.apps.common.activity.BaseActivity;
@@ -108,6 +109,8 @@ public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedCh
         // 在全屏或者小窗口时按返回键要先退出全屏或小窗口，
         // 所以在Activity中onBackPress要交给NiceVideoPlayer先处理。
         if (NiceVideoPlayerManager.instance().onBackPressd()) return;
+        // 当确认没有子Fragmnt时可以直接return false
+
         if (1 == mFragmentManager.getBackStackEntryCount()) {
             // 如果栈中只有1个Fragment，则说明在登录界面，点击退出登录界面
             if ((System.currentTimeMillis() - exitTime) > 2000) {

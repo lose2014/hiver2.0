@@ -12,6 +12,8 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
+import com.github.ikidou.fragmentBackHandler.BackHandlerHelper;
+import com.github.ikidou.fragmentBackHandler.FragmentBackHandler;
 import com.seaway.android.sdk.logger.Logger;
 import com.seaway.hiver.apps.common.HiverApplication;
 
@@ -24,12 +26,14 @@ import com.seaway.hiver.apps.common.R;
 import com.hiver.ui.dialog.UIDefaultDialogHelper;
 import com.hiver.ui.dialog.UIProgressDialog;
 import com.hiver.ui.toast.UIToast;
+import com.xiao.nicevideoplayer.NiceVideoPlayerManager;
+import com.xiao.nicevideoplayer.base.HomeKeyWatcher;
 
 /**
  * Fragment基类
  * Created by Leo.Chang on 2017/5/10.
  */
-public class BaseFragment<T extends IBasePresenter> extends Fragment implements View.OnClickListener {
+public class BaseFragment<T extends IBasePresenter> extends Fragment implements View.OnClickListener{
     // 账号登录标识
     protected static final int ACCOUNT_LOGIN_REQUEST_CODE = 0x3977;
     // 手势密码登录标识
@@ -40,9 +44,47 @@ public class BaseFragment<T extends IBasePresenter> extends Fragment implements 
     protected FragmentManager mFragmentManager;
     protected UIProgressDialog mProgressDialog;
     private int currentPage;
+
+    private boolean pressedHome;
+    private HomeKeyWatcher mHomeKeyWatcher;
     public void setPresenter(T presenter) {
 
         this.mPresenter = presenter;
+    }
+
+    @Override
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        mHomeKeyWatcher = new HomeKeyWatcher(getActivity());
+        mHomeKeyWatcher.setOnHomePressedListener(new HomeKeyWatcher.OnHomePressedListener() {
+            @Override
+            public void onHomePressed() {
+                pressedHome = true;
+            }
+        });
+        pressedHome = false;
+        mHomeKeyWatcher.startWatch();
+    }
+
+    @Override
+    public void onStart() {
+        mHomeKeyWatcher.startWatch();
+        pressedHome = false;
+        super.onStart();
+        NiceVideoPlayerManager.instance().resumeNiceVideoPlayer();
+    }
+
+
+    @Override
+    public void onStop() {
+        // 在OnStop中是release还是suspend播放器，需要看是不是因为按了Home键
+        if (pressedHome) {
+            NiceVideoPlayerManager.instance().suspendNiceVideoPlayer();
+        } else {
+            NiceVideoPlayerManager.instance().releaseNiceVideoPlayer();
+        }
+        super.onStop();
+        mHomeKeyWatcher.stopWatch();
     }
 
     @Override
@@ -300,6 +342,23 @@ public class BaseFragment<T extends IBasePresenter> extends Fragment implements 
      * @param tag      Fragment的标识
      */
     protected void addFragment(Fragment fragment, String tag) {
+        FragmentTransaction t = mFragmentManager.beginTransaction();
+        t.hide(this).add(R.id.main_fragment_content, fragment, tag);
+        t.addToBackStack(tag);
+        t.commit();
+    }
+
+    /**
+     * 添加Fragment
+     *
+     * @param fragment 添加的Fragment
+     * @param tag      Fragment的标识
+     * @param info      传递的参数
+     */
+    protected void addFragment(Fragment fragment, String tag,String info) {
+        Bundle args = new Bundle();
+        args.putString("param", info);
+        fragment.setArguments(args);
         FragmentTransaction t = mFragmentManager.beginTransaction();
         t.hide(this).add(R.id.main_fragment_content, fragment, tag);
         t.addToBackStack(tag);

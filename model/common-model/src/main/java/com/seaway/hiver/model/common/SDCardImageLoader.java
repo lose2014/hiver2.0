@@ -335,7 +335,7 @@ public class SDCardImageLoader {
                         imageView.setImageBitmap(bmp);
                     } else {
                         bmp = BitmapFactory.decodeResource(
-                                context.getResources(), R.drawable.empty_photo);
+                                context.getResources(), R.drawable.img_default);
                         imageView.setImageBitmap(bmp);
                         // imageView.setImageResource(R.drawable.empty_photo);
                     }
@@ -382,7 +382,7 @@ public class SDCardImageLoader {
                         // BitmapFactory.decodeResource(context.getResources(),
                         // R.drawable.empty_photo);
                         // imageView.setImageBitmap(bmp);
-                        imageView.setImageResource(R.drawable.empty_photo);
+                        imageView.setImageResource(R.drawable.img_default);
                     }
                 }
             }
@@ -401,7 +401,7 @@ public class SDCardImageLoader {
             // bmp = BitmapFactory.decodeResource(context.getResources(),
             // R.drawable.empty_photo);
             // imageView.setImageBitmap(bmp);
-            imageView.setImageResource(R.drawable.empty_photo);
+            imageView.setImageResource(R.drawable.img_default);
         }
 
     }

@@ -49,19 +49,41 @@
         android:padding="10dp"
         android:background="@color/grey_txt"
         android:orientation="horizontal">
-        <EditText android:id="@+id/wk_search_et"
+        <!--<EditText-->
+            <!--android:layout_width="0dp"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:layout_weight="2"-->
+            <!--android:gravity="center"-->
+            <!--android:background="@color/white"-->
+            <!--android:layout_marginLeft="8dp"-->
+            <!--android:singleLine="true"-->
+            <!--android:textSize="14sp"-->
+            <!--android:imeOptions="actionSearch"-->
+            <!--android:layout_marginRight="8dp"-->
+            <!--android:hint="请输入关键词"-->
+            <!--/>-->
+        <FrameLayout
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="2"
-            android:gravity="center"
-            android:background="@color/white"
-            android:layout_marginLeft="8dp"
-            android:singleLine="true"
-            android:textSize="14sp"
-            android:imeOptions="actionSearch"
-            android:layout_marginRight="8dp"
-            android:hint="请输入关键词"
-            />
+            android:layout_weight="2">
+            <EditText android:id="@+id/wk_search_et"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="8dp"
+                android:singleLine="true"
+                android:background="@color/white"
+                android:textSize="14sp"
+                android:hint="请输入关键词"
+                android:imeOptions="actionSearch"
+                android:layout_marginRight="8dp"/>
+            <ImageView
+                android:id="@+id/my_weike_search_iv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="40dp"
+                android:layout_gravity="center"
+                android:src="@drawable/icon_help_click"/>
+        </FrameLayout>
         <Spinner
             android:id="@+id/nice_spinner1"
             android:layout_width="0dp"

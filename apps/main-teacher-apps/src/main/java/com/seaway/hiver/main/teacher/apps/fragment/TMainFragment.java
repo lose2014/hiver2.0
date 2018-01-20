@@ -19,6 +19,7 @@ import android.widget.AdapterView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.gson.Gson;
 import com.seaway.android.sdk.logger.Logger;
 import com.seaway.android.sdk.upload.util.FileMapUtil;
 import com.seaway.android.sdk.upload.util.UploadUtil;
@@ -44,6 +45,7 @@ import com.tbruyelle.rxpermissions2.RxPermissions;
 import com.xiao.nicevideoplayer.demo.ProcessHome2Activity;
 import com.xiao.nicevideoplayer.demo.TinyWindowPlayActivity;
 import com.zhy.adapter.recyclerview.CommonAdapter;
+import com.zhy.adapter.recyclerview.MultiItemTypeAdapter;
 import com.zhy.adapter.recyclerview.base.ViewHolder;
 
 
@@ -129,9 +131,9 @@ public class TMainFragment extends BaseFragment<TMainContract.Presenter> impleme
         LoginVo loginVo =HiverApplication.getInstance().loginVo;
         Logger.d("teacherId---"+loginVo.getTeacherId());
 //        mPresenter.queryBillList("1",loginVo.getTeacherId()+"");
-//        mPresenter.queryMonthIncome();
-//        mPresenter.queryCourseList("1",loginVo.getTeacherId()+"",1,"");
-//        mPresenter.queryQuestionList("1","","","","","","");
+        mPresenter.queryMonthIncome();
+        mPresenter.queryCourseList("1",loginVo.getTeacherId()+"",1,"");
+        mPresenter.queryQuestionList("1","","","","","","");
 //        upLoadPic();
     }
 
@@ -151,7 +153,7 @@ public class TMainFragment extends BaseFragment<TMainContract.Presenter> impleme
         super.onResume();
         // 从缓存中获取轮播广告及理财数据
 //        mPresenter.subscribe();
-        upLoadPic();
+//        upLoadPic();
     }
 
     @Override
@@ -173,8 +175,10 @@ public class TMainFragment extends BaseFragment<TMainContract.Presenter> impleme
             addFragment(new TMyAcountFragment(),"myaccount");
         } else if (v.getId() == R.id.t_main_portal_cloud_detail) {
             // 云课程更多
-            Intent intent = new Intent(getActivity(),ProcessHome2Activity.class);
-            startActivity(intent);
+//            Intent intent = new Intent(getActivity(),ProcessHome2Activity.class);
+//            startActivity(intent);
+//            addFragment(new VideoPlayFragment(),"videoplay");
+            addFragment(new TMyWeKeFragment(),"myweke");
         } else if (v.getId() == R.id.t_main_portal_information_detail) {
             // 消息更多
             mPresenter.checkResource(String.valueOf(v.getTag(R.id.bank_resource_id)));
@@ -220,62 +224,6 @@ public class TMainFragment extends BaseFragment<TMainContract.Presenter> impleme
 
     @Override
     public void gotoWithoutLogin() {
-//        if (selectedViewId == R.id.bank_portal_network_text) {
-//            // 网点查询
-//            permissions.requestEach(Manifest.permission.ACCESS_FINE_LOCATION)
-//                    .subscribe(new Consumer<Permission>() {
-//                        @Override
-//                        public void accept(@io.reactivex.annotations.NonNull Permission permission) throws Exception {
-//                            if (permission.granted) {
-//                                // 同意打开权限
-//                                addWebViewFragment(NetUtil.web_view_path + "/branch/list");
-//                            } else if (permission.shouldShowRequestPermissionRationale) {
-//                                //  询问
-//                                Logger.i("禁止");
-//                                addWebViewFragment(NetUtil.web_view_path + "/branch/list");
-//                            } else {
-//                                UIDefaultDialogHelper.showPermissionAskDialog(getActivity(), "位置权限未开启", "请在”设置—邢台银行—权限“中打开开关， 并允许邢台银行访问您的位置信息", new View.OnClickListener() {
-//                                    @Override
-//                                    public void onClick(View v) {
-//                                        UIDefaultDialogHelper.dialog.dismiss();
-//                                        UIDefaultDialogHelper.dialog = null;
-//                                        addWebViewFragment(NetUtil.web_view_path + "/branch/list");
-//                                    }
-//                                });
-//                            }
-//                        }
-//                    });
-//        } else if (selectedViewId == 2) {
-//            // 理财产品
-//            addWebViewFragment(NetUtil.web_view_path + "/financial/index");
-//        } else if (selectedViewId == 3) {
-//            // 贷款业务
-//            addWebViewFragment(NetUtil.web_view_path + "/loan/index");
-//        } else if (selectedViewId == 4) {
-//            // 定活互转
-//            addWebViewFragment(NetUtil.web_view_path + "/dhhz/index");
-//        } else if (selectedViewId == 6) {
-//            // 生活缴费
-//            addWebViewFragment(NetUtil.web_view_path + "/lifeCost/index");
-//        } else if (selectedViewId == 9) {
-//            // 金融助手
-//            addWebViewFragment(NetUtil.web_view_path + "/financialAide/index");
-//        } else if (selectedViewId == 10) {
-//            // 电信缴费
-//            addWebViewFragment(NetUtil.web_view_path + "/telecompayment/query");
-//        } else if (selectedViewId == 12) {
-//            // 方付通
-//            if (XtBankApplication.getInstance().hasLogin && null != XtBankApplication.getInstance().loginVo) {
-//                // 如果已登录
-//                mPresenter.getWebCommunitySign();
-//            } else {
-//                // 如果没有登录
-//                FFTUtil.toFFT(getActivity(), null);
-//            }
-//        } else if (selectedViewId == R.id.bank_portal_financial_title_text) {
-//            // 理财产品
-//            addWebViewFragment(NetUtil.web_view_path + "/financial/index");
-//        }
     }
 
 
@@ -337,7 +285,7 @@ public class TMainFragment extends BaseFragment<TMainContract.Presenter> impleme
         map.put("userId", "" + app.loginVo.getTeacherId());
         UploadUtil.upload(new UploadGoodPicHandler(this), map,
                 FileMapUtil.getUploadFileMap(path),
-                101, 2);
+                101, 1);
     }
 
     static class UploadGoodPicHandler extends Handler {
@@ -499,6 +447,17 @@ public class TMainFragment extends BaseFragment<TMainContract.Presenter> impleme
                 StaggeredGridLayoutManager.VERTICAL));
         recyclerViewWeke.setItemAnimator(animator);
         recyclerViewWeke.setAdapter(weikeAdapter);
+        weikeAdapter.setOnItemClickListener(new MultiItemTypeAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(View view, RecyclerView.ViewHolder holder, int position) {
+                addFragment(new VideoPlayFragment(),"videoplay", new Gson().toJson(weikeVolist.get(position)));
+            }
+
+            @Override
+            public boolean onItemLongClick(View view, RecyclerView.ViewHolder holder, int position) {
+                return false;
+            }
+        });
 
         recyclerViewCloudClass =(RecyclerView) getView().findViewById(R.id.main_portal_recycler_view_cloud_class);
         recyclerViewCloudClass.setHasFixedSize(true);
@@ -506,6 +465,17 @@ public class TMainFragment extends BaseFragment<TMainContract.Presenter> impleme
                 StaggeredGridLayoutManager.VERTICAL));
         recyclerViewCloudClass.setItemAnimator(animator);
         recyclerViewCloudClass.setAdapter(cloudAdapter);
+        cloudAdapter.setOnItemClickListener(new MultiItemTypeAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(View view, RecyclerView.ViewHolder holder, int position) {
+                addFragment(new VideoPlayFragment(),"videoplay", new Gson().toJson(courseVoList.get(position)));
+            }
+
+            @Override
+            public boolean onItemLongClick(View view, RecyclerView.ViewHolder holder, int position) {
+                return false;
+            }
+        });
 
         recyclerViewQA =(RecyclerView) getView().findViewById(R.id.main_portal_recycler_view_qa);
         recyclerViewQA.setHasFixedSize(true);
@@ -569,70 +539,7 @@ public class TMainFragment extends BaseFragment<TMainContract.Presenter> impleme
     }
 
     private void execute() {
-//        if (selectedViewId == R.id.bank_portal_bill_text) {
-//            // 我的账单
-//            addWebViewFragment(NetUtil.web_view_path + "/bankBill/list");
-//        } else if (selectedViewId == R.id.bank_portal_message_text) {
-//            // 消息
-//
-//        } else if (selectedViewId == R.id.bank_portal_scan_text) {
-//            // 扫一扫
-//            Logger.i("扫一扫");
-//            mPresenter.queryOpenQRCode();
-//        } else if (selectedViewId == R.id.bank_portal_payments_text) {
-//            // 收/付款
-//            Logger.i("收/付款");
-//            addWebViewFragment(NetUtil.web_view_path + "/receiving/index");
-//        }
-//        switch (selectedViewId) {
-//            case 0: {
-//                // 我的资产
-//                addWebViewFragment(NetUtil.web_view_path + "/myassets/index");
-//            }
-//            break;
-//            case 1: {
-//                // 转账汇款
-//                addWebViewFragment(NetUtil.web_view_path + "/transfer/index");
-//            }
-//            break;
-//            case 5: {
-//                // 无卡存取款
-//                addWebViewFragment(NetUtil.web_view_path + "/noCard/index");
-//            }
-//            break;
-//            case 7: {
-//                // 话费充值
-//                addWebViewFragment(NetUtil.web_view_path + "/telephoneRecharge/Index");
-//            }
-//            break;
-//            case 8: {
-//                // 公务卡
-//                addWebViewFragment(NetUtil.web_view_path + "/office/index");
-//            }
-//            break;
-//            case 11: {
-//                // 金牛通
-//                addWebViewFragment(NetUtil.web_view_path + "/taurustong/index");
-//            }
-//            break;
-//            case 12: {
-//                // 方付通
-//
-//            }
-//            break;
-//            case 13: {
-//                // 积分商城
-//                Fragment fragment = new IntegralMallFragment();
-//                Bundle bundle = new Bundle();
-//                bundle.putString("url", "http://192.168.32.93:28600/miController/getjfMallPage");
-//                fragment.setArguments(bundle);
-//                FragmentTransaction t = mFragmentManager.beginTransaction();
-//                t.hide(this).add(com.xtbank.app.common.R.id.portal_fragment_content_layout, fragment, "IntegralMallFragment");
-//                t.addToBackStack("IntegralMallFragment");
-//                t.commit();
-//            }
-//            break;
-//        }
+
     }
 
 }

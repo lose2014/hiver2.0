@@ -3,6 +3,7 @@ package com.xiao.nicevideoplayer.demo;
 import android.os.Bundle;
 import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
@@ -12,6 +13,8 @@ import com.xiao.nicevideoplayer.NiceVideoPlayerManager;
 import com.xiao.nicevideoplayer.R;
 import com.xiao.nicevideoplayer.TxVideoPlayerController;
 import com.xiao.nicevideoplayer.base.CompatHomeKeyActivity;
+
+import java.util.logging.Logger;
 
 public class TinyWindowPlayActivity extends CompatHomeKeyActivity {
 
@@ -56,6 +59,7 @@ public class TinyWindowPlayActivity extends CompatHomeKeyActivity {
 
     @Override
     public void onBackPressed() {
+
         if (NiceVideoPlayerManager.instance().onBackPressd()) return;
         super.onBackPressed();
     }

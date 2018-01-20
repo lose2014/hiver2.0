@@ -42,4 +42,5 @@ dependencies {
     //    compile 'com.github.xiaoyanger0825:NiceVieoPlayer:v2.2'
     compile project(':nicevideoplayer')
     compile 'com.github.arcadefire:nice-spinner:1.+'
+    compile 'com.github.ikidou:FragmentBackHandler:2.1'
 }

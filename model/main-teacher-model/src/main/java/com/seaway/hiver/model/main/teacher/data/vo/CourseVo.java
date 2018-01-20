@@ -1,6 +1,7 @@
 package com.seaway.hiver.model.main.teacher.data.vo;
 
 
+import com.seaway.hiver.model.common.NetUtil;
 import com.seaway.hiver.model.common.data.vo.BaseOutputVo;
 
 /**
@@ -18,7 +19,7 @@ public class CourseVo extends BaseOutputVo {
     private String coursePrice;
     private String createTime;
     private String courseIntroduce;//courseIntroduce
-    private String courseVideoUrl;//courseVideoUrl
+    private String courseVideoUrl;//courseVideoUrl地址都是相对地址，要拼接NetUtil.getWebViewUrl()作为开头
     private String courseCoverUrl;//课程封面地址
 
     public String getCourseCoverUrl() {

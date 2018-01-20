@@ -18,6 +18,7 @@ import android.view.inputmethod.EditorInfo;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -40,6 +41,7 @@ import com.xiao.nicevideoplayer.NiceVideoPlayer;
 import com.xiao.nicevideoplayer.NiceVideoPlayerManager;
 import com.xiao.nicevideoplayer.adapter.VideoAdapter;
 import com.xiao.nicevideoplayer.adapter.holder.VideoViewHolder;
+import com.xiao.nicevideoplayer.base.CompatHomeKeyFragment;
 import com.xiao.nicevideoplayer.base.HomeKeyWatcher;
 import com.xiao.nicevideoplayer.util.DataUtil;
 import com.zhy.adapter.recyclerview.CommonAdapter;
@@ -67,49 +69,48 @@ public class TMyWeKeFragment extends BaseFragment<TWekeContract.Presenter> imple
     private LinearLayoutManager mLayoutManager;
 
     private MainViewAdapter mainViewAdapter;
-
+    private ImageView searchTv;
     private int selectedViewId = -1;
     private EditText searchEt;
     private RxPermissions permissions;
     private int timeIndex,statusIndex,subjectIndex;
     private String[] timeList={"发布时间", "今天", "一周内", "近一个月", "一个月以上"},statusList={"微课状态", "上架", "编辑", "下架","审核"},
             subjectList={"科目", "语文", "数学", "英语", "生物", "物理", "历史", "地理", "政治", "化学"};
-    private boolean pressedHome;
-    private HomeKeyWatcher mHomeKeyWatcher;
 
-    @Override
-    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-        mHomeKeyWatcher = new HomeKeyWatcher(getActivity());
-        mHomeKeyWatcher.setOnHomePressedListener(new HomeKeyWatcher.OnHomePressedListener() {
-            @Override
-            public void onHomePressed() {
-                pressedHome = true;
-            }
-        });
-        pressedHome = false;
-        mHomeKeyWatcher.startWatch();
-    }
 
-    @Override
-    public void onStart() {
-        mHomeKeyWatcher.startWatch();
-        pressedHome = false;
-        super.onStart();
-        NiceVideoPlayerManager.instance().resumeNiceVideoPlayer();
-    }
-
-    @Override
-    public void onStop() {
-        // 在OnStop中是release还是suspend播放器，需要看是不是因为按了Home键
-        if (pressedHome) {
-            NiceVideoPlayerManager.instance().suspendNiceVideoPlayer();
-        } else {
-            NiceVideoPlayerManager.instance().releaseNiceVideoPlayer();
-        }
-        super.onStop();
-        mHomeKeyWatcher.stopWatch();
-    }
+//    @Override
+//    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+//        super.onViewCreated(view, savedInstanceState);
+//        mHomeKeyWatcher = new HomeKeyWatcher(getActivity());
+//        mHomeKeyWatcher.setOnHomePressedListener(new HomeKeyWatcher.OnHomePressedListener() {
+//            @Override
+//            public void onHomePressed() {
+//                pressedHome = true;
+//            }
+//        });
+//        pressedHome = false;
+//        mHomeKeyWatcher.startWatch();
+//    }
+//
+//    @Override
+//    public void onStart() {
+//        mHomeKeyWatcher.startWatch();
+//        pressedHome = false;
+//        super.onStart();
+//        NiceVideoPlayerManager.instance().resumeNiceVideoPlayer();
+//    }
+//
+//    @Override
+//    public void onStop() {
+//        // 在OnStop中是release还是suspend播放器，需要看是不是因为按了Home键
+//        if (pressedHome) {
+//            NiceVideoPlayerManager.instance().suspendNiceVideoPlayer();
+//        } else {
+//            NiceVideoPlayerManager.instance().releaseNiceVideoPlayer();
+//        }
+//        super.onStop();
+//        mHomeKeyWatcher.stopWatch();
+//    }
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -137,6 +138,7 @@ public class TMyWeKeFragment extends BaseFragment<TWekeContract.Presenter> imple
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         searchEt =(EditText) getView().findViewById(R.id.wk_search_et);
+        searchTv =(ImageView) getView().findViewById(R.id.my_weike_search_iv);
         setOnClickListener();
         DefaultItemAnimator animator = new DefaultItemAnimator() {
             @Override
@@ -249,6 +251,12 @@ public class TMyWeKeFragment extends BaseFragment<TWekeContract.Presenter> imple
      * 设置点击事件监听
      */
     private void setOnClickListener() {
+        searchTv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Logger.e("搜索------"+ searchEt.getText());
+            }
+        });
         searchEt.setOnEditorActionListener(new TextView.OnEditorActionListener() {
 
             @Override
